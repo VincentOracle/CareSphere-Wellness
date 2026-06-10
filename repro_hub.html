@@ -1,0 +1,1303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>
+      ReproHub | Maternal & Preconception Advisory | CARESPHERE WELLNESS
+    </title>
+    <meta
+      name="description"
+      content="Specialized reproductive health advisory for couples preparing for healthier pregnancies. Preconception risk screening, fertility planning, and pregnancy care coordination."
+    />
+
+    <!-- Google Fonts + Bootstrap 5 + Font Awesome + SweetAlert -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="shortcut icon"
+      href="img/caresphere_logo_icon.png"
+      type="image/x-icon"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        color: #1e2a3e;
+        background-color: #ffffff;
+        scroll-behavior: smooth;
+      }
+      :root {
+        --navy: #0b1f3a;
+        --gold: #c8a96a;
+        --gold-light: #e0c88c;
+        --white: #ffffff;
+        --gray-light: #f8fafc;
+        --gray-border: #eef2f6;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      .text-navy {
+        color: var(--navy);
+      }
+      .text-gold {
+        color: var(--gold);
+      }
+      .bg-navy {
+        background-color: var(--navy);
+      }
+      .bg-gold {
+        background-color: var(--gold);
+      }
+      .btn-gold {
+        background-color: var(--gold);
+        border: none;
+        color: var(--navy);
+        font-weight: 600;
+        padding: 12px 28px;
+        border-radius: 40px;
+        transition: 0.3s;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+      .btn-gold:hover {
+        background-color: #b89a54;
+        color: white;
+        transform: translateY(-2px);
+      }
+      .btn-outline-gold {
+        border: 2px solid var(--gold);
+        background: transparent;
+        color: var(--navy);
+        font-weight: 600;
+        padding: 10px 24px;
+        border-radius: 40px;
+        transition: 0.3s;
+      }
+      .btn-outline-gold:hover {
+        background: var(--gold);
+        color: var(--navy);
+      }
+      .btn-navy {
+        background-color: var(--navy);
+        color: white;
+        border-radius: 40px;
+        padding: 12px 28px;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+      .btn-navy:hover {
+        background-color: #1e3a5f;
+        transform: translateY(-2px);
+        color: white;
+      }
+
+      /* Top Bar */
+      .top-bar {
+        background-color: #0a1a2f;
+        color: #e0e6ed;
+        font-size: 0.85rem;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(200, 169, 106, 0.2);
+      }
+      .top-bar a {
+        color: #e0e6ed;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+      .top-bar a:hover {
+        color: var(--gold);
+      }
+      .top-bar .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        margin-left: 8px;
+        transition: 0.2s;
+        font-size: 0.9rem;
+      }
+      .top-bar .social-links a:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-2px);
+      }
+      .top-bar .contact-info i {
+        margin-right: 6px;
+        color: var(--gold);
+      }
+
+      /* navbar */
+      .navbar-custom {
+        background-color: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+        padding: 0.8rem 2rem;
+      }
+      .navbar-brand img {
+        height: 52px;
+        object-fit: contain;
+      }
+      .nav-link {
+        font-weight: 500;
+        color: var(--navy) !important;
+        margin: 0 0.5rem;
+        transition: 0.2s;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--gold) !important;
+      }
+      .cart-badge {
+        background: var(--gold);
+        color: var(--navy);
+        border-radius: 30px;
+        padding: 2px 10px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        margin-left: 6px;
+      }
+
+      /* Cart Sidebar */
+      .cart-sidebar {
+        position: fixed;
+        top: 0;
+        right: -480px;
+        width: 440px;
+        height: 100vh;
+        background: white;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+        z-index: 1050;
+        transition: 0.35s ease;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      .cart-sidebar.open {
+        right: 0;
+      }
+      .cart-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1040;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.2s;
+      }
+      .cart-overlay.active {
+        visibility: visible;
+        opacity: 1;
+      }
+      .cart-item-img {
+        width: 65px;
+        height: 65px;
+        background: #f0f2f5;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        font-size: 28px;
+        margin-right: 14px;
+        overflow: hidden;
+      }
+      .quantity-btn {
+        background: #eef2f6;
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: 0.2s;
+      }
+      .quantity-btn:hover {
+        background: var(--gold);
+        color: white;
+      }
+
+      /* Page Hero */
+      .page-hero {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(11, 31, 58, 0.94) 0%,
+            rgba(11, 31, 58, 0.85) 100%
+          ),
+          url("img/reprohub_hero_bg.jpg");
+        background-size: cover;
+        background-position: center;
+        padding: 100px 0 80px;
+        color: white;
+      }
+      .page-hero h1 {
+        font-size: 3.2rem;
+        font-weight: 800;
+      }
+
+      /* Feature Cards */
+      .feature-card {
+        background: white;
+        border-radius: 20px;
+        padding: 1.8rem;
+        transition: 0.3s;
+        height: 100%;
+        border: 1px solid var(--gray-border);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      }
+      .feature-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--gold);
+      }
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        background: rgba(200, 169, 106, 0.12);
+        border-radius: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.2rem;
+        color: var(--gold);
+        font-size: 28px;
+      }
+
+      /* Process Steps */
+      .process-step {
+        text-align: center;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 24px;
+        height: 100%;
+        border: 1px solid var(--gray-border);
+        transition: 0.3s;
+      }
+      .process-step:hover {
+        border-color: var(--gold);
+        transform: translateY(-3px);
+      }
+      .step-number {
+        width: 50px;
+        height: 50px;
+        background: var(--gold);
+        color: var(--navy);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0 auto 1rem;
+      }
+
+      .benefit-item {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .benefit-item i {
+        font-size: 1.5rem;
+        color: var(--gold);
+        flex-shrink: 0;
+        margin-top: 0.2rem;
+      }
+
+      .faq-item {
+        border-bottom: 1px solid var(--gray-border);
+        padding: 1rem 0;
+        cursor: pointer;
+      }
+      .faq-question {
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .faq-answer {
+        display: none;
+        padding-top: 0.75rem;
+        color: #4a5568;
+        line-height: 1.5;
+      }
+      .faq-item.active .faq-answer {
+        display: block;
+      }
+
+      .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #25d366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        transition: 0.2s;
+      }
+      .whatsapp-float:hover {
+        background-color: #20b859;
+        transform: scale(1.05);
+        color: white;
+      }
+
+      footer {
+        background:
+          linear-gradient(rgba(11, 31, 58, 0.95), rgba(11, 31, 58, 0.97)),
+          url("img/footer_bg.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #cfdee9;
+      }
+      .footer-link {
+        color: #cfdee9;
+        text-decoration: none;
+        transition: 0.2s;
+        display: inline-block;
+        margin-bottom: 8px;
+      }
+      .footer-link:hover {
+        color: var(--gold);
+        transform: translateX(4px);
+      }
+      .social-icon {
+        background: rgba(255, 255, 255, 0.12);
+        width: 38px;
+        height: 38px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-right: 8px;
+        transition: 0.2s;
+        color: white;
+        font-size: 18px;
+      }
+      .social-icon:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-3px);
+      }
+      .payment-icon {
+        font-size: 32px;
+        margin-right: 12px;
+        opacity: 0.8;
+        transition: 0.2s;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .payment-icon:hover {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 768px) {
+        .page-hero h1 {
+          font-size: 2.2rem;
+        }
+        .navbar-custom {
+          padding: 0.6rem 1rem;
+        }
+        .top-bar .contact-info span {
+          display: none;
+        }
+        .cart-sidebar {
+          width: 100%;
+          right: -100%;
+        }
+      }
+      .section-title {
+        margin-bottom: 2.5rem;
+      }
+      .section-title h2 {
+        font-weight: 700;
+        font-size: 2rem;
+      }
+      .section-title span {
+        border-bottom: 4px solid var(--gold);
+        display: inline-block;
+        padding-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-8 text-center text-md-start">
+            <div
+              class="contact-info d-flex flex-wrap justify-content-center justify-content-md-start gap-3"
+            >
+              <a href="tel:+254712155510"
+                ><i class="fas fa-phone-alt"></i> +254 712 155 510</a
+              >
+              <a href="https://wa.me/254712155510" target="_blank"
+                ><i class="fab fa-whatsapp"></i> WhatsApp</a
+              >
+              <a href="mailto:Carespherewellness@gmail.com"
+                ><i class="far fa-envelope"></i> Carespherewellness@gmail.com</a
+              >
+              <span><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</span>
+            </div>
+          </div>
+          <div class="col-md-4 text-center text-md-end">
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/share/1LjcBqoMEe/"
+                target="_blank"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/caresphere_wellness"
+                target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="https://ke.linkedin.com/in/e-amiani" target="_blank"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@carespherewellness"
+                target="_blank"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CART SIDEBAR -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="mb-0">
+          <i class="fas fa-shopping-cart text-gold"></i> Your Cart
+        </h4>
+        <button class="btn-close" id="closeCartBtn"></button>
+      </div>
+      <div
+        id="cartItemsList"
+        class="flex-grow-1 mb-3"
+        style="max-height: 55vh; overflow-y: auto"
+      >
+        <p class="text-muted text-center">Your cart is empty.</p>
+      </div>
+      <div class="border-top pt-3">
+        <div class="d-flex justify-content-between fw-bold mb-3">
+          <span>Total:</span><span id="cartTotalAmount">KSh 0</span>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-gold w-50" id="continueShoppingBtn">
+            <i class="fas fa-arrow-left me-1"></i> Shop More</button
+          ><button class="btn btn-navy w-50" id="proceedCheckoutBtn">
+            Checkout →
+          </button>
+        </div>
+        <p class="small text-muted mt-2 text-center">
+          M Pesa and card payments coming soon
+        </p>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"
+          ><img
+            src="img/caresphere_logo.png"
+            alt="CARESPHERE WELLNESS"
+            style="height: 60px"
+            onerror="
+              this.src =
+                'https://placehold.co/200x60/0B1F3A/white?text=Caresphere+Wellness'
+            "
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="partners.html">Partners</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Insights</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="store.html">E-Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <a
+            href="#"
+            class="btn btn-gold ms-3 d-none d-lg-inline-block"
+            id="consultBtnNav"
+            >Book Consultation</a
+          >
+          <button
+            class="btn btn-outline-gold ms-2 position-relative"
+            id="cartIconBtn"
+          >
+            <i class="fas fa-shopping-cart"></i
+            ><span id="cartCountBadge" class="cart-badge">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-8">
+            <div
+              class="bg-gold text-navy d-inline-block px-3 py-1 rounded-pill mb-3"
+              style="font-weight: 600"
+            >
+              <i class="fas fa-baby-carriage me-1"></i> ReproHub
+            </div>
+            <h1 class="mb-4">
+              She deserves expert care.<br /><span class="text-gold"
+                >Healthy today. Stronger tomorrow.</span
+              >
+            </h1>
+            <p class="lead">
+              Specialized reproductive and maternal health advisory helping
+              couples prepare proactively for healthier pregnancies and better
+              maternal outcomes.
+            </p>
+            <div class="mt-4">
+              <a href="#book-reprohub" class="btn btn-gold btn-lg"
+                >Start Your Journey <i class="fas fa-arrow-right ms-2"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY REPROHUB -->
+    <section class="container py-5">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="badge bg-gold text-navy mb-3 px-3 py-2"
+            >Why ReproHub</span
+          >
+          <h2 class="mb-3">
+            Preparing for parenthood starts
+            <span class="text-gold">before conception</span>
+          </h2>
+          <p class="lead">
+            The health of both parents before pregnancy directly impacts
+            fertility, pregnancy outcomes, and the long-term health of your
+            child.
+          </p>
+          <p>
+            Many couples wait until pregnancy is confirmed to seek care. But
+            proactive preconception planning identifies and addresses risks
+            early — when intervention is most effective. ReproHub provides
+            structured advisory, risk screening, and coordinated care for every
+            stage of your family planning journey.
+          </p>
+          <div class="bg-light p-4 rounded-4 mt-4">
+            <i class="fas fa-quote-left fa-2x text-gold opacity-50 mb-2"></i>
+            <p class="mb-0">
+              "ReproHub gave us the confidence to plan our family. The
+              preconception screening identified nutritional gaps we didn't know
+              existed. We conceived within three months of following their
+              plan."
+            </p>
+            <p class="text-muted mt-2">
+              — Michelle and David, ReproHub Clients
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <img
+            src="img/reprohub_why.jpg"
+            class="img-fluid rounded-4 shadow"
+            alt="Maternal health advisory"
+            onerror="
+              this.src =
+                'https://placehold.co/600x400/0B1F3A/white?text=Preconception+Planning'
+            "
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- REPROHUB FEATURES -->
+    <section class="bg-light py-5">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2><span>What ReproHub Provides</span></h2>
+          <p class="text-muted">
+            Comprehensive reproductive health advisory for every stage
+          </p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-search"></i></div>
+              <h4>Preconception Risk Screening</h4>
+              <p>
+                Comprehensive assessment of genetic, nutritional, and lifestyle
+                factors that affect fertility and pregnancy outcomes.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+              <h4>Fertility & Maternal Health Planning</h4>
+              <p>
+                Personalized fertility optimization plans and maternal health
+                roadmaps tailored to your unique health profile.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-apple-alt"></i></div>
+              <h4>Nutrition & Lifestyle Optimization</h4>
+              <p>
+                Evidence-based nutritional guidance, supplement recommendations,
+                and lifestyle modifications for both partners.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-calendar-check"></i>
+              </div>
+              <h4>Pregnancy Care Coordination</h4>
+              <p>
+                Seamless coordination between obstetricians, midwives, labs, and
+                facilities throughout your pregnancy journey.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-chart-simple"></i>
+              </div>
+              <h4>Cycle Tracking & Ovulation Support</h4>
+              <p>
+                Guidance on natural cycle tracking, ovulation optimization, and
+                timing for conception success.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-stethoscope"></i></div>
+              <h4>Postnatal Recovery Planning</h4>
+              <p>
+                Structured postnatal recovery plans including physical
+                rehabilitation, mental health support, and newborn care
+                coordination.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE REPROHUB PROCESS -->
+    <section class="container py-5">
+      <div class="section-title text-center">
+        <h2><span>Your ReproHub Journey</span></h2>
+        <p class="text-muted">Structured, supportive, and evidence-based</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-3 col-6">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <h6>Initial Consultation</h6>
+            <small>Discuss goals and health history</small>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <h6>Risk Screening</h6>
+            <small>Comprehensive health assessment</small>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <h6>Personalized Plan</h6>
+            <small>Fertility & lifestyle optimization</small>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <h6>Ongoing Support</h6>
+            <small>Coordination through pregnancy</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS OF REPROHUB -->
+    <section class="bg-light py-5">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <h2 class="mb-4">
+              Benefits of
+              <span class="text-gold">Proactive Reproductive Planning</span>
+            </h2>
+            <div class="benefit-item">
+              <i class="fas fa-chart-line"></i>
+              <div>
+                <strong>Higher Conception Rates</strong><br /><small
+                  >Optimized fertility through evidence-based
+                  interventions</small
+                >
+              </div>
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-heartbeat"></i>
+              <div>
+                <strong>Healthier Pregnancies</strong><br /><small
+                  >Reduced risk of gestational diabetes, hypertension, and
+                  complications</small
+                >
+              </div>
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-baby"></i>
+              <div>
+                <strong>Better Fetal Development</strong><br /><small
+                  >Optimal nutrition and health status before conception
+                  benefits your baby</small
+                >
+              </div>
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-brain"></i>
+              <div>
+                <strong>Reduced Anxiety</strong><br /><small
+                  >Clear roadmap and professional support throughout the
+                  journey</small
+                >
+              </div>
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-users"></i>
+              <div>
+                <strong>Partner Inclusive</strong><br /><small
+                  >Both partners receive comprehensive assessment and
+                  guidance</small
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="bg-white p-5 rounded-4 text-center shadow-sm">
+              <i class="fas fa-leaf fa-3x text-gold mb-3"></i>
+              <h4 class="mb-3">
+                Reproductive health is health that builds generations
+              </h4>
+              <p class="text-muted">
+                When you invest in preconception and maternal health, you invest
+                in your family's future.
+              </p>
+              <hr />
+              <div class="row">
+                <div class="col-6">
+                  <i class="fas fa-check-circle text-gold"></i> Evidence based
+                </div>
+                <div class="col-6">
+                  <i class="fas fa-check-circle text-gold"></i> Compassionate
+                  care
+                </div>
+                <div class="col-6 mt-2">
+                  <i class="fas fa-check-circle text-gold"></i> Coordinated
+                  approach
+                </div>
+                <div class="col-6 mt-2">
+                  <i class="fas fa-check-circle text-gold"></i> Both partners
+                  included
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="container py-5">
+      <div class="section-title text-center">
+        <h2><span>Stories From Our ReproHub Families</span></h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="bg-white p-4 rounded-4 shadow-sm h-100">
+            <i class="fas fa-quote-left fa-2x text-gold mb-3 opacity-50"></i>
+            <p>
+              After two miscarriages, ReproHub helped us understand underlying
+              issues we didn't know existed. With their preconception plan and
+              pregnancy coordination, we now have a healthy baby boy.
+            </p>
+            <strong>Esther & Michael</strong><br /><small class="text-muted"
+              >ReproHub Parents</small
+            >
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="bg-white p-4 rounded-4 shadow-sm h-100">
+            <i class="fas fa-quote-left fa-2x text-gold mb-3 opacity-50"></i>
+            <p>
+              I was 38 and worried about fertility. The ReproHub team created a
+              personalized plan addressing my nutrition, stress, and cycle
+              timing. I conceived naturally within four months.
+            </p>
+            <strong>Dr. Catherine N.</strong><br /><small class="text-muted"
+              >Executive Client</small
+            >
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="bg-white p-4 rounded-4 shadow-sm h-100">
+            <i class="fas fa-quote-left fa-2x text-gold mb-3 opacity-50"></i>
+            <p>
+              The pregnancy coordination was seamless. Every appointment, every
+              lab, every specialist — all coordinated. I could focus on my
+              health instead of logistics.
+            </p>
+            <strong>Lucy Wanjiku</strong><br /><small class="text-muted"
+              >First Time Mother</small
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="bg-light py-5">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2><span>Frequently Asked Questions</span></h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="faq-item">
+              <div class="faq-question">
+                When should we start preconception planning?
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                Ideally, start preconception planning 3 to 6 months before you
+                intend to conceive. This allows time to optimize nutrition,
+                address any health issues, and build healthy habits that benefit
+                both partners.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                Is ReproHub only for women? <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                No. ReproHub serves both partners. Male fertility factors
+                contribute to approximately 40 percent of conception challenges.
+                Our assessments include comprehensive evaluation for both
+                individuals.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                What if I have existing fertility challenges?
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                We work alongside fertility specialists, coordinating care
+                between you and reproductive endocrinologists, IVF clinics, and
+                other specialists to ensure comprehensive support.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                Do you provide pregnancy care coordination after conception?
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                Absolutely. Our pregnancy care coordination includes appointment
+                scheduling, lab tracking, specialist referrals, and continuous
+                monitoring throughout all trimesters and into postnatal
+                recovery.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="container py-5 text-center" id="book-reprohub">
+      <div class="bg-navy text-white p-5 rounded-4">
+        <i class="fas fa-baby-carriage fa-3x text-gold mb-3"></i>
+        <h2 class="mb-3">
+          Start your family planning journey
+          <span class="text-gold">with confidence</span>
+        </h2>
+        <p class="lead mb-4">
+          Expert reproductive advisory. Personalized support. Better outcomes
+          from the start.
+        </p>
+        <div class="d-flex flex-wrap gap-3 justify-content-center">
+          <button class="btn btn-gold btn-lg" id="bookReprohubBtn">
+            <i class="fas fa-calendar-check me-2"></i> Schedule ReproHub
+            Consultation
+          </button>
+          <a
+            href="https://wa.me/254712155510?text=I%20want%20to%20learn%20more%20about%20ReproHub%20maternal%20and%20preconception%20advisory"
+            target="_blank"
+            class="btn btn-outline-gold btn-lg"
+            ><i class="fab fa-whatsapp me-2"></i> WhatsApp Inquiry</a
+          >
+        </div>
+        <p class="mt-3 small text-white-50">
+          Call us directly:
+          <a href="tel:+254712155510" class="text-gold">0712 155 510</a> |
+          Nairobi based, serving couples across Kenya
+        </p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pt-5 pb-4">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-md-4">
+            <a href="index.html" class="d-inline-block mb-3"
+              ><img
+                src="img/caresphere_footer_logo.png"
+                alt="logo"
+                style="height: 55px"
+                onerror="
+                  this.src =
+                    'https://placehold.co/180x50/FFFFFF/0B1F3A?text=CSW'
+                "
+            /></a>
+            <p class="mt-3 small">
+              Nairobi based health governance and care coordination. Your
+              health, professionally managed.
+            </p>
+            <div class="mt-3">
+              <i class="fab fa-cc-visa fa-2x payment-icon me-2"></i
+              ><i class="fab fa-cc-mastercard fa-2x payment-icon me-2"></i
+              ><i class="fab fa-cc-paypal fa-2x payment-icon me-2"></i
+              ><i class="fas fa-mobile-alt fa-2x payment-icon me-2"></i>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <h5 class="text-white">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li><a href="about.html" class="footer-link">About</a></li>
+              <li><a href="services.html" class="footer-link">Services</a></li>
+              <li><a href="store.html" class="footer-link">E-Store</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5 class="text-white">Useful Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="terms.html" class="footer-link"
+                  >Terms and Conditions</a
+                >
+              </li>
+              <li><a href="faqs.html" class="footer-link">FAQs</a></li>
+              <li>
+                <a href="our_standards.html" class="footer-link"
+                  >ISO 9001:2015 Standards</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5 class="text-white">Subscribe</h5>
+            <p class="small">Get weekly preventive insights and offers</p>
+            <div class="input-group mb-3">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Your email"
+                id="subscribeEmail"
+              /><button class="btn btn-gold" id="subscribeBtn">Join</button>
+            </div>
+            <div class="mt-3">
+              <a
+                href="https://www.facebook.com/share/1LjcBqoMEe/"
+                target="_blank"
+                class="social-icon"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                href="https://www.instagram.com/caresphere_wellness"
+                target="_blank"
+                class="social-icon"
+                ><i class="fab fa-instagram"></i></a
+              ><a
+                href="https://www.tiktok.com/@carespherewellness"
+                target="_blank"
+                class="social-icon"
+                ><i class="fab fa-tiktok"></i></a
+              ><a
+                href="https://ke.linkedin.com/in/e-amiani"
+                target="_blank"
+                class="social-icon"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <hr class="mt-4 opacity-25" />
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start small">
+            © <span id="dynamicYear"></span> CARESPHERE WELLNESS — Executive
+            Health Governance. All rights reserved.
+          </div>
+          <div class="col-md-6 text-center text-md-end small">
+            Designed by
+            <a
+              href="https://eontechsystems.com/"
+              target="_blank"
+              class="text-gold text-decoration-none"
+              >EonTech Systems</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/254712155510?text=Hello%20CARESPHERE%20WELLNESS"
+      target="_blank"
+      class="whatsapp-float"
+      ><i class="fab fa-whatsapp"></i
+    ></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const startYear = 2020,
+        currentYear = new Date().getFullYear();
+      document.getElementById("dynamicYear").innerText =
+        startYear + (currentYear > startYear ? `-${currentYear}` : "");
+      let cart = [];
+      function saveCart() {
+        localStorage.setItem("caresphereCart", JSON.stringify(cart));
+        updateCartUI();
+      }
+      function loadCart() {
+        const saved = localStorage.getItem("caresphereCart");
+        if (saved) cart = JSON.parse(saved);
+        updateCartUI();
+      }
+      function updateCartUI() {
+        const container = document.getElementById("cartItemsList");
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        const cnt = cart.reduce((s, i) => s + i.qty, 0);
+        document.getElementById("cartCountBadge").innerText = cnt;
+        document.getElementById("cartTotalAmount").innerHTML =
+          `KSh ${total.toLocaleString()}`;
+        if (cart.length === 0) {
+          container.innerHTML =
+            '<p class="text-muted text-center">Your cart is empty.</p>';
+          return;
+        }
+        container.innerHTML = cart
+          .map(
+            (item) =>
+              `<div class="d-flex align-items-center border-bottom pb-3 mb-3"><div class="cart-item-img"><i class="${item.icon || "fas fa-box"} fa-2x"></i></div><div class="flex-grow-1"><strong>${item.name}</strong><br><small>KSh ${item.price.toLocaleString()} each</small></div><div class="d-flex align-items-center gap-2"><button class="quantity-btn decQty" data-id="${item.id}">−</button><span class="fw-bold mx-1">${item.qty}</span><button class="quantity-btn incQty" data-id="${item.id}">+</button></div><button class="btn btn-sm text-danger ms-2 removeCartItemBtn" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button></div>`,
+          )
+          .join("");
+        attachCartEvents();
+      }
+      function attachCartEvents() {
+        document.querySelectorAll(".incQty").forEach((btn) =>
+          btn.addEventListener("click", (e) => {
+            let id = parseInt(btn.dataset.id),
+              idx = cart.findIndex((i) => i.id === id);
+            if (idx !== -1) {
+              cart[idx].qty++;
+              saveCart();
+            }
+          }),
+        );
+        document.querySelectorAll(".decQty").forEach((btn) =>
+          btn.addEventListener("click", (e) => {
+            let id = parseInt(btn.dataset.id),
+              idx = cart.findIndex((i) => i.id === id);
+            if (idx !== -1 && cart[idx].qty > 1) {
+              cart[idx].qty--;
+              saveCart();
+            } else if (idx !== -1 && cart[idx].qty === 1) confirmDeleteItem(id);
+          }),
+        );
+        document.querySelectorAll(".removeCartItemBtn").forEach((btn) =>
+          btn.addEventListener("click", (e) => {
+            let id = parseInt(btn.dataset.id);
+            confirmDeleteItem(id);
+          }),
+        );
+      }
+      function confirmDeleteItem(id) {
+        const item = cart.find((i) => i.id === id);
+        Swal.fire({
+          title: `Remove ${item?.name}?`,
+          text: "Item will be removed.",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#C8A96A",
+          confirmButtonText: "Remove",
+        }).then((res) => {
+          if (res.isConfirmed) {
+            cart = cart.filter((i) => i.id !== id);
+            saveCart();
+            Swal.fire("Removed", "", "success");
+          }
+        });
+      }
+      function closeCart() {
+        document.getElementById("cartSidebar").classList.remove("open");
+        document.getElementById("cartOverlay").classList.remove("active");
+      }
+      document.getElementById("cartIconBtn")?.addEventListener("click", () => {
+        document.getElementById("cartSidebar").classList.add("open");
+        document.getElementById("cartOverlay").classList.add("active");
+      });
+      document
+        .getElementById("closeCartBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("cartOverlay")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("continueShoppingBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("proceedCheckoutBtn")
+        ?.addEventListener("click", () => {
+          if (cart.length === 0)
+            Swal.fire("Cart empty", "Add items before checkout", "info");
+          else window.location.href = "checkout.html";
+        });
+      const showConsult = () =>
+        Swal.fire({
+          title: "Schedule a Consultation",
+          text: "Call 0712 155 510 or click WhatsApp to book.",
+          icon: "info",
+          confirmButtonColor: "#C8A96A",
+          confirmButtonText: "WhatsApp",
+          showCancelButton: true,
+        }).then((res) => {
+          if (res.isConfirmed)
+            window.open(
+              "https://wa.me/254712155510?text=I want to book a consultation",
+              "_blank",
+            );
+        });
+      document
+        .getElementById("consultBtnNav")
+        ?.addEventListener("click", showConsult);
+      document
+        .getElementById("bookReprohubBtn")
+        ?.addEventListener("click", () => {
+          Swal.fire({
+            title: "ReproHub Consultation",
+            text: "Call 0712 155 510 or WhatsApp to schedule your preconception and maternal health advisory session.",
+            icon: "info",
+            confirmButtonColor: "#C8A96A",
+            confirmButtonText: "WhatsApp Now",
+            showCancelButton: true,
+          }).then((res) => {
+            if (res.isConfirmed)
+              window.open(
+                "https://wa.me/254712155510?text=I want to schedule a ReproHub consultation",
+                "_blank",
+              );
+          });
+        });
+      document.getElementById("subscribeBtn")?.addEventListener("click", () => {
+        let email = document.getElementById("subscribeEmail")?.value;
+        if (email)
+          Swal.fire("Subscribed!", "Weekly insights delivered.", "success");
+        else Swal.fire("Error", "Enter email address", "error");
+      });
+      document.querySelectorAll(".faq-item").forEach((item) => {
+        item.querySelector(".faq-question")?.addEventListener("click", () => {
+          item.classList.toggle("active");
+          const icon = item.querySelector(".fa-chevron-down, .fa-chevron-up");
+          if (icon) icon.classList.toggle("fa-chevron-up");
+        });
+      });
+      loadCart();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Contact Us | CARESPHERE WELLNESS | Health Governance Advisory</title>
+    <meta
+      name="description"
+      content="Reach out to CARESPHERE WELLNESS for executive health consultations, care coordination inquiries, or partnership opportunities. We are here to help you stay ahead of health risks."
+    />
+
+    <!-- Google Fonts + Bootstrap 5 + Font Awesome + SweetAlert -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="shortcut icon"
+      href="img/caresphere_logo_icon.png"
+      type="image/x-icon"
+    />
+
+    <style>
+      :root {
+        --navy: #07192e;
+        --navy-mid: #0e2a47;
+        --gold: #c8a044;
+        --gold-light: #e4c070;
+        --gold-pale: #fdf6e7;
+        --cream: #faf8f4;
+        --white: #ffffff;
+        --gray-50: #f8fafc;
+        --gray-100: #f1f5f9;
+        --gray-200: #e2e8f0;
+        --gray-400: #94a3b8;
+        --gray-600: #475569;
+        --text-dark: #0f1e30;
+        --text-mid: #3d5166;
+        --radius-sm: 12px;
+        --radius-md: 20px;
+        --radius-lg: 32px;
+        --shadow-sm: 0 2px 8px rgba(7, 25, 46, 0.06);
+        --shadow-md: 0 8px 24px rgba(7, 25, 46, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--cream);
+        color: var(--text-dark);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "DM Serif Display", serif;
+        letter-spacing: -0.01em;
+      }
+
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--gray-100);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--gold);
+        border-radius: 4px;
+      }
+
+      /* Top Bar */
+      .top-bar {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 9px 0;
+        letter-spacing: 0.01em;
+      }
+      .top-bar a {
+        color: rgba(255, 255, 255, 0.75);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .top-bar a:hover {
+        color: var(--gold-light);
+      }
+      .top-bar .icon-badge {
+        color: var(--gold-light);
+        margin-right: 5px;
+      }
+      .top-bar .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        font-size: 0.78rem;
+        margin-left: 6px;
+        transition: all 0.2s;
+      }
+      .top-bar .social-links a:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-2px);
+      }
+
+      /* Navbar */
+      .navbar-custom {
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--gray-200);
+        padding: 0.6rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 900;
+        transition: box-shadow 0.3s;
+      }
+      .navbar-custom.scrolled {
+        box-shadow: var(--shadow-md);
+      }
+      .navbar-brand img {
+        height: 52px;
+        object-fit: contain;
+      }
+      .nav-link {
+        font-weight: 500;
+        font-size: 0.88rem;
+        color: var(--text-mid) !important;
+        padding: 0.5rem 0.9rem !important;
+        border-radius: 8px;
+        transition: all 0.2s;
+      }
+      .nav-link:hover {
+        color: var(--navy) !important;
+        background: var(--gray-100);
+      }
+      .nav-link.active {
+        color: var(--gold) !important;
+      }
+      .btn-gold {
+        background: var(--gold);
+        color: var(--navy);
+        border: none;
+        font-weight: 700;
+        font-size: 0.85rem;
+        padding: 10px 22px;
+        border-radius: 50px;
+        transition: all 0.25s;
+      }
+      .btn-gold:hover {
+        background: var(--gold-light);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(200, 160, 68, 0.35);
+      }
+      .btn-navy {
+        background: var(--navy);
+        color: white;
+        border: none;
+        font-weight: 700;
+        font-size: 0.85rem;
+        padding: 10px 22px;
+        border-radius: 50px;
+        transition: all 0.25s;
+      }
+      .btn-navy:hover {
+        background: var(--navy-mid);
+        transform: translateY(-1px);
+      }
+      .btn-outline-gold {
+        border: 1.5px solid var(--gold);
+        background: transparent;
+        color: var(--navy);
+        font-weight: 600;
+        font-size: 0.85rem;
+        padding: 9px 22px;
+        border-radius: 50px;
+        transition: all 0.25s;
+      }
+      .btn-outline-gold:hover {
+        background: var(--gold);
+        color: var(--navy);
+      }
+      .cart-btn {
+        background: var(--navy);
+        color: white;
+        border: none;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        cursor: pointer;
+      }
+      .cart-btn:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: scale(1.08);
+      }
+      .cart-count {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #e63946;
+        color: white;
+        font-size: 0.65rem;
+        font-weight: 700;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid white;
+      }
+
+      /* Contact Hero */
+      .contact-hero {
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          #1a3558 55%,
+          #0d2540 100%
+        );
+        padding: 64px 0 52px;
+        position: relative;
+        overflow: hidden;
+      }
+      .contact-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a044' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.4;
+      }
+      .contact-hero h1 {
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        color: white;
+        line-height: 1.15;
+      }
+      .contact-hero h1 em {
+        color: var(--gold-light);
+        font-style: italic;
+      }
+      .hero-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(200, 160, 68, 0.15);
+        border: 1px solid rgba(200, 160, 68, 0.3);
+        color: var(--gold-light);
+        padding: 6px 16px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+
+      /* Contact Cards */
+      .contact-card {
+        background: white;
+        border-radius: var(--radius-lg);
+        padding: 1.8rem;
+        height: 100%;
+        border: 1px solid var(--gray-200);
+        transition: all 0.3s;
+        box-shadow: var(--shadow-sm);
+      }
+      .contact-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--gold);
+      }
+      .contact-icon {
+        width: 56px;
+        height: 56px;
+        background: var(--gold-pale);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.2rem;
+        font-size: 1.5rem;
+        color: var(--gold);
+      }
+      .contact-card h5 {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      .business-hours p {
+        margin-bottom: 0.4rem;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.88rem;
+      }
+
+      /* Form */
+      .form-card {
+        background: white;
+        border-radius: var(--radius-lg);
+        padding: 2rem;
+        border: 1px solid var(--gray-200);
+        box-shadow: var(--shadow-sm);
+      }
+      .form-control,
+      .form-select {
+        border-radius: var(--radius-sm);
+        padding: 12px 16px;
+        border: 1.5px solid var(--gray-200);
+        transition: all 0.2s;
+        font-family: "DM Sans", sans-serif;
+      }
+      .form-control:focus,
+      .form-select:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(200, 160, 68, 0.2);
+        outline: none;
+      }
+      .form-label {
+        font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 8px;
+        font-size: 0.85rem;
+      }
+      .required-star {
+        color: #dc2626;
+        margin-left: 3px;
+      }
+      .error-text {
+        color: #dc2626;
+        font-size: 0.7rem;
+        margin-top: 5px;
+        display: block;
+      }
+      .input-error {
+        border-color: #dc2626 !important;
+        background-color: #fef2f2;
+      }
+
+      /* Map */
+      .map-card {
+        background: white;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid var(--gray-200);
+        height: 100%;
+      }
+      .map-placeholder {
+        background: #eef2f6;
+        height: 280px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: var(--gray-400);
+      }
+      .map-placeholder i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--gold);
+        opacity: 0.5;
+      }
+
+      /* WhatsApp Float */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        background: #25d366;
+        color: white;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        z-index: 800;
+        text-decoration: none;
+        transition: all 0.25s;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.1) translateY(-3px);
+        background: #20b859;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 60px 0 32px;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .footer-brand-text {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.3rem;
+        color: white;
+      }
+      .footer-heading {
+        font-family: "DM Sans", sans-serif;
+        font-weight: 700;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--gold-light);
+        margin-bottom: 16px;
+      }
+      .footer-link {
+        display: block;
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.88rem;
+        margin-bottom: 9px;
+        transition: all 0.2s;
+      }
+      .footer-link:hover {
+        color: var(--gold-light);
+        transform: translateX(4px);
+      }
+      .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        margin-right: 8px;
+        transition: all 0.2s;
+      }
+      .footer-social a:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-3px);
+      }
+      .subscribe-input-group {
+        display: flex;
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .subscribe-input {
+        background: rgba(255, 255, 255, 0.08);
+        border: none;
+        color: white;
+        padding: 10px 14px;
+        font-size: 0.85rem;
+        flex: 1;
+        outline: none;
+      }
+      .subscribe-btn {
+        background: var(--gold);
+        color: var(--navy);
+        border: none;
+        font-weight: 700;
+        font-size: 0.82rem;
+        padding: 10px 16px;
+        cursor: pointer;
+      }
+      .subscribe-btn:hover {
+        background: var(--gold-light);
+      }
+
+      @media (max-width: 768px) {
+        .contact-hero {
+          padding: 44px 0 36px;
+        }
+        .form-card {
+          padding: 1.5rem;
+        }
+        .contact-card {
+          padding: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="container">
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-2"
+        >
+          <div class="d-flex align-items-center gap-3 flex-wrap">
+            <a href="tel:+254712155510"
+              ><i class="fas fa-phone-alt icon-badge"></i>+254 712 155 510</a
+            >
+            <a href="https://wa.me/254712155510" target="_blank"
+              ><i class="fab fa-whatsapp icon-badge"></i>WhatsApp</a
+            >
+            <a href="mailto:Carespherewellness@gmail.com"
+              ><i class="far fa-envelope icon-badge"></i
+              >Carespherewellness@gmail.com</a
+            >
+            <span
+              ><i class="fas fa-map-marker-alt icon-badge"></i>Nairobi,
+              Kenya</span
+            >
+          </div>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/1LjcBqoMEe/" target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/caresphere_wellness"
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://ke.linkedin.com/in/e-amiani" target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="https://www.tiktok.com/@carespherewellness" target="_blank"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-custom" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="img/caresphere_logo.png"
+            alt="CARESPHERE WELLNESS"
+            onerror="
+              this.parentElement.innerHTML =
+                '<span style=\'font-family:DM Serif Display,serif;font-size:1.3rem;color:var(--navy);font-weight:700\'>CARESPHERE <span style=\'color:var(--gold)\'>WELLNESS</span></span>'
+            "
+          />
+        </a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="store.html">E-Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="partners.html">Partners</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Insights</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center gap-2 ms-3">
+            <a
+              href="booking.html"
+              class="btn-gold d-none d-lg-inline-block"
+              style="text-decoration: none"
+              >Book Consultation</a
+            >
+            <button
+              class="cart-btn position-relative"
+              id="cartIconBtn"
+              aria-label="Open cart"
+            >
+              <i class="fas fa-bag-shopping"></i>
+              <span class="cart-count" id="cartCountBadge">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- CART SIDEBAR (minimal for consistency) -->
+    <div
+      class="cart-overlay"
+      id="cartOverlay"
+      style="
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+      "
+    ></div>
+    <div
+      class="cart-sidebar"
+      id="cartSidebar"
+      style="
+        position: fixed;
+        top: 0;
+        right: -500px;
+        width: 460px;
+        max-width: 100vw;
+        height: 100vh;
+        background: white;
+        z-index: 1001;
+        transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        box-shadow: -8px 0 32px rgba(7, 25, 46, 0.15);
+      "
+    >
+      <div
+        class="cart-header p-4 border-bottom d-flex justify-content-between align-items-center"
+      >
+        <h4 style="font-family: &quot;DM Serif Display&quot;, serif">
+          <i class="fas fa-bag-shopping me-2" style="color: var(--gold)"></i
+          >Your Cart
+        </h4>
+        <button class="btn-close" id="closeCartBtn"></button>
+      </div>
+      <div
+        class="cart-items-wrap flex-grow-1 p-4 overflow-auto"
+        id="cartItemsList"
+      >
+        <p class="text-muted text-center py-5">Your cart is empty.</p>
+      </div>
+      <div class="cart-footer p-4 border-top">
+        <div class="d-flex justify-content-between fw-bold mb-3">
+          <span>Total:</span><span id="cartTotalAmount">KSh 0</span>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-gold w-50" id="continueShoppingBtn">
+            Continue Shopping</button
+          ><button class="btn btn-navy w-50" id="proceedCheckoutBtn">
+            Checkout →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT HERO -->
+    <section class="contact-hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <div class="hero-pill">
+              <i class="fas fa-headset"></i> We're Here to Help
+            </div>
+            <h1>Let’s <em>Connect</em><br />Start Your Health Journey Today</h1>
+            <p class="mt-3 text-white-50" style="max-width: 520px">
+              Whether you need a health risk assessment, care coordination, or
+              just want to learn more — our team is ready to assist you with
+              expert guidance.
+            </p>
+          </div>
+          <div class="col-lg-5 mt-4 mt-lg-0">
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="contact-card text-center">
+                  <div class="contact-icon mx-auto">
+                    <i class="fas fa-phone-alt"></i>
+                  </div>
+                  <h5>Call Us</h5>
+                  <p class="mb-0"><strong>+254 712 155 510</strong></p>
+                  <small>Mon–Sat, 8am–6pm</small>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="contact-card text-center">
+                  <div class="contact-icon mx-auto">
+                    <i class="fab fa-whatsapp"></i>
+                  </div>
+                  <h5>WhatsApp</h5>
+                  <p class="mb-0"><strong>Instant Support</strong></p>
+                  <a
+                    href="https://wa.me/254712155510"
+                    target="_blank"
+                    class="small text-gold"
+                    >Click to chat →</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="container py-5">
+      <div class="row g-5">
+        <!-- CONTACT FORM -->
+        <div class="col-lg-6">
+          <div class="form-card">
+            <h3
+              class="mb-2"
+              style="font-family: &quot;DM Serif Display&quot;, serif"
+            >
+              Send us a <span style="color: var(--gold)">Message</span>
+            </h3>
+            <p class="text-muted mb-4">
+              Fill out the form and we'll get back to you within 2 hours.
+            </p>
+            <form id="contactForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label"
+                    >Full Name <span class="required-star">*</span></label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    id="fullName"
+                    placeholder="John Mwangi"
+                  />
+                  <div class="error-text" id="nameError"></div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label"
+                    >Email Address <span class="required-star">*</span></label
+                  ><input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="hello@example.com"
+                  />
+                  <div class="error-text" id="emailError"></div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label"
+                    >Phone Number <span class="required-star">*</span></label
+                  ><input
+                    type="tel"
+                    class="form-control"
+                    id="phone"
+                    placeholder="0712 155 510"
+                  />
+                  <div class="error-text" id="phoneError"></div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label"
+                    >Reason for Contact
+                    <span class="required-star">*</span></label
+                  ><select class="form-select" id="reason">
+                    <option value="">Select an option</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                    <option value="Health Risk Assessment">
+                      Health Risk Assessment
+                    </option>
+                    <option value="Care Coordination">Care Coordination</option>
+                    <option value="Concierge Health Support">
+                      Concierge Health Support
+                    </option>
+                    <option value="ReproHub Advisory">ReproHub Advisory</option>
+                    <option value="Diaspora Family Support">
+                      Diaspora Family Support
+                    </option>
+                    <option value="Corporate Wellness">
+                      Corporate Wellness
+                    </option>
+                    <option value="Partnership Opportunity">
+                      Partnership Opportunity
+                    </option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <div class="error-text" id="reasonError"></div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label"
+                    >Message <span class="required-star">*</span></label
+                  ><textarea
+                    class="form-control"
+                    id="message"
+                    rows="4"
+                    placeholder="Tell us how we can support you..."
+                  ></textarea>
+                  <div class="error-text" id="messageError"></div>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="consent"
+                    /><label class="form-check-label small"
+                      >I consent to the collection and processing of my personal
+                      data for inquiry handling. I have read the
+                      <a href="privacy.html" target="_blank" class="text-gold"
+                        >Privacy Policy</a
+                      >.</label
+                    >
+                    <div class="error-text" id="consentError"></div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-gold w-100 py-3">
+                    <i class="fas fa-paper-plane me-2"></i>Send Message
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- CONTACT INFO + MAP + BUSINESS HOURS -->
+        <div class="col-lg-6">
+          <div class="row g-4">
+            <!-- Contact Details Card -->
+            <div class="col-12">
+              <div class="contact-card">
+                <div class="d-flex align-items-start gap-3">
+                  <div
+                    class="contact-icon"
+                    style="width: 48px; height: 48px; flex-shrink: 0"
+                  >
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div>
+                    <h5 style="margin-bottom: 0.25rem">Email Us</h5>
+                    <a
+                      href="mailto:Carespherewellness@gmail.com"
+                      class="text-decoration-none"
+                      style="color: var(--text-mid)"
+                      >Carespherewellness@gmail.com</a
+                    >
+                    <p class="small text-muted mt-1">
+                      We respond within 24 hours.
+                    </p>
+                  </div>
+                </div>
+                <hr class="my-3" />
+                <div class="d-flex align-items-start gap-3">
+                  <div
+                    class="contact-icon"
+                    style="width: 48px; height: 48px; flex-shrink: 0"
+                  >
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div>
+                    <h5 style="margin-bottom: 0.25rem">Visit Our Office</h5>
+                    <p class="mb-0">
+                      Westlands, Nairobi<br />Chiromo Lane, Medical Suites, 3rd
+                      Floor
+                    </p>
+                    <p class="small text-muted mt-1">
+                      By appointment only — please book in advance.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Business Hours Card -->
+            <div class="col-12">
+              <div class="contact-card">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                  <i
+                    class="fas fa-clock"
+                    style="color: var(--gold); font-size: 1.3rem"
+                  ></i>
+                  <h5 class="mb-0">Business Hours</h5>
+                </div>
+                <div class="business-hours">
+                  <p>
+                    <span>Monday – Friday:</span> <span>8:00 AM – 6:00 PM</span>
+                  </p>
+                  <p><span>Saturday:</span> <span>9:00 AM – 1:00 PM</span></p>
+                  <p>
+                    <span>Sunday & Public Holidays:</span>
+                    <span>Closed (Emergency support via WhatsApp)</span>
+                  </p>
+                </div>
+                <div class="mt-3 pt-2 border-top">
+                  <small class="text-muted"
+                    ><i class="fas fa-headset me-1"></i> After-hours inquiries?
+                    WhatsApp us anytime — we'll respond within 2 hours.</small
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Google Map Placeholder -->
+            <div class="col-12">
+              <div class="map-card">
+                <div class="map-placeholder">
+                  <i class="fas fa-map-marked-alt"></i>
+                  <p class="mb-2"><strong>📍 Nairobi, Kenya</strong></p>
+                  <p class="small text-center px-3">
+                    Westlands, Chiromo Lane<br />Medical Suites, 3rd Floor
+                  </p>
+                  <div
+                    style="
+                      width: 100%;
+                      height: 180px;
+                      background: #d4dfea;
+                      border-radius: 12px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 0.8rem;
+                      color: #5a6e7a;
+                    "
+                  >
+                    Interactive map loading — view on Google Maps
+                  </div>
+                </div>
+                <div class="p-3 text-center border-top">
+                  <a
+                    href="https://maps.google.com/?q=Westlands+Nairobi+Kenya"
+                    target="_blank"
+                    class="btn-outline-gold"
+                    style="
+                      text-decoration: none;
+                      padding: 8px 20px;
+                      font-size: 0.8rem;
+                    "
+                    ><i class="fab fa-google me-2"></i>Open in Google Maps</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK CONNECT CTA -->
+    <section class="bg-light py-5" style="background: var(--gray-100)">
+      <div class="container text-center">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <i
+              class="fas fa-comment-dots fa-3x"
+              style="color: var(--gold); margin-bottom: 1rem"
+            ></i>
+            <h3 style="font-family: &quot;DM Serif Display&quot;, serif">
+              Prefer a faster response?
+            </h3>
+            <p class="mb-4">
+              Connect with us directly on WhatsApp for immediate assistance with
+              consultations, product inquiries, or care coordination.
+            </p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+              <a
+                href="https://wa.me/254712155510?text=Hello%20CARESPHERE%20WELLNESS%2C%20I%20would%20like%20to%20get%20assistance%20with%20a%20health%20inquiry"
+                target="_blank"
+                class="btn-navy"
+                style="background: #25d366; padding: 12px 28px"
+                ><i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp</a
+              >
+              <a
+                href="tel:+254712155510"
+                class="btn-outline-gold"
+                style="padding: 12px 28px"
+                ><i class="fas fa-phone-alt me-2"></i>Call Us</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-md-4">
+            <div class="footer-brand-text mb-3">
+              CARESPHERE <span style="color: var(--gold-light)">WELLNESS</span>
+            </div>
+            <p style="font-size: 0.88rem; line-height: 1.7; max-width: 300px">
+              Nairobi-based executive health governance and care coordination.
+              Your health, professionally managed.
+            </p>
+            <div class="footer-social mt-4">
+              <a
+                href="https://www.facebook.com/share/1LjcBqoMEe/"
+                target="_blank"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/caresphere_wellness"
+                target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@carespherewellness"
+                target="_blank"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+              <a href="https://ke.linkedin.com/in/e-amiani" target="_blank"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-2 col-6">
+            <div class="footer-heading">Quick Links</div>
+            <a href="index.html" class="footer-link">Home</a
+            ><a href="about.html" class="footer-link">About</a
+            ><a href="services.html" class="footer-link">Services</a
+            ><a href="store.html" class="footer-link">E-Store</a
+            ><a href="blog.html" class="footer-link">Insights</a>
+          </div>
+          <div class="col-md-2 col-6">
+            <div class="footer-heading">Support</div>
+            <a href="privacy.html" class="footer-link">Privacy Policy</a
+            ><a href="terms.html" class="footer-link">Terms & Conditions</a
+            ><a href="faqs.html" class="footer-link">FAQs</a
+            ><a href="contact.html" class="footer-link">Contact</a>
+          </div>
+          <div class="col-md-4">
+            <div class="footer-heading">Stay Updated</div>
+            <p style="font-size: 0.85rem; margin-bottom: 14px">
+              Get weekly preventive health insights and offers.
+            </p>
+            <div class="subscribe-input-group mb-4">
+              <input
+                type="email"
+                class="subscribe-input"
+                id="footerSubscribeEmail"
+                placeholder="Your email address"
+              /><button class="subscribe-btn" id="footerSubscribeBtn">
+                Join
+              </button>
+            </div>
+            <div>
+              <i
+                class="fas fa-phone-alt me-2"
+                style="color: var(--gold-light)"
+              ></i
+              >+254 712 155 510<br /><i
+                class="far fa-envelope me-2"
+                style="color: var(--gold-light)"
+              ></i
+              >Carespherewellness@gmail.com
+            </div>
+          </div>
+        </div>
+        <hr class="mt-4" style="border-color: rgba(255, 255, 255, 0.07)" />
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-2 footer-bottom"
+        >
+          <div>
+            © <span id="dynamicYear"></span> CARESPHERE WELLNESS — All rights
+            reserved.
+          </div>
+          <div>
+            Designed by
+            <a
+              href="https://eontechsystems.com/"
+              target="_blank"
+              style="color: var(--gold-light); text-decoration: none"
+              >EonTech Systems</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/254712155510?text=Hello%20CARESPHERE%20WELLNESS%2C%20I%20have%20a%20question%20about%20your%20services"
+      target="_blank"
+      class="whatsapp-float"
+      ><i class="fab fa-whatsapp"></i
+    ></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Dynamic year
+      document.getElementById("dynamicYear").innerText =
+        new Date().getFullYear();
+
+      // Cart functionality (persistent across pages)
+      let cart = JSON.parse(localStorage.getItem("caresphereCart") || "[]");
+      function updateCartUI() {
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        const count = cart.reduce((s, i) => s + i.qty, 0);
+        document.getElementById("cartCountBadge").textContent = count;
+        document.getElementById("cartTotalAmount").innerHTML =
+          `KSh ${total.toLocaleString()}`;
+        const container = document.getElementById("cartItemsList");
+        if (!cart.length) {
+          container.innerHTML =
+            '<p class="text-muted text-center py-5">Your cart is empty.</p>';
+          return;
+        }
+        container.innerHTML = cart
+          .map(
+            (item) =>
+              `<div class="cart-item d-flex gap-3 align-items-center border-bottom pb-3 mb-3"><div style="width:60px;height:60px;background:#f0f2f5;border-radius:12px;display:flex;align-items:center;justify-content:center;"><i class="${item.icon || "fas fa-box"}" style="font-size:1.5rem;color:var(--gold)"></i></div><div class="flex-grow-1"><div class="fw-bold">${item.name}</div><div>${item.price.toLocaleString()} KSh</div><div class="d-flex gap-2 mt-1"><button class="btn btn-sm btn-outline-secondary dec-cart" data-id="${item.id}">-</button><span>${item.qty}</span><button class="btn btn-sm btn-outline-secondary inc-cart" data-id="${item.id}">+</button></div></div><button class="btn btn-sm text-danger remove-cart" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button></div>`,
+          )
+          .join("");
+        document.querySelectorAll(".inc-cart").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const id = +btn.dataset.id;
+            const idx = cart.findIndex((i) => i.id === id);
+            if (idx > -1) {
+              cart[idx].qty++;
+              saveCart();
+              updateCartUI();
+            }
+          }),
+        );
+        document.querySelectorAll(".dec-cart").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const id = +btn.dataset.id;
+            const idx = cart.findIndex((i) => i.id === id);
+            if (idx > -1 && cart[idx].qty > 1) {
+              cart[idx].qty--;
+              saveCart();
+              updateCartUI();
+            } else if (idx > -1 && cart[idx].qty === 1) {
+              cart.splice(idx, 1);
+              saveCart();
+              updateCartUI();
+            }
+          }),
+        );
+        document.querySelectorAll(".remove-cart").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const id = +btn.dataset.id;
+            cart = cart.filter((i) => i.id !== id);
+            saveCart();
+            updateCartUI();
+          }),
+        );
+      }
+      function saveCart() {
+        localStorage.setItem("caresphereCart", JSON.stringify(cart));
+        updateCartUI();
+      }
+      function openCart() {
+        document.getElementById("cartSidebar").style.right = "0";
+        document.getElementById("cartOverlay").style.opacity = "1";
+        document.getElementById("cartOverlay").style.visibility = "visible";
+      }
+      function closeCart() {
+        document.getElementById("cartSidebar").style.right = "-500px";
+        document.getElementById("cartOverlay").style.opacity = "0";
+        document.getElementById("cartOverlay").style.visibility = "hidden";
+      }
+      document
+        .getElementById("cartIconBtn")
+        ?.addEventListener("click", openCart);
+      document
+        .getElementById("closeCartBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("cartOverlay")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("continueShoppingBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("proceedCheckoutBtn")
+        ?.addEventListener("click", () => {
+          if (cart.length === 0)
+            Swal.fire("Cart Empty", "Add items before checkout", "info");
+          else window.location.href = "checkout.html";
+        });
+      updateCartUI();
+
+      // Contact Form Submission via WhatsApp
+      const form = document.getElementById("contactForm");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let isValid = true;
+        document
+          .querySelectorAll(".error-text")
+          .forEach((el) => (el.innerHTML = ""));
+        document
+          .querySelectorAll(".form-control, .form-select")
+          .forEach((el) => el.classList.remove("input-error"));
+
+        const name = document.getElementById("fullName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const reason = document.getElementById("reason").value;
+        const message = document.getElementById("message").value.trim();
+        const consent = document.getElementById("consent").checked;
+
+        if (!name) {
+          document.getElementById("nameError").innerHTML = "Full name required";
+          document.getElementById("fullName").classList.add("input-error");
+          isValid = false;
+        }
+        if (!email || !email.includes("@")) {
+          document.getElementById("emailError").innerHTML =
+            "Valid email required";
+          document.getElementById("email").classList.add("input-error");
+          isValid = false;
+        }
+        if (!phone) {
+          document.getElementById("phoneError").innerHTML =
+            "Phone number required";
+          document.getElementById("phone").classList.add("input-error");
+          isValid = false;
+        }
+        if (!reason) {
+          document.getElementById("reasonError").innerHTML =
+            "Please select a reason";
+          document.getElementById("reason").classList.add("input-error");
+          isValid = false;
+        }
+        if (!message) {
+          document.getElementById("messageError").innerHTML =
+            "Message cannot be empty";
+          document.getElementById("message").classList.add("input-error");
+          isValid = false;
+        }
+        if (!consent) {
+          document.getElementById("consentError").innerHTML =
+            "You must consent to data processing";
+          isValid = false;
+        }
+
+        if (!isValid) {
+          Swal.fire({
+            title: "Incomplete Information",
+            text: "Please fill all required fields correctly.",
+            icon: "error",
+            confirmButtonColor: "#c8a044",
+          });
+          return;
+        }
+
+        const greeting =
+          new Date().getHours() < 12
+            ? "Good morning"
+            : new Date().getHours() < 17
+              ? "Good afternoon"
+              : "Good evening";
+        let whatsappMsg = `🏥 *CARESPHERE WELLNESS - Contact Form Inquiry*%0A%0A`;
+        whatsappMsg += `${greeting}, I am reaching out to CARESPHERE WELLNESS.%0A%0A`;
+        whatsappMsg += `*━━━━━━━━━━━━━━━━━━━━━━━━━*%0A`;
+        whatsappMsg += `*📋 PERSONAL INFORMATION*%0A`;
+        whatsappMsg += `*Name:* ${name}%0A`;
+        whatsappMsg += `*Email:* ${email}%0A`;
+        whatsappMsg += `*Phone:* ${phone}%0A%0A`;
+        whatsappMsg += `*━━━━━━━━━━━━━━━━━━━━━━━━━*%0A`;
+        whatsappMsg += `*📌 INQUIRY DETAILS*%0A`;
+        whatsappMsg += `*Reason:* ${reason}%0A`;
+        whatsappMsg += `*Message:* ${message}%0A%0A`;
+        whatsappMsg += `*━━━━━━━━━━━━━━━━━━━━━━━━━*%0A`;
+        whatsappMsg += `I consent to data processing for inquiry handling.%0A`;
+        whatsappMsg += `Please get back to me at your earliest convenience.%0A%0A`;
+        whatsappMsg += `*Regards,*%0A${name}`;
+
+        Swal.fire({
+          title: "Confirm Send",
+          text: "Your message will be sent via WhatsApp. Our team will respond within 2 hours.",
+          icon: "question",
+          showCancelButton: true,
+          confirmButtonColor: "#0B1F3A",
+          confirmButtonText: "Send Message",
+        }).then((res) => {
+          if (res.isConfirmed) {
+            window.open(
+              `https://wa.me/254712155510?text=${whatsappMsg}`,
+              "_blank",
+            );
+            Swal.fire({
+              title: "Message Sent!",
+              text: "We'll get back to you shortly.",
+              icon: "success",
+              confirmButtonColor: "#c8a044",
+            });
+            form.reset();
+          }
+        });
+      });
+
+      // Footer subscribe
+      document
+        .getElementById("footerSubscribeBtn")
+        ?.addEventListener("click", () => {
+          const email = document.getElementById("footerSubscribeEmail").value;
+          if (email && email.includes("@"))
+            Swal.fire("Subscribed!", "Weekly insights delivered.", "success");
+          else Swal.fire("Error", "Enter valid email", "error");
+        });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("mainNav")
+          ?.classList.toggle("scrolled", window.scrollY > 40);
+      });
+    </script>
+  </body>
+</html>

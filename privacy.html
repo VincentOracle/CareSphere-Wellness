@@ -1,0 +1,1398 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>
+      Privacy Policy | CARESPHERE WELLNESS | Data Protection & Compliance
+    </title>
+    <meta
+      name="description"
+      content="CARESPHERE WELLNESS Privacy Policy — Learn how we collect, use, and protect your personal data in compliance with Kenya Data Protection Act (2019), GDPR, and healthcare privacy standards."
+    />
+
+    <!-- Google Fonts + Bootstrap 5 + Font Awesome + SweetAlert -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="shortcut icon"
+      href="img/caresphere_logo_icon.png"
+      type="image/x-icon"
+    />
+
+    <style>
+      :root {
+        --navy: #07192e;
+        --navy-mid: #0e2a47;
+        --gold: #c8a044;
+        --gold-light: #e4c070;
+        --gold-pale: #fdf6e7;
+        --cream: #faf8f4;
+        --white: #ffffff;
+        --gray-50: #f8fafc;
+        --gray-100: #f1f5f9;
+        --gray-200: #e2e8f0;
+        --gray-400: #94a3b8;
+        --gray-600: #475569;
+        --text-dark: #0f1e30;
+        --text-mid: #3d5166;
+        --radius-sm: 12px;
+        --radius-md: 20px;
+        --radius-lg: 32px;
+        --shadow-sm: 0 2px 8px rgba(7, 25, 46, 0.06);
+        --shadow-md: 0 8px 24px rgba(7, 25, 46, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--cream);
+        color: var(--text-dark);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "DM Serif Display", serif;
+        letter-spacing: -0.01em;
+      }
+
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--gray-100);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--gold);
+        border-radius: 4px;
+      }
+
+      /* Top Bar */
+      .top-bar {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 9px 0;
+        letter-spacing: 0.01em;
+      }
+      .top-bar a {
+        color: rgba(255, 255, 255, 0.75);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .top-bar a:hover {
+        color: var(--gold-light);
+      }
+      .top-bar .icon-badge {
+        color: var(--gold-light);
+        margin-right: 5px;
+      }
+      .top-bar .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        font-size: 0.78rem;
+        margin-left: 6px;
+        transition: all 0.2s;
+      }
+      .top-bar .social-links a:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-2px);
+      }
+
+      /* Navbar */
+      .navbar-custom {
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--gray-200);
+        padding: 0.6rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 900;
+        transition: box-shadow 0.3s;
+      }
+      .navbar-custom.scrolled {
+        box-shadow: var(--shadow-md);
+      }
+      .navbar-brand img {
+        height: 52px;
+        object-fit: contain;
+      }
+      .nav-link {
+        font-weight: 500;
+        font-size: 0.88rem;
+        color: var(--text-mid) !important;
+        padding: 0.5rem 0.9rem !important;
+        border-radius: 8px;
+        transition: all 0.2s;
+      }
+      .nav-link:hover {
+        color: var(--navy) !important;
+        background: var(--gray-100);
+      }
+      .nav-link.active {
+        color: var(--gold) !important;
+      }
+      .btn-gold {
+        background: var(--gold);
+        color: var(--navy);
+        border: none;
+        font-weight: 700;
+        font-size: 0.85rem;
+        padding: 10px 22px;
+        border-radius: 50px;
+        transition: all 0.25s;
+      }
+      .btn-gold:hover {
+        background: var(--gold-light);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(200, 160, 68, 0.35);
+      }
+      .btn-navy {
+        background: var(--navy);
+        color: white;
+        border: none;
+        font-weight: 700;
+        font-size: 0.85rem;
+        padding: 10px 22px;
+        border-radius: 50px;
+        transition: all 0.25s;
+      }
+      .btn-navy:hover {
+        background: var(--navy-mid);
+        transform: translateY(-1px);
+      }
+      .cart-btn {
+        background: var(--navy);
+        color: white;
+        border: none;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        cursor: pointer;
+        position: relative;
+      }
+      .cart-btn:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: scale(1.08);
+      }
+      .cart-count {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #e63946;
+        color: white;
+        font-size: 0.65rem;
+        font-weight: 700;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid white;
+      }
+
+      /* Privacy Hero */
+      .privacy-hero {
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          #1a3558 55%,
+          #0d2540 100%
+        );
+        padding: 64px 0 52px;
+        position: relative;
+        overflow: hidden;
+      }
+      .privacy-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a044' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.4;
+      }
+      .privacy-hero h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        color: white;
+        line-height: 1.15;
+      }
+      .privacy-hero h1 em {
+        color: var(--gold-light);
+        font-style: italic;
+      }
+      .hero-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(200, 160, 68, 0.15);
+        border: 1px solid rgba(200, 160, 68, 0.3);
+        color: var(--gold-light);
+        padding: 6px 16px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+
+      /* Content Cards */
+      .policy-card {
+        background: white;
+        border-radius: var(--radius-lg);
+        padding: 2rem;
+        border: 1px solid var(--gray-200);
+        box-shadow: var(--shadow-sm);
+        margin-bottom: 1.5rem;
+        transition: all 0.3s;
+      }
+      .policy-card:hover {
+        box-shadow: var(--shadow-md);
+        border-color: var(--gold);
+      }
+      .policy-card h2 {
+        font-size: 1.6rem;
+        color: var(--navy);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .policy-card h2 i {
+        color: var(--gold);
+        font-size: 1.8rem;
+      }
+      .policy-card h3 {
+        font-size: 1.2rem;
+        font-family: "DM Sans", sans-serif;
+        font-weight: 700;
+        color: var(--text-mid);
+        margin: 1.2rem 0 0.8rem;
+      }
+      .policy-card p {
+        line-height: 1.7;
+        color: var(--text-mid);
+        margin-bottom: 1rem;
+      }
+      .policy-card ul,
+      .policy-card ol {
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .policy-card li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+        color: var(--text-mid);
+      }
+      .compliance-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--gold-pale);
+        padding: 0.6rem 1.2rem;
+        border-radius: 50px;
+        margin: 0.5rem 0.5rem 0 0;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--navy);
+      }
+      .compliance-badge i {
+        color: var(--gold);
+        font-size: 1rem;
+      }
+      .last-updated {
+        background: var(--gray-100);
+        padding: 1rem;
+        border-radius: var(--radius-sm);
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--gray-600);
+      }
+
+      /* Sidebar Navigation */
+      .privacy-sidebar {
+        background: white;
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        border: 1px solid var(--gray-200);
+        position: sticky;
+        top: 100px;
+      }
+      .privacy-sidebar h5 {
+        font-family: "DM Serif Display", serif;
+        margin-bottom: 1rem;
+      }
+      .privacy-sidebar ul {
+        list-style: none;
+        padding: 0;
+      }
+      .privacy-sidebar li {
+        margin-bottom: 0.75rem;
+      }
+      .privacy-sidebar a {
+        color: var(--text-mid);
+        text-decoration: none;
+        font-size: 0.88rem;
+        transition: all 0.2s;
+        display: block;
+        padding: 4px 0;
+      }
+      .privacy-sidebar a:hover {
+        color: var(--gold);
+        transform: translateX(4px);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 60px 0 32px;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .footer-brand-text {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.3rem;
+        color: white;
+      }
+      .footer-heading {
+        font-family: "DM Sans", sans-serif;
+        font-weight: 700;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--gold-light);
+        margin-bottom: 16px;
+      }
+      .footer-link {
+        display: block;
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.88rem;
+        margin-bottom: 9px;
+        transition: all 0.2s;
+      }
+      .footer-link:hover {
+        color: var(--gold-light);
+        transform: translateX(4px);
+      }
+      .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        margin-right: 8px;
+        transition: all 0.2s;
+      }
+      .footer-social a:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-3px);
+      }
+      .whatsapp-float {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        background: #25d366;
+        color: white;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        z-index: 800;
+        text-decoration: none;
+        transition: all 0.25s;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.1) translateY(-3px);
+        background: #20b859;
+      }
+
+      @media (max-width: 768px) {
+        .privacy-hero {
+          padding: 44px 0 36px;
+        }
+        .policy-card {
+          padding: 1.5rem;
+        }
+        .privacy-sidebar {
+          position: relative;
+          top: 0;
+          margin-bottom: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="container">
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-2"
+        >
+          <div class="d-flex align-items-center gap-3 flex-wrap">
+            <a href="tel:+254712155510"
+              ><i class="fas fa-phone-alt icon-badge"></i>+254 712 155 510</a
+            >
+            <a href="https://wa.me/254712155510" target="_blank"
+              ><i class="fab fa-whatsapp icon-badge"></i>WhatsApp</a
+            >
+            <a href="mailto:Carespherewellness@gmail.com"
+              ><i class="far fa-envelope icon-badge"></i
+              >Carespherewellness@gmail.com</a
+            >
+            <span
+              ><i class="fas fa-map-marker-alt icon-badge"></i>Nairobi,
+              Kenya</span
+            >
+          </div>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/1LjcBqoMEe/" target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/caresphere_wellness"
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://ke.linkedin.com/in/e-amiani" target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="https://www.tiktok.com/@carespherewellness" target="_blank"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CART SIDEBAR (minimal for consistency) -->
+    <div
+      class="cart-overlay"
+      id="cartOverlay"
+      style="
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+      "
+    ></div>
+    <div
+      class="cart-sidebar"
+      id="cartSidebar"
+      style="
+        position: fixed;
+        top: 0;
+        right: -500px;
+        width: 460px;
+        max-width: 100vw;
+        height: 100vh;
+        background: white;
+        z-index: 1001;
+        transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        box-shadow: -8px 0 32px rgba(7, 25, 46, 0.15);
+      "
+    >
+      <div
+        class="cart-header p-4 border-bottom d-flex justify-content-between align-items-center"
+      >
+        <h4 style="font-family: &quot;DM Serif Display&quot;, serif">
+          <i class="fas fa-bag-shopping me-2" style="color: var(--gold)"></i
+          >Your Cart
+        </h4>
+        <button class="btn-close" id="closeCartBtn"></button>
+      </div>
+      <div
+        class="cart-items-wrap flex-grow-1 p-4 overflow-auto"
+        id="cartItemsList"
+      >
+        <p class="text-muted text-center py-5">Your cart is empty.</p>
+      </div>
+      <div class="cart-footer p-4 border-top">
+        <div class="d-flex justify-content-between fw-bold mb-3">
+          <span>Total:</span><span id="cartTotalAmount">KSh 0</span>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-gold w-50" id="continueShoppingBtn">
+            Continue Shopping</button
+          ><button class="btn btn-navy w-50" id="proceedCheckoutBtn">
+            Checkout →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-custom" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="img/caresphere_logo.png"
+            alt="CARESPHERE WELLNESS"
+            onerror="
+              this.parentElement.innerHTML =
+                '<span style=\'font-family:DM Serif Display,serif;font-size:1.3rem;color:var(--navy);font-weight:700\'>CARESPHERE <span style=\'color:var(--gold)\'>WELLNESS</span></span>'
+            "
+          />
+        </a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="partners.html">Partners</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Insights</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="store.html">E-Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center gap-2 ms-3">
+            <a
+              href="booking.html"
+              class="btn-gold d-none d-lg-inline-block"
+              style="text-decoration: none"
+              >Book Consultation</a
+            >
+            <button
+              class="cart-btn position-relative"
+              id="cartIconBtn"
+              aria-label="Open cart"
+            >
+              <i class="fas fa-bag-shopping"></i>
+              <span class="cart-count" id="cartCountBadge">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- PRIVACY HERO -->
+    <section class="privacy-hero">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-8">
+            <div class="hero-pill mx-auto">
+              <i class="fas fa-shield-alt"></i> Your Privacy Matters
+            </div>
+            <h1>Data Protection & <em>Privacy Policy</em></h1>
+            <p class="mt-3 text-white-50">
+              CARESPHERE WELLNESS is committed to protecting your personal data
+              in compliance with Kenyan and international privacy regulations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="container py-5">
+      <div class="row g-5">
+        <!-- Sidebar Navigation -->
+        <div class="col-lg-3">
+          <div class="privacy-sidebar">
+            <h5>
+              <i class="fas fa-list-ul me-2" style="color: var(--gold)"></i>
+              Quick Navigation
+            </h5>
+            <ul>
+              <li><a href="#introduction">Introduction</a></li>
+              <li><a href="#information">Information We Collect</a></li>
+              <li><a href="#usage">How We Use Your Data</a></li>
+              <li><a href="#legal">Legal Basis & Compliance</a></li>
+              <li><a href="#sharing">Data Sharing & Disclosure</a></li>
+              <li><a href="#security">Data Security</a></li>
+              <li><a href="#rights">Your Privacy Rights</a></li>
+              <li><a href="#retention">Data Retention</a></li>
+              <li><a href="#cookies">Cookies & Tracking</a></li>
+              <li><a href="#children">Children's Privacy</a></li>
+              <li><a href="#international">International Data Transfers</a></li>
+              <li><a href="#contact-privacy">Contact Us</a></li>
+            </ul>
+            <hr />
+            <div class="mt-3">
+              <div class="compliance-badge">
+                <i class="fas fa-check-circle"></i> KMPDC Compliant
+              </div>
+              <div class="compliance-badge">
+                <i class="fas fa-lock"></i> HIPAA Aligned
+              </div>
+              <div class="compliance-badge">
+                <i class="fas fa-globe"></i> GDPR Ready
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Privacy Content -->
+        <div class="col-lg-9">
+          <!-- Last Updated -->
+          <div class="last-updated mb-4">
+            <i class="fas fa-calendar-alt me-2" style="color: var(--gold)"></i>
+            Last Updated: June 1, 2025 | Effective Date: January 1, 2024
+          </div>
+
+          <div id="introduction" class="policy-card">
+            <h2><i class="fas fa-shield-heart"></i> Introduction</h2>
+            <p>
+              CARESPHERE WELLNESS ("we," "our," "us") is a Nairobi-based health
+              advisory and care coordination firm. We are committed to
+              protecting the privacy and security of your personal information.
+              This Privacy Policy explains how we collect, use, disclose, and
+              safeguard your information when you use our website, services, or
+              interact with us.
+            </p>
+            <p>
+              We operate in strict compliance with the
+              <strong>Kenya Data Protection Act (DPA) No. 24 of 2019</strong>,
+              the
+              <strong
+                >General Data Protection Regulation (GDPR) (EU) 2016/679</strong
+              >, and align our practices with
+              <strong
+                >HIPAA (Health Insurance Portability and Accountability
+                Act)</strong
+              >
+              standards for protected health information.
+            </p>
+            <div class="mt-3">
+              <span class="compliance-badge"
+                ><i class="fas fa-gavel"></i> Kenya Data Protection Act
+                2019</span
+              >
+              <span class="compliance-badge"
+                ><i class="fab fa-eu"></i> GDPR (EU) 2016/679</span
+              >
+              <span class="compliance-badge"
+                ><i class="fas fa-hospital-user"></i> HIPAA Standards</span
+              >
+              <span class="compliance-badge"
+                ><i class="fas fa-file-alt"></i> KMPDC Guidelines</span
+              >
+            </div>
+          </div>
+
+          <div id="information" class="policy-card">
+            <h2><i class="fas fa-database"></i> Information We Collect</h2>
+            <p>
+              We collect several types of information to provide and improve our
+              health governance services:
+            </p>
+            <h3>
+              <i class="fas fa-user me-2" style="color: var(--gold)"></i>
+              Personal Identification Information
+            </h3>
+            <ul>
+              <li>
+                <strong>Identity Data:</strong> Full name, date of birth,
+                gender, government-issued ID numbers (where required for medical
+                referrals).
+              </li>
+              <li>
+                <strong>Contact Data:</strong> Email addresses, phone numbers,
+                residential address, and emergency contact details.
+              </li>
+              <li>
+                <strong>Health Data:</strong> Medical history, health risk
+                assessments, diagnostic results, treatment plans, medication
+                lists, and care coordination records (collected with explicit
+                consent).
+              </li>
+              <li>
+                <strong>Financial Data:</strong> Payment information, insurance
+                details, billing addresses (processed securely via third-party
+                payment gateways).
+              </li>
+              <li>
+                <strong>Technical Data:</strong> IP address, browser type,
+                device information, and website usage analytics (via cookies).
+              </li>
+            </ul>
+            <p class="mt-2">
+              <em
+                >Sensitive health data is only collected when necessary for
+                providing health governance services and always with your
+                explicit, informed consent.</em
+              >
+            </p>
+          </div>
+
+          <div id="usage" class="policy-card">
+            <h2>
+              <i class="fas fa-chart-line"></i> How We Use Your Information
+            </h2>
+            <ul>
+              <li>
+                <i
+                  class="fas fa-check-circle me-2"
+                  style="color: var(--gold)"
+                ></i>
+                To provide executive health risk assessments and personalized
+                health reports.
+              </li>
+              <li>
+                <i
+                  class="fas fa-check-circle me-2"
+                  style="color: var(--gold)"
+                ></i>
+                To coordinate care across healthcare providers, including
+                appointment scheduling, referrals, and follow-ups.
+              </li>
+              <li>
+                <i
+                  class="fas fa-check-circle me-2"
+                  style="color: var(--gold)"
+                ></i>
+                To communicate with you regarding consultations, health updates,
+                and wellness insights.
+              </li>
+              <li>
+                <i
+                  class="fas fa-check-circle me-2"
+                  style="color: var(--gold)"
+                ></i>
+                To process payments, insurance claims, and manage billing.
+              </li>
+              <li>
+                <i
+                  class="fas fa-check-circle me-2"
+                  style="color: var(--gold)"
+                ></i>
+                To improve our website, services, and user experience through
+                analytics.
+              </li>
+              <li>
+                <i
+                  class="fas fa-check-circle me-2"
+                  style="color: var(--gold)"
+                ></i>
+                To comply with legal obligations, regulatory requirements, and
+                professional standards (KMPDC).
+              </li>
+            </ul>
+          </div>
+
+          <div id="legal" class="policy-card">
+            <h2>
+              <i class="fas fa-balance-scale"></i> Legal Basis for Processing
+              (GDPR & DPA Compliance)
+            </h2>
+            <p>
+              Under the Kenya Data Protection Act and GDPR, we process your
+              personal data based on one or more of the following legal grounds:
+            </p>
+            <ul>
+              <li>
+                <strong>Consent:</strong> You have given explicit consent for
+                processing your health data (e.g., for health risk assessments).
+              </li>
+              <li>
+                <strong>Contractual Necessity:</strong> Processing is necessary
+                for the performance of a service agreement or pre-contractual
+                steps.
+              </li>
+              <li>
+                <strong>Legal Obligation:</strong> Compliance with Kenyan
+                healthcare regulations (KMPDC, Ministry of Health).
+              </li>
+              <li>
+                <strong>Legitimate Interests:</strong> For administrative,
+                security, and quality improvement purposes that do not override
+                your fundamental rights.
+              </li>
+              <li>
+                <strong>Vital Interests:</strong> Where processing is necessary
+                to protect someone's life or health (emergency situations).
+              </li>
+            </ul>
+            <div
+              class="mt-3 p-3"
+              style="
+                background: var(--gold-pale);
+                border-radius: var(--radius-sm);
+              "
+            >
+              <i class="fas fa-info-circle me-2" style="color: var(--gold)"></i>
+              <strong>Data Protection Officer (DPO):</strong> We have appointed
+              a Data Protection Officer responsible for overseeing this policy.
+              Contact:
+              <a href="mailto:dpo@carespherewellness.co.ke"
+                >dpo@carespherewellness.co.ke</a
+              >
+            </div>
+          </div>
+
+          <div id="sharing" class="policy-card">
+            <h2><i class="fas fa-share-alt"></i> Data Sharing & Disclosure</h2>
+            <p>
+              We do not sell your personal data. We may share information only
+              in the following circumstances:
+            </p>
+            <ul>
+              <li>
+                <strong>Healthcare Providers:</strong> With your consent, we
+                share relevant health information with hospitals, laboratories,
+                specialists, and other healthcare professionals involved in your
+                care coordination.
+              </li>
+              <li>
+                <strong>Insurance Partners:</strong> For claim processing and
+                insurance navigation (with your authorization).
+              </li>
+              <li>
+                <strong>Service Providers:</strong> Third-party vendors who
+                assist with IT, payment processing, data storage, and analytics
+                (under strict confidentiality agreements).
+              </li>
+              <li>
+                <strong>Legal Compliance:</strong> When required by Kenyan law,
+                court order, or regulatory authority (KMPDC, ODPC).
+              </li>
+              <li>
+                <strong>Emergency Situations:</strong> To protect vital
+                interests in medical emergencies.
+              </li>
+            </ul>
+          </div>
+
+          <div id="security" class="policy-card">
+            <h2><i class="fas fa-lock"></i> Data Security</h2>
+            <p>
+              We implement robust technical and organizational measures to
+              protect your data:
+            </p>
+            <ul>
+              <li>
+                <i
+                  class="fas fa-shield-alt me-2"
+                  style="color: var(--gold)"
+                ></i>
+                <strong>Encryption:</strong> All data transmitted between your
+                browser and our servers uses TLS 1.3 encryption.
+              </li>
+              <li>
+                <i class="fas fa-database me-2" style="color: var(--gold)"></i>
+                <strong>Secure Storage:</strong> Personal and health data stored
+                in encrypted databases with access controls.
+              </li>
+              <li>
+                <i class="fas fa-user-lock me-2" style="color: var(--gold)"></i>
+                <strong>Access Control:</strong> Role-based access — only
+                authorized clinical and administrative personnel can access
+                sensitive data.
+              </li>
+              <li>
+                <i
+                  class="fas fa-clipboard-list me-2"
+                  style="color: var(--gold)"
+                ></i>
+                <strong>Regular Audits:</strong> Quarterly security assessments
+                and compliance audits.
+              </li>
+              <li>
+                <i class="fas fa-bell me-2" style="color: var(--gold)"></i>
+                <strong>Breach Notification:</strong> We maintain incident
+                response protocols and will notify affected individuals and the
+                Office of the Data Protection Commissioner (ODPC) within 72
+                hours of a confirmed breach.
+              </li>
+            </ul>
+          </div>
+
+          <div id="rights" class="policy-card">
+            <h2><i class="fas fa-user-check"></i> Your Privacy Rights</h2>
+            <p>
+              Under the Kenya Data Protection Act and GDPR, you have the
+              following rights regarding your personal data:
+            </p>
+            <ul>
+              <li>
+                <strong>Right to Access:</strong> Request a copy of the personal
+                data we hold about you.
+              </li>
+              <li>
+                <strong>Right to Rectification:</strong> Correct inaccurate or
+                incomplete data.
+              </li>
+              <li>
+                <strong>Right to Erasure ("Right to be Forgotten"):</strong>
+                Request deletion of your data, subject to legal retention
+                requirements.
+              </li>
+              <li>
+                <strong>Right to Restrict Processing:</strong> Limit how we use
+                your data in certain circumstances.
+              </li>
+              <li>
+                <strong>Right to Data Portability:</strong> Receive your data in
+                a structured, machine-readable format.
+              </li>
+              <li>
+                <strong>Right to Object:</strong> Object to processing based on
+                legitimate interests or direct marketing.
+              </li>
+              <li>
+                <strong>Right to Withdraw Consent:</strong> Withdraw previously
+                given consent at any time.
+              </li>
+              <li>
+                <strong>Right to Lodge a Complaint:</strong> File a complaint
+                with the Office of the Data Protection Commissioner (ODPC) if
+                you believe your rights have been violated.
+              </li>
+            </ul>
+            <p>
+              To exercise any of these rights, contact our Data Protection
+              Officer at
+              <a href="mailto:dpo@carespherewellness.co.ke"
+                >dpo@carespherewellness.co.ke</a
+              >
+              or call +254 712 155 510.
+            </p>
+          </div>
+
+          <div id="retention" class="policy-card">
+            <h2><i class="fas fa-hourglass-half"></i> Data Retention</h2>
+            <p>
+              We retain personal data only as long as necessary for the purposes
+              outlined in this policy, or as required by Kenyan healthcare
+              regulations:
+            </p>
+            <ul>
+              <li>
+                <strong>Health Records:</strong> Retained for a minimum of 10
+                years following the last interaction, in compliance with KMPDC
+                medical records retention guidelines.
+              </li>
+              <li>
+                <strong>Financial Records:</strong> Retained for 7 years to
+                comply with tax and auditing requirements.
+              </li>
+              <li>
+                <strong>Website Analytics:</strong> Retained for 26 months
+                (anonymized).
+              </li>
+              <li>
+                <strong>Marketing Data:</strong> Retained until you unsubscribe
+                or withdraw consent.
+              </li>
+            </ul>
+            <p>
+              After retention periods expire, data is securely deleted or
+              anonymized.
+            </p>
+          </div>
+
+          <div id="cookies" class="policy-card">
+            <h2>
+              <i class="fas fa-cookie-bite"></i> Cookies & Tracking Technologies
+            </h2>
+            <p>
+              Our website uses cookies to enhance user experience, analyze
+              traffic, and personalize content. We use:
+            </p>
+            <ul>
+              <li>
+                <strong>Essential Cookies:</strong> Required for basic website
+                functionality (cart, navigation).
+              </li>
+              <li>
+                <strong>Analytics Cookies:</strong> Google Analytics to
+                understand user behavior (anonymized IP addresses).
+              </li>
+              <li>
+                <strong>Preference Cookies:</strong> Remember your settings and
+                preferences.
+              </li>
+            </ul>
+            <p>
+              You can manage cookie preferences through your browser settings.
+              Disabling certain cookies may affect website functionality.
+            </p>
+          </div>
+
+          <div id="children" class="policy-card">
+            <h2><i class="fas fa-child"></i> Children's Privacy</h2>
+            <p>
+              Our services are directed to adults aged 18 and above. We do not
+              knowingly collect personal information from children under 18. If
+              we discover that a child under 18 has provided us with personal
+              data, we will delete it immediately. For children's health
+              services (with parental consent), data is handled under strict
+              parental oversight.
+            </p>
+          </div>
+
+          <div id="international" class="policy-card">
+            <h2><i class="fas fa-globe"></i> International Data Transfers</h2>
+            <p>
+              CARESPHERE WELLNESS operates primarily in Kenya. However, we may
+              transfer data to countries with equivalent data protection
+              standards (e.g., EU under GDPR adequacy decisions) or under strict
+              contractual safeguards (Standard Contractual Clauses). Any
+              international transfers comply with Kenya DPA Section 48 and GDPR
+              Chapter V requirements.
+            </p>
+          </div>
+
+          <div id="contact-privacy" class="policy-card">
+            <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+            <p>
+              If you have questions about this Privacy Policy, our data
+              practices, or wish to exercise your privacy rights, please contact
+              us:
+            </p>
+            <ul class="list-unstyled">
+              <li>
+                <i class="fas fa-building me-2" style="color: var(--gold)"></i>
+                <strong>CARESPHERE WELLNESS</strong> - Data Protection Office
+              </li>
+              <li>
+                <i
+                  class="fas fa-map-marker-alt me-2"
+                  style="color: var(--gold)"
+                ></i>
+                Westlands, Chiromo Lane, Medical Suites, 3rd Floor, Nairobi,
+                Kenya
+              </li>
+              <li>
+                <i class="fas fa-phone-alt me-2" style="color: var(--gold)"></i>
+                +254 712 155 510
+              </li>
+              <li>
+                <i class="fas fa-envelope me-2" style="color: var(--gold)"></i>
+                <a href="mailto:dpo@carespherewellness.co.ke"
+                  >dpo@carespherewellness.co.ke</a
+                >
+                (Data Protection Officer)
+              </li>
+              <li>
+                <i class="fas fa-envelope me-2" style="color: var(--gold)"></i>
+                <a href="mailto:Carespherewellness@gmail.com"
+                  >Carespherewellness@gmail.com</a
+                >
+                (General Inquiries)
+              </li>
+            </ul>
+            <hr />
+            <p class="small text-muted mb-0">
+              <strong
+                >Office of the Data Protection Commissioner (ODPC) -
+                Kenya:</strong
+              ><br />For unresolved complaints, you have the right to lodge a
+              complaint with the ODPC at
+              <a href="https://www.odpc.go.ke" target="_blank"
+                >www.odpc.go.ke</a
+              >
+              or P.O. Box 3097 - 00100, Nairobi, Kenya.
+            </p>
+          </div>
+
+          <div
+            class="policy-card mt-3"
+            style="background: var(--gold-pale); border-color: var(--gold)"
+          >
+            <div class="text-center">
+              <i
+                class="fas fa-hand-peace fa-2x"
+                style="color: var(--gold); margin-bottom: 1rem"
+              ></i>
+              <h5 class="mb-2">Commitment to Transparency</h5>
+              <p class="mb-0">
+                CARESPHERE WELLNESS is committed to the highest standards of
+                data privacy and ethical health governance. We continuously
+                review our practices to align with evolving regulations and best
+                practices.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-md-4">
+            <div class="footer-brand-text mb-3">
+              CARESPHERE <span style="color: var(--gold-light)">WELLNESS</span>
+            </div>
+            <p style="font-size: 0.88rem; line-height: 1.7; max-width: 300px">
+              Nairobi-based executive health governance and care coordination.
+              Your health, professionally managed.
+            </p>
+            <div class="footer-social mt-4">
+              <a
+                href="https://www.facebook.com/share/1LjcBqoMEe/"
+                target="_blank"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/caresphere_wellness"
+                target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@carespherewellness"
+                target="_blank"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+              <a href="https://ke.linkedin.com/in/e-amiani" target="_blank"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-2 col-6">
+            <div class="footer-heading">Quick Links</div>
+            <a href="index.html" class="footer-link">Home</a
+            ><a href="about.html" class="footer-link">About</a
+            ><a href="services.html" class="footer-link">Services</a
+            ><a href="store.html" class="footer-link">E-Store</a
+            ><a href="blog.html" class="footer-link">Insights</a>
+          </div>
+          <div class="col-md-2 col-6">
+            <div class="footer-heading">Legal</div>
+            <a href="privacy.html" class="footer-link">Privacy Policy</a
+            ><a href="terms.html" class="footer-link">Terms & Conditions</a
+            ><a href="faqs.html" class="footer-link">FAQs</a
+            ><a href="our_standards.html" class="footer-link">ISO 9001:2015</a>
+          </div>
+          <div class="col-md-4">
+            <div class="footer-heading">Stay Updated</div>
+            <p style="font-size: 0.85rem; margin-bottom: 14px">
+              Get weekly preventive health insights and offers.
+            </p>
+            <div class="subscribe-input-group mb-4">
+              <input
+                type="email"
+                class="subscribe-input"
+                id="footerSubscribeEmail"
+                placeholder="Your email address"
+              /><button class="subscribe-btn" id="footerSubscribeBtn">
+                Join
+              </button>
+            </div>
+            <div>
+              <i
+                class="fas fa-phone-alt me-2"
+                style="color: var(--gold-light)"
+              ></i
+              >+254 712 155 510<br /><i
+                class="far fa-envelope me-2"
+                style="color: var(--gold-light)"
+              ></i
+              >Carespherewellness@gmail.com
+            </div>
+          </div>
+        </div>
+        <hr class="mt-4" style="border-color: rgba(255, 255, 255, 0.07)" />
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-2 footer-bottom"
+        >
+          <div>
+            © <span id="dynamicYear"></span> CARESPHERE WELLNESS — All rights
+            reserved.
+          </div>
+          <div>
+            Designed by
+            <a
+              href="https://eontechsystems.com/"
+              target="_blank"
+              style="color: var(--gold-light); text-decoration: none"
+              >EonTech Systems</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/254712155510?text=Hello%20CARESPHERE%20WELLNESS%2C%20I%20have%20a%20privacy%20or%20data%20protection%20question"
+      target="_blank"
+      class="whatsapp-float"
+      ><i class="fab fa-whatsapp"></i
+    ></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Dynamic year
+      document.getElementById("dynamicYear").innerText =
+        new Date().getFullYear();
+
+      // Cart functionality
+      let cart = JSON.parse(localStorage.getItem("caresphereCart") || "[]");
+      function updateCartUI() {
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        const count = cart.reduce((s, i) => s + i.qty, 0);
+        document.getElementById("cartCountBadge").textContent = count;
+        document.getElementById("cartTotalAmount").innerHTML =
+          `KSh ${total.toLocaleString()}`;
+        const container = document.getElementById("cartItemsList");
+        if (!cart.length) {
+          container.innerHTML =
+            '<p class="text-muted text-center py-5">Your cart is empty.</p>';
+          return;
+        }
+        container.innerHTML = cart
+          .map(
+            (item) =>
+              `<div class="d-flex gap-3 align-items-center border-bottom pb-3 mb-3"><div style="width:60px;height:60px;background:#f0f2f5;border-radius:12px;display:flex;align-items:center;justify-content:center;"><i class="${item.icon || "fas fa-box"}" style="font-size:1.5rem;color:var(--gold)"></i></div><div class="flex-grow-1"><div class="fw-bold">${item.name}</div><div>KSh ${item.price.toLocaleString()}</div><div class="d-flex gap-2 mt-1"><button class="btn btn-sm btn-outline-secondary dec-cart" data-id="${item.id}">-</button><span>${item.qty}</span><button class="btn btn-sm btn-outline-secondary inc-cart" data-id="${item.id}">+</button></div></div><button class="btn btn-sm text-danger remove-cart" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button></div>`,
+          )
+          .join("");
+        document.querySelectorAll(".inc-cart").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const id = +btn.dataset.id;
+            const idx = cart.findIndex((i) => i.id === id);
+            if (idx > -1) {
+              cart[idx].qty++;
+              saveCart();
+              updateCartUI();
+            }
+          }),
+        );
+        document.querySelectorAll(".dec-cart").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const id = +btn.dataset.id;
+            const idx = cart.findIndex((i) => i.id === id);
+            if (idx > -1 && cart[idx].qty > 1) {
+              cart[idx].qty--;
+              saveCart();
+              updateCartUI();
+            } else if (idx > -1 && cart[idx].qty === 1) {
+              cart.splice(idx, 1);
+              saveCart();
+              updateCartUI();
+            }
+          }),
+        );
+        document.querySelectorAll(".remove-cart").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const id = +btn.dataset.id;
+            cart = cart.filter((i) => i.id !== id);
+            saveCart();
+            updateCartUI();
+          }),
+        );
+      }
+      function saveCart() {
+        localStorage.setItem("caresphereCart", JSON.stringify(cart));
+        updateCartUI();
+      }
+      function openCart() {
+        document.getElementById("cartSidebar").style.right = "0";
+        document.getElementById("cartOverlay").style.opacity = "1";
+        document.getElementById("cartOverlay").style.visibility = "visible";
+      }
+      function closeCart() {
+        document.getElementById("cartSidebar").style.right = "-500px";
+        document.getElementById("cartOverlay").style.opacity = "0";
+        document.getElementById("cartOverlay").style.visibility = "hidden";
+      }
+      document
+        .getElementById("cartIconBtn")
+        ?.addEventListener("click", openCart);
+      document
+        .getElementById("closeCartBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("cartOverlay")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("continueShoppingBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("proceedCheckoutBtn")
+        ?.addEventListener("click", () => {
+          if (cart.length === 0)
+            Swal.fire("Cart Empty", "Add items before checkout", "info");
+          else window.location.href = "checkout.html";
+        });
+      updateCartUI();
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("mainNav")
+          ?.classList.toggle("scrolled", window.scrollY > 40);
+      });
+
+      // Footer subscribe
+      document
+        .getElementById("footerSubscribeBtn")
+        ?.addEventListener("click", () => {
+          const email = document.getElementById("footerSubscribeEmail").value;
+          if (email && email.includes("@"))
+            Swal.fire("Subscribed!", "Weekly insights delivered.", "success");
+          else Swal.fire("Error", "Enter valid email", "error");
+        });
+    </script>
+  </body>
+</html>

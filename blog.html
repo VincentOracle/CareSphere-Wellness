@@ -1,0 +1,1558 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>
+      Health Insights | CARESPHERE WELLNESS | Preventive Health Knowledge Hub
+    </title>
+    <meta
+      name="description"
+      content="Expert insights on preventive health, executive wellness, hypertension, diabetes, stress management, maternal health, and occupational wellness. Stay informed with CARESPHERE WELLNESS."
+    />
+    <meta
+      name="keywords"
+      content="health blog, preventive health, hypertension Kenya, diabetes care, stress management, executive wellness, maternal health, occupational health"
+    />
+
+    <!-- Google Fonts + Bootstrap 5 + Font Awesome + SweetAlert -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="shortcut icon"
+      href="img/caresphere_logo_icon.png"
+      type="image/x-icon"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        color: #1e2a3e;
+        background-color: #fafcff;
+        scroll-behavior: smooth;
+      }
+      :root {
+        --navy: #0b1f3a;
+        --gold: #c8a96a;
+        --gold-light: #e0c88c;
+        --white: #ffffff;
+        --gray-light: #f8fafc;
+        --gray-border: #eef2f6;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      .text-navy {
+        color: var(--navy);
+      }
+      .text-gold {
+        color: var(--gold);
+      }
+      .bg-navy {
+        background-color: var(--navy);
+      }
+      .bg-gold {
+        background-color: var(--gold);
+      }
+      .btn-gold {
+        background-color: var(--gold);
+        border: none;
+        color: var(--navy);
+        font-weight: 600;
+        padding: 10px 24px;
+        border-radius: 40px;
+        transition: 0.3s;
+        font-size: 0.85rem;
+      }
+      .btn-gold:hover {
+        background-color: #b89a54;
+        color: white;
+        transform: translateY(-2px);
+      }
+      .btn-outline-gold {
+        border: 2px solid var(--gold);
+        background: transparent;
+        color: var(--navy);
+        font-weight: 600;
+        padding: 8px 20px;
+        border-radius: 40px;
+        transition: 0.3s;
+        font-size: 0.8rem;
+      }
+      .btn-outline-gold:hover {
+        background: var(--gold);
+        color: var(--navy);
+      }
+      .btn-navy {
+        background-color: var(--navy);
+        color: white;
+        border-radius: 40px;
+        padding: 10px 24px;
+        font-weight: 600;
+        transition: 0.3s;
+        font-size: 0.85rem;
+      }
+      .btn-navy:hover {
+        background-color: #1e3a5f;
+        transform: translateY(-2px);
+        color: white;
+      }
+
+      /* Responsive Typography */
+      html {
+        font-size: 16px;
+      }
+      @media (max-width: 1200px) {
+        html {
+          font-size: 15px;
+        }
+      }
+      @media (max-width: 992px) {
+        html {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 768px) {
+        html {
+          font-size: 13px;
+        }
+      }
+      @media (max-width: 576px) {
+        html {
+          font-size: 12px;
+        }
+      }
+
+      /* Top Bar - Sticky */
+      .top-bar {
+        background-color: #0a1a2f;
+        color: #e0e6ed;
+        font-size: 0.75rem;
+        padding: 6px 0;
+        border-bottom: 1px solid rgba(200, 169, 106, 0.2);
+        position: sticky;
+        top: 0;
+        z-index: 1001;
+      }
+      .top-bar a {
+        color: #e0e6ed;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+      .top-bar a:hover {
+        color: var(--gold);
+      }
+      .top-bar .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        margin-left: 6px;
+        transition: 0.2s;
+        font-size: 0.8rem;
+      }
+      .top-bar .social-links a:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-2px);
+      }
+      .top-bar .contact-info i {
+        margin-right: 5px;
+        color: var(--gold);
+      }
+      @media (max-width: 768px) {
+        .top-bar .contact-info span {
+          display: none;
+        }
+        .top-bar .social-links a {
+          width: 26px;
+          height: 26px;
+        }
+      }
+
+      /* Navbar - Sticky with mobile cart visible */
+      .navbar-custom {
+        background-color: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+        padding: 0.5rem 1rem;
+        position: sticky;
+        top: 38px;
+        z-index: 1000;
+      }
+      @media (max-width: 768px) {
+        .navbar-custom {
+          top: 36px;
+        }
+      }
+      .navbar-brand img {
+        height: 45px;
+        object-fit: contain;
+      }
+      .nav-link {
+        font-weight: 500;
+        color: var(--navy) !important;
+        margin: 0 0.4rem;
+        transition: 0.2s;
+        font-size: 0.85rem;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--gold) !important;
+      }
+      .cart-badge {
+        background: var(--gold);
+        color: var(--navy);
+        border-radius: 30px;
+        padding: 2px 8px;
+        font-size: 0.65rem;
+        font-weight: bold;
+        margin-left: 5px;
+      }
+
+      /* Mobile cart button */
+      .mobile-cart-btn {
+        display: none;
+      }
+      @media (max-width: 991px) {
+        .desktop-cart-btn {
+          display: none !important;
+        }
+        .mobile-cart-btn {
+          display: inline-flex !important;
+          align-items: center;
+          justify-content: center;
+          background: var(--navy);
+          color: white;
+          border: none;
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          position: relative;
+          margin-right: 8px;
+        }
+        .mobile-cart-btn:hover {
+          background: var(--gold);
+          color: var(--navy);
+        }
+        .navbar-toggler {
+          order: 2;
+        }
+        .navbar-collapse {
+          order: 3;
+          width: 100%;
+        }
+      }
+      @media (min-width: 992px) {
+        .desktop-cart-btn {
+          display: inline-flex !important;
+        }
+        .mobile-cart-btn {
+          display: none !important;
+        }
+      }
+
+      /* Cart Sidebar */
+      .cart-sidebar {
+        position: fixed;
+        top: 0;
+        right: -480px;
+        width: 420px;
+        max-width: 90vw;
+        height: 100vh;
+        background: white;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+        z-index: 1050;
+        transition: 0.35s ease;
+        padding: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      .cart-sidebar.open {
+        right: 0;
+      }
+      .cart-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1040;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.2s;
+      }
+      .cart-overlay.active {
+        visibility: visible;
+        opacity: 1;
+      }
+      .cart-item-img {
+        width: 55px;
+        height: 55px;
+        background: #f0f2f5;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 12px;
+        overflow: hidden;
+      }
+      .cart-item-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .quantity-btn {
+        background: #eef2f6;
+        border: none;
+        width: 28px;
+        height: 28px;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: 0.2s;
+        font-size: 0.9rem;
+      }
+      .quantity-btn:hover {
+        background: var(--gold);
+        color: white;
+      }
+
+      /* Blog Hero */
+      .blog-hero {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(11, 31, 58, 0.94) 0%,
+            rgba(11, 31, 58, 0.88) 100%
+          ),
+          url("img/blog_hero_bg.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        padding: 60px 0 50px;
+        color: white;
+      }
+      .blog-hero h1 {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        font-weight: 800;
+      }
+
+      /* Category Pills */
+      .category-pill {
+        display: inline-block;
+        padding: 5px 16px;
+        background: white;
+        border-radius: 40px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: var(--navy);
+        margin: 4px;
+        transition: 0.2s;
+        cursor: pointer;
+        border: 1px solid var(--gray-border);
+      }
+      .category-pill:hover,
+      .category-pill.active {
+        background: var(--gold);
+        color: var(--navy);
+        border-color: var(--gold);
+      }
+
+      /* Blog Cards */
+      .blog-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: 0.3s;
+        height: 100%;
+        border: 1px solid var(--gray-border);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      }
+      .blog-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
+        border-color: var(--gold);
+      }
+      .blog-img {
+        height: 180px;
+        background-size: cover;
+        background-position: center;
+      }
+      .blog-content {
+        padding: 1.2rem;
+      }
+      .blog-meta {
+        font-size: 0.7rem;
+        color: #6c757d;
+        display: flex;
+        gap: 12px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+      }
+      .blog-meta i {
+        margin-right: 4px;
+        color: var(--gold);
+      }
+      .blog-stats {
+        display: flex;
+        gap: 12px;
+        margin: 10px 0;
+        font-size: 0.75rem;
+        color: #6c757d;
+      }
+      .blog-stats span {
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .blog-stats span:hover {
+        color: var(--gold);
+      }
+      .blog-stats span.liked i {
+        color: #e74c3c;
+      }
+      .hashtags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin: 10px 0;
+      }
+      .hashtag {
+        background: #f0f2f5;
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 0.65rem;
+        color: var(--navy);
+      }
+
+      /* Search */
+      .search-wrapper {
+        position: relative;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .search-wrapper input {
+        padding: 12px 45px 12px 18px;
+        border-radius: 60px;
+        border: 1px solid var(--gray-border);
+        width: 100%;
+        font-size: 0.85rem;
+      }
+      .search-wrapper i {
+        position: absolute;
+        right: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gold);
+      }
+
+      /* Pagination */
+      .pagination .page-link {
+        color: var(--navy);
+        border-radius: 30px;
+        margin: 0 3px;
+        border: 1px solid var(--gray-border);
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
+      .pagination .page-item.active .page-link {
+        background-color: var(--gold);
+        border-color: var(--gold);
+        color: var(--navy);
+      }
+
+      /* Sidebar for desktop */
+      .sidebar-card {
+        background: white;
+        border-radius: 20px;
+        padding: 1.2rem;
+        border: 1px solid var(--gray-border);
+        margin-bottom: 1.5rem;
+        position: sticky;
+        top: 110px;
+      }
+      .sidebar-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--gold);
+        padding-left: 10px;
+      }
+      .category-list {
+        list-style: none;
+        padding: 0;
+      }
+      .category-list li {
+        margin-bottom: 10px;
+      }
+      .category-list a {
+        color: var(--text-mid);
+        text-decoration: none;
+        font-size: 0.85rem;
+        display: flex;
+        justify-content: space-between;
+        transition: 0.2s;
+      }
+      .category-list a:hover {
+        color: var(--gold);
+        transform: translateX(4px);
+      }
+      .trending-tag {
+        display: inline-block;
+        background: #f0f2f5;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        margin: 3px;
+        color: var(--navy);
+        text-decoration: none;
+        transition: 0.2s;
+      }
+      .trending-tag:hover {
+        background: var(--gold);
+        color: var(--navy);
+      }
+
+      /* Newsletter */
+      .newsletter-card {
+        background: var(--gold-pale);
+        border-radius: 20px;
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: 1rem;
+      }
+
+      .whatsapp-float {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background-color: #25d366;
+        color: white;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        transition: 0.2s;
+      }
+      .whatsapp-float:hover {
+        background-color: #20b859;
+        transform: scale(1.05);
+      }
+
+      footer {
+        background:
+          linear-gradient(rgba(11, 31, 58, 0.95), rgba(11, 31, 58, 0.97)),
+          url("img/footer_bg.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #cfdee9;
+        margin-top: 2rem;
+      }
+      .footer-link {
+        color: #cfdee9;
+        text-decoration: none;
+        transition: 0.2s;
+        display: inline-block;
+        margin-bottom: 6px;
+        font-size: 0.8rem;
+      }
+      .footer-link:hover {
+        color: var(--gold);
+        transform: translateX(4px);
+      }
+      .social-icon {
+        background: rgba(255, 255, 255, 0.12);
+        width: 34px;
+        height: 34px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-right: 6px;
+        transition: 0.2s;
+        color: white;
+        font-size: 16px;
+      }
+      .social-icon:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-3px);
+      }
+      .payment-icon {
+        font-size: 24px;
+        margin-right: 8px;
+        opacity: 0.8;
+        transition: 0.2s;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .section-title {
+        margin-bottom: 2rem;
+      }
+      .section-title h2 {
+        font-weight: 700;
+      }
+      .section-title span {
+        border-bottom: 4px solid var(--gold);
+        display: inline-block;
+        padding-bottom: 6px;
+      }
+
+      @media (max-width: 768px) {
+        .blog-hero {
+          padding: 40px 0 30px;
+        }
+        .sidebar-card {
+          position: relative;
+          top: 0;
+          margin-top: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR - Sticky -->
+    <div class="top-bar">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-8 text-center text-md-start">
+            <div
+              class="contact-info d-flex flex-wrap justify-content-center justify-content-md-start gap-3"
+            >
+              <a href="tel:+254712155510"
+                ><i class="fas fa-phone-alt"></i> +254 712 155 510</a
+              >
+              <a href="https://wa.me/254712155510" target="_blank"
+                ><i class="fab fa-whatsapp"></i> WhatsApp</a
+              >
+              <a href="mailto:Carespherewellness@gmail.com"
+                ><i class="far fa-envelope"></i> Carespherewellness@gmail.com</a
+              >
+              <span><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</span>
+            </div>
+          </div>
+          <div class="col-md-4 text-center text-md-end">
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/share/1LjcBqoMEe/"
+                target="_blank"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/caresphere_wellness"
+                target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="https://ke.linkedin.com/in/e-amiani" target="_blank"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@carespherewellness"
+                target="_blank"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CART OVERLAY & SIDEBAR -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="mb-0">
+          <i class="fas fa-shopping-cart text-gold"></i> Your Cart
+        </h5>
+        <button class="btn-close" id="closeCartBtn"></button>
+      </div>
+      <div
+        id="cartItemsList"
+        class="flex-grow-1 mb-3"
+        style="max-height: 55vh; overflow-y: auto"
+      >
+        <p class="text-muted text-center py-4">Your cart is empty.</p>
+      </div>
+      <div class="border-top pt-3">
+        <div class="d-flex justify-content-between fw-bold mb-2">
+          <span>Total:</span><span id="cartTotalAmount">KSh 0</span>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-gold w-50" id="continueShoppingBtn">
+            <i class="fas fa-arrow-left me-1"></i> Shop More</button
+          ><button class="btn btn-navy w-50" id="proceedCheckoutBtn">
+            Checkout →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR with mobile cart visible -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"
+          ><img
+            src="img/caresphere_logo.png"
+            alt="CARESPHERE WELLNESS"
+            style="height: 50px"
+            onerror="
+              this.src = 'https://placehold.co/180x50/0B1F3A/white?text=CSW'
+            "
+        /></a>
+
+        <!-- Mobile Cart Button -->
+        <button class="mobile-cart-btn" id="mobileCartIconBtn">
+          <i class="fas fa-shopping-cart"></i
+          ><span class="cart-badge" id="mobileCartCountBadge">0</span>
+        </button>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="store.html">E-Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="partners.html">Partners</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="blog.html">Insights</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <a
+            href="booking.html"
+            class="btn btn-gold ms-3 d-none d-lg-inline-block"
+            >Book Consultation</a
+          >
+          <button
+            class="desktop-cart-btn btn btn-outline-gold ms-2 position-relative"
+            id="cartIconBtn"
+          >
+            <i class="fas fa-shopping-cart"></i
+            ><span class="cart-badge" id="cartCountBadge">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- BLOG HERO -->
+    <section class="blog-hero">
+      <div class="container text-center">
+        <h1 class="mb-3">
+          Health <span class="text-gold">Insights</span> & Knowledge Hub
+        </h1>
+        <p class="lead">
+          Evidence-based guidance on preventive health, executive wellness, and
+          care coordination
+        </p>
+        <div class="search-wrapper mt-4">
+          <input
+            type="text"
+            id="searchInput"
+            class="form-control"
+            placeholder="Search articles..."
+          /><i class="fas fa-search"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT with Sidebar -->
+    <section class="container py-4">
+      <div class="row g-4">
+        <!-- Main Articles Column -->
+        <div class="col-lg-8">
+          <!-- Category Pills Row -->
+          <div class="mb-4 text-center" id="categoryFilter">
+            <span class="category-pill active" data-cat="all">All Topics</span>
+            <span class="category-pill" data-cat="Hypertension"
+              >Hypertension</span
+            >
+            <span class="category-pill" data-cat="Diabetes">Diabetes</span>
+            <span class="category-pill" data-cat="Stress"
+              >Stress & Burnout</span
+            >
+            <span class="category-pill" data-cat="Maternal Health"
+              >Maternal Health</span
+            >
+            <span class="category-pill" data-cat="Occupational Health"
+              >Occupational Health</span
+            >
+            <span class="category-pill" data-cat="Executive Wellness"
+              >Executive Wellness</span
+            >
+            <span class="category-pill" data-cat="Lifestyle Diseases"
+              >Lifestyle Diseases</span
+            >
+          </div>
+          <div class="row g-4" id="articlesContainer"></div>
+          <div class="d-flex justify-content-center mt-4">
+            <nav><ul class="pagination" id="pagination"></ul></nav>
+          </div>
+        </div>
+
+        <!-- Sidebar Column -->
+        <div class="col-lg-4">
+          <div class="sidebar-card">
+            <h5 class="sidebar-title">
+              <i class="fas fa-folder-open me-2 text-gold"></i>Categories
+            </h5>
+            <ul class="category-list" id="categoryListSidebar">
+              <li>
+                <a href="#" data-cat="all">All Topics <span>(9)</span></a>
+              </li>
+              <li>
+                <a href="#" data-cat="Hypertension"
+                  >Hypertension <span>(1)</span></a
+                >
+              </li>
+              <li>
+                <a href="#" data-cat="Diabetes">Diabetes <span>(1)</span></a>
+              </li>
+              <li>
+                <a href="#" data-cat="Stress"
+                  >Stress & Burnout <span>(2)</span></a
+                >
+              </li>
+              <li>
+                <a href="#" data-cat="Maternal Health"
+                  >Maternal Health <span>(2)</span></a
+                >
+              </li>
+              <li>
+                <a href="#" data-cat="Occupational Health"
+                  >Occupational Health <span>(1)</span></a
+                >
+              </li>
+              <li>
+                <a href="#" data-cat="Executive Wellness"
+                  >Executive Wellness <span>(1)</span></a
+                >
+              </li>
+              <li>
+                <a href="#" data-cat="Lifestyle Diseases"
+                  >Lifestyle Diseases <span>(1)</span></a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h5 class="sidebar-title">
+              <i class="fas fa-fire me-2 text-gold"></i>Trending Hashtags
+            </h5>
+            <div id="trendingHashtags"></div>
+          </div>
+
+          <div class="sidebar-card">
+            <h5 class="sidebar-title">
+              <i class="fas fa-link me-2 text-gold"></i>Quick Links
+            </h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="about.html" class="text-decoration-none text-mid"
+                  ><i class="fas fa-angle-right text-gold me-2"></i>About
+                  CARESPHERE</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="services.html" class="text-decoration-none text-mid"
+                  ><i class="fas fa-angle-right text-gold me-2"></i>Our
+                  Services</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="store.html" class="text-decoration-none text-mid"
+                  ><i class="fas fa-angle-right text-gold me-2"></i>Wellness
+                  Store</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="booking.html" class="text-decoration-none text-mid"
+                  ><i class="fas fa-angle-right text-gold me-2"></i>Book
+                  Consultation</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="contact.html" class="text-decoration-none text-mid"
+                  ><i class="fas fa-angle-right text-gold me-2"></i>Contact
+                  Support</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="newsletter-card" style="background: var(--gold-pale)">
+            <i class="fas fa-envelope-open-text fa-2x text-gold mb-2"></i>
+            <h5>Weekly Health Insights</h5>
+            <p class="small">Get expert tips delivered to your inbox</p>
+            <div class="input-group">
+              <input
+                type="email"
+                class="form-control form-control-sm"
+                placeholder="Your email"
+                id="sidebarNewsletterEmail"
+              /><button class="btn btn-gold btn-sm" id="sidebarNewsletterBtn">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER SECTION (Footer) -->
+    <section class="bg-light py-4">
+      <div class="container text-center">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <i class="fas fa-envelope-open-text fa-2x text-gold mb-2"></i>
+            <h4>Subscribe to Weekly Health Insights</h4>
+            <p class="text-muted small">
+              Get expert preventive health tips, early risk alerts, and wellness
+              strategies delivered to your inbox.
+            </p>
+            <div class="input-group mb-2">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Your email address"
+                id="newsletterEmail"
+              /><button class="btn btn-gold" id="newsletterBtn">
+                Subscribe
+              </button>
+            </div>
+            <small class="text-muted">No spam. Unsubscribe anytime.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pt-4 pb-3">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <a href="index.html" class="d-inline-block mb-2"
+              ><img
+                src="img/caresphere_footer_logo.png"
+                alt="logo"
+                style="height: 45px"
+                onerror="
+                  this.src =
+                    'https://placehold.co/160x45/FFFFFF/0B1F3A?text=CSW'
+                "
+            /></a>
+            <p class="mt-2 small">
+              Nairobi based health governance and care coordination. Your
+              health, professionally managed.
+            </p>
+            <div class="mt-2">
+              <i class="fab fa-cc-visa fa-xl payment-icon"></i
+              ><i class="fab fa-cc-mastercard fa-xl payment-icon"></i
+              ><i class="fab fa-cc-paypal fa-xl payment-icon"></i
+              ><i class="fas fa-mobile-alt fa-xl payment-icon"></i>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <h5 class="text-white">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li><a href="about.html" class="footer-link">About</a></li>
+              <li><a href="services.html" class="footer-link">Services</a></li>
+              <li><a href="store.html" class="footer-link">E-Store</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5 class="text-white">Useful Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="terms.html" class="footer-link"
+                  >Terms and Conditions</a
+                >
+              </li>
+              <li><a href="faq.html" class="footer-link">FAQs</a></li>
+              <li>
+                <a href="standards.html" class="footer-link"
+                  >ISO 9001:2015 Standards</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5 class="text-white">Subscribe</h5>
+            <p class="small">Get weekly preventive insights and offers</p>
+            <div class="input-group mb-2">
+              <input
+                type="email"
+                class="form-control form-control-sm"
+                placeholder="Your email"
+                id="footerSubscribeEmail"
+              /><button class="btn btn-gold btn-sm" id="footerSubscribeBtn">
+                Join
+              </button>
+            </div>
+            <div class="mt-2">
+              <a
+                href="https://www.facebook.com/share/1LjcBqoMEe/"
+                target="_blank"
+                class="social-icon"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                href="https://www.instagram.com/caresphere_wellness"
+                target="_blank"
+                class="social-icon"
+                ><i class="fab fa-instagram"></i></a
+              ><a
+                href="https://www.tiktok.com/@carespherewellness"
+                target="_blank"
+                class="social-icon"
+                ><i class="fab fa-tiktok"></i></a
+              ><a
+                href="https://ke.linkedin.com/in/e-amiani"
+                target="_blank"
+                class="social-icon"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <hr class="my-3 opacity-25" />
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start small">
+            © <span id="dynamicYear"></span> CARESPHERE WELLNESS — Executive
+            Health Governance. All rights reserved.
+          </div>
+          <div class="col-md-6 text-center text-md-end small">
+            Designed by
+            <a
+              href="https://eontechsystems.com/"
+              target="_blank"
+              class="text-gold text-decoration-none"
+              >EonTech Systems</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/254712155510?text=Hello%20CARESPHERE%20WELLNESS"
+      target="_blank"
+      class="whatsapp-float"
+      ><i class="fab fa-whatsapp"></i
+    ></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Dynamic year
+      document.getElementById("dynamicYear").innerText =
+        new Date().getFullYear();
+
+      // Cart functionality (standardized)
+      let cart = JSON.parse(localStorage.getItem("caresphereCart") || "[]");
+      function saveCart() {
+        localStorage.setItem("caresphereCart", JSON.stringify(cart));
+        updateCartUI();
+      }
+      function updateCartUI() {
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        const cnt = cart.reduce((s, i) => s + i.qty, 0);
+        document.getElementById("cartCountBadge").innerText = cnt;
+        document.getElementById("mobileCartCountBadge").innerText = cnt;
+        document.getElementById("cartTotalAmount").innerHTML =
+          `KSh ${total.toLocaleString()}`;
+        const container = document.getElementById("cartItemsList");
+        if (!cart.length) {
+          container.innerHTML =
+            '<p class="text-muted text-center py-4">Your cart is empty.</p>';
+          return;
+        }
+        container.innerHTML = cart
+          .map(
+            (item) =>
+              `<div class="d-flex align-items-center border-bottom pb-2 mb-2"><div class="cart-item-img"><img src="${item.image || "img/product_chair.jpg"}" onerror="this.src='https://placehold.co/55x55/0B1F3A/white?text=CSW'"></div><div class="flex-grow-1"><strong>${item.name}</strong><br><small>KSh ${item.price.toLocaleString()}</small><div class="d-flex gap-2 mt-1"><button class="quantity-btn decQty" data-id="${item.id}">−</button><span class="mx-1">${item.qty}</span><button class="quantity-btn incQty" data-id="${item.id}">+</button></div></div><button class="btn btn-sm text-danger removeCartItemBtn" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button></div>`,
+          )
+          .join("");
+        document.querySelectorAll(".incQty").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            let id = parseInt(btn.dataset.id);
+            let idx = cart.findIndex((i) => i.id === id);
+            if (idx !== -1) {
+              cart[idx].qty++;
+              saveCart();
+            }
+          }),
+        );
+        document.querySelectorAll(".decQty").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            let id = parseInt(btn.dataset.id);
+            let idx = cart.findIndex((i) => i.id === id);
+            if (idx !== -1 && cart[idx].qty > 1) {
+              cart[idx].qty--;
+              saveCart();
+            } else if (idx !== -1 && cart[idx].qty === 1) confirmDeleteItem(id);
+          }),
+        );
+        document.querySelectorAll(".removeCartItemBtn").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            let id = parseInt(btn.dataset.id);
+            confirmDeleteItem(id);
+          }),
+        );
+      }
+      function confirmDeleteItem(id) {
+        const item = cart.find((i) => i.id === id);
+        Swal.fire({
+          title: `Remove ${item?.name}?`,
+          text: "Item will be removed.",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Remove",
+        }).then((res) => {
+          if (res.isConfirmed) {
+            cart = cart.filter((i) => i.id !== id);
+            saveCart();
+          }
+        });
+      }
+      function closeCart() {
+        document.getElementById("cartSidebar").classList.remove("open");
+        document.getElementById("cartOverlay").classList.remove("active");
+      }
+      document.getElementById("cartIconBtn")?.addEventListener("click", () => {
+        document.getElementById("cartSidebar").classList.add("open");
+        document.getElementById("cartOverlay").classList.add("active");
+      });
+      document
+        .getElementById("mobileCartIconBtn")
+        ?.addEventListener("click", () => {
+          document.getElementById("cartSidebar").classList.add("open");
+          document.getElementById("cartOverlay").classList.add("active");
+        });
+      document
+        .getElementById("closeCartBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("cartOverlay")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("continueShoppingBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("proceedCheckoutBtn")
+        ?.addEventListener("click", () => {
+          if (cart.length === 0)
+            Swal.fire("Cart empty", "Add items before checkout", "info");
+          else window.location.href = "checkout.html";
+        });
+      updateCartUI();
+
+      // Blog Data - Enhanced with images and content
+      const articles = [
+        {
+          id: 1,
+          title: "Silent Hypertension: Why 1 in 3 Kenyans Are at Risk",
+          summary:
+            "High blood pressure often shows no symptoms until it's too late. Learn about early detection and lifestyle changes.",
+          author: "Ephraim Amiani",
+          date: "May 15, 2025",
+          category: "Hypertension",
+          image: "img/hypertension.jpg",
+          views: 1240,
+          likes: 89,
+          comments: 12,
+          hashtags: [
+            "#HypertensionAwareness",
+            "#SilentKiller",
+            "#KnowYourNumbers",
+          ],
+        },
+        {
+          id: 2,
+          title: "Prediabetes Reversal: Your 90-Day Action Plan",
+          summary:
+            "Catch diabetes early and reverse it with structured lifestyle interventions and monitoring.",
+          author: "Dr. Sarah Muthoni",
+          date: "May 10, 2025",
+          category: "Diabetes",
+          image: "img/diabetes.jpg",
+          views: 987,
+          likes: 67,
+          comments: 8,
+          hashtags: ["#DiabetesPrevention", "#Prediabetes", "#HealthyLiving"],
+        },
+        {
+          id: 3,
+          title: "Executive Burnout: Recognizing the Warning Signs",
+          summary:
+            "Chronic workplace stress is affecting productivity and health. Identify early burnout symptoms.",
+          author: "Ephraim Amiani",
+          date: "May 5, 2025",
+          category: "Stress",
+          image: "img/burnout.jpg",
+          views: 2100,
+          likes: 156,
+          comments: 23,
+          hashtags: ["#BurnoutRecovery", "#MentalHealth", "#ExecutiveWellness"],
+        },
+        {
+          id: 4,
+          title: "Preconception Health: Preparing for a Healthy Pregnancy",
+          summary:
+            "Optimize your health before conception to reduce risks and improve maternal outcomes.",
+          author: "Dr. Grace Wanjiku",
+          date: "April 28, 2025",
+          category: "Maternal Health",
+          image: "img/maternal.jpg",
+          views: 756,
+          likes: 112,
+          comments: 14,
+          hashtags: [
+            "#PreconceptionCare",
+            "#HealthyPregnancy",
+            "#ReproductiveHealth",
+          ],
+        },
+        {
+          id: 5,
+          title: "Desk Jobs and Back Pain: Ergonomic Solutions",
+          summary:
+            "How to protect your spine and posture while working long hours at a computer.",
+          author: "James Otieno",
+          date: "April 20, 2025",
+          category: "Occupational Health",
+          image: "img/ergonomic.jpg",
+          views: 1432,
+          likes: 203,
+          comments: 31,
+          hashtags: ["#Ergonomics", "#WorkplaceWellness", "#BackPainRelief"],
+        },
+        {
+          id: 6,
+          title: "The Power of Preventive Health Governance",
+          summary:
+            "Why structured health oversight reduces costly emergencies and improves longevity.",
+          author: "Ephraim Amiani",
+          date: "April 12, 2025",
+          category: "Executive Wellness",
+          image: "img/governance.jpg",
+          views: 1890,
+          likes: 245,
+          comments: 42,
+          hashtags: ["#HealthGovernance", "#PreventiveCare", "#Longevity"],
+        },
+        {
+          id: 7,
+          title: "Managing Cholesterol: Diet and Exercise Guide",
+          summary:
+            "Practical steps to lower LDL cholesterol and reduce heart disease risk.",
+          author: "Dr. Michael Kipruto",
+          date: "April 5, 2025",
+          category: "Lifestyle Diseases",
+          image: "img/cholesterol.jpg",
+          views: 1120,
+          likes: 78,
+          comments: 9,
+          hashtags: ["#HeartHealth", "#Cholesterol", "#HealthyEating"],
+        },
+        {
+          id: 8,
+          title: "Stress Management Techniques for Busy Professionals",
+          summary:
+            "Mindfulness, breathing exercises, and time management for high-pressure careers.",
+          author: "Ephraim Amiani",
+          date: "March 28, 2025",
+          category: "Stress",
+          image: "img/stress.jpg",
+          views: 1654,
+          likes: 189,
+          comments: 27,
+          hashtags: ["#StressRelief", "#Mindfulness", "#MentalWellness"],
+        },
+        {
+          id: 9,
+          title:
+            "Gestational Diabetes: What Every Expectant Mother Should Know",
+          summary:
+            "Screening, management, and postnatal care for gestational diabetes.",
+          author: "Dr. Grace Wanjiku",
+          date: "March 20, 2025",
+          category: "Maternal Health",
+          image: "img/gestational.jpg",
+          views: 834,
+          likes: 56,
+          comments: 7,
+          hashtags: [
+            "#GestationalDiabetes",
+            "#PregnancyHealth",
+            "#MaternalCare",
+          ],
+        },
+      ];
+
+      let currentCategory = "all";
+      let currentSearch = "";
+      let currentPage = 1;
+      const itemsPerPage = 6;
+
+      function renderArticles() {
+        let filtered = articles.filter(
+          (a) => currentCategory === "all" || a.category === currentCategory,
+        );
+        if (currentSearch.trim() !== "") {
+          const searchLower = currentSearch.toLowerCase();
+          filtered = filtered.filter(
+            (a) =>
+              a.title.toLowerCase().includes(searchLower) ||
+              a.summary.toLowerCase().includes(searchLower) ||
+              a.category.toLowerCase().includes(searchLower),
+          );
+        }
+        const totalPages = Math.ceil(filtered.length / itemsPerPage);
+        const start = (currentPage - 1) * itemsPerPage;
+        const paginated = filtered.slice(start, start + itemsPerPage);
+        const container = document.getElementById("articlesContainer");
+        if (paginated.length === 0) {
+          container.innerHTML = `<div class="col-12 text-center py-5"><h4>No articles found</h4><p class="text-muted">Try a different search or category.</p></div>`;
+        } else {
+          container.innerHTML = paginated
+            .map(
+              (article) =>
+                `<div class="col-md-6 col-lg-4"><div class="blog-card"><div class="blog-img" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('img/blog_${article.image}'); background-size: cover; background-position: center;"></div><div class="blog-content"><div class="blog-meta"><span><i class="far fa-calendar-alt"></i> ${article.date}</span><span><i class="far fa-user"></i> ${article.author}</span></div><h5 class="mb-2">${article.title}</h5><p class="text-muted small">${article.summary.substring(0, 90)}...</p><div class="hashtags">${article.hashtags.map((t) => `<span class="hashtag">${t}</span>`).join("")}</div><div class="blog-stats"><span class="like-btn" data-id="${article.id}"><i class="far fa-heart"></i> ${article.likes}</span><span class="comment-btn" data-id="${article.id}"><i class="far fa-comment"></i> ${article.comments}</span><span><i class="far fa-eye"></i> ${article.views}</span></div><div class="d-flex justify-content-between align-items-center mt-2"><button class="btn btn-sm btn-outline-gold read-more-btn" data-id="${article.id}">Read More <i class="fas fa-arrow-right ms-1"></i></button><span class="share-btn" data-title="${article.title}" style="cursor:pointer;"><i class="fas fa-share-alt text-gold"></i></span></div></div></div></div>`,
+            )
+            .join("");
+        }
+        // Pagination
+        const paginationEl = document.getElementById("pagination");
+        if (totalPages <= 1) {
+          paginationEl.innerHTML = "";
+          return;
+        }
+        let paginationHtml = `<li class="page-item ${currentPage === 1 ? "disabled" : ""}"><a class="page-link" href="#" data-page="${currentPage - 1}">Previous</a></li>`;
+        for (let i = 1; i <= totalPages; i++) {
+          paginationHtml += `<li class="page-item ${currentPage === i ? "active" : ""}"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
+        }
+        paginationHtml += `<li class="page-item ${currentPage === totalPages ? "disabled" : ""}"><a class="page-link" href="#" data-page="${currentPage + 1}">Next</a></li>`;
+        paginationEl.innerHTML = paginationHtml;
+        document.querySelectorAll(".pagination a.page-link").forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const page = parseInt(link.dataset.page);
+            if (!isNaN(page) && page >= 1 && page <= totalPages) {
+              currentPage = page;
+              renderArticles();
+              window.scrollTo({ top: 400, behavior: "smooth" });
+            }
+          });
+        });
+
+        // Event listeners for dynamic buttons
+        document.querySelectorAll(".like-btn").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            const id = parseInt(btn.dataset.id);
+            const article = articles.find((a) => a.id === id);
+            if (article) {
+              article.likes++;
+              renderArticles();
+              Swal.fire({
+                title: "Liked!",
+                text: "Thank you for your feedback.",
+                icon: "success",
+                timer: 1000,
+                showConfirmButton: false,
+              });
+            }
+          });
+        });
+        document.querySelectorAll(".comment-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            Swal.fire({
+              title: "Leave a Comment",
+              input: "textarea",
+              inputPlaceholder: "Share your thoughts...",
+              showCancelButton: true,
+              confirmButtonColor: "#C8A96A",
+            }).then((res) => {
+              if (res.isConfirmed && res.value) {
+                Swal.fire(
+                  "Comment Posted",
+                  "Your comment will be reviewed.",
+                  "success",
+                );
+              }
+            });
+          });
+        });
+        document.querySelectorAll(".read-more-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const id = parseInt(btn.dataset.id);
+            const article = articles.find((a) => a.id === id);
+            Swal.fire({
+              title: article.title,
+              html: `<p class="text-start">${article.summary}<br><br><strong>Full article available in our upcoming publication.</strong></p><div class="mt-2"><small>By ${article.author} | ${article.date}</small></div>`,
+              icon: "info",
+              confirmButtonText: "Request Full Article",
+              showCancelButton: true,
+            }).then((res) => {
+              if (res.isConfirmed)
+                window.open(
+                  "https://wa.me/254712155510?text=I%20would%20like%20to%20request%20the%20full%20article:%20" +
+                    article.title,
+                  "_blank",
+                );
+            });
+          });
+        });
+        document.querySelectorAll(".share-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const title = btn.dataset.title;
+            navigator.clipboard.writeText(window.location.href);
+            Swal.fire(
+              "Link Copied!",
+              `Share "${title}" with your network.`,
+              "success",
+            );
+          });
+        });
+      }
+
+      // Filtering
+      document.querySelectorAll(".category-pill").forEach((pill) => {
+        pill.addEventListener("click", () => {
+          document
+            .querySelectorAll(".category-pill")
+            .forEach((p) => p.classList.remove("active"));
+          pill.classList.add("active");
+          currentCategory = pill.dataset.cat;
+          currentPage = 1;
+          renderArticles();
+        });
+      });
+      document.querySelectorAll("#categoryListSidebar a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          currentCategory = link.dataset.cat;
+          currentPage = 1;
+          renderArticles();
+        });
+      });
+      document.getElementById("searchInput").addEventListener("input", (e) => {
+        currentSearch = e.target.value;
+        currentPage = 1;
+        renderArticles();
+      });
+
+      // Trending Hashtags
+      const allHashtags = [...new Set(articles.flatMap((a) => a.hashtags))];
+      document.getElementById("trendingHashtags").innerHTML = allHashtags
+        .slice(0, 10)
+        .map(
+          (tag) =>
+            `<a href="#" class="trending-tag hashtag-filter" data-tag="${tag}">${tag}</a>`,
+        )
+        .join("");
+      document.querySelectorAll(".hashtag-filter").forEach((tag) => {
+        tag.addEventListener("click", (e) => {
+          e.preventDefault();
+          currentSearch = tag.dataset.tag;
+          document.getElementById("searchInput").value = currentSearch;
+          currentPage = 1;
+          renderArticles();
+        });
+      });
+
+      // Newsletter subscriptions
+      function subscribeNewsletter(email) {
+        if (!email || !email.includes("@")) {
+          Swal.fire("Error", "Please enter a valid email address.", "error");
+          return false;
+        }
+        Swal.fire(
+          "Subscribed!",
+          "Weekly health insights delivered.",
+          "success",
+        );
+        return true;
+      }
+      document.getElementById("newsletterBtn").addEventListener("click", () => {
+        subscribeNewsletter(document.getElementById("newsletterEmail").value);
+        document.getElementById("newsletterEmail").value = "";
+      });
+      document
+        .getElementById("footerSubscribeBtn")
+        .addEventListener("click", () => {
+          subscribeNewsletter(
+            document.getElementById("footerSubscribeEmail").value,
+          );
+          document.getElementById("footerSubscribeEmail").value = "";
+        });
+      document
+        .getElementById("sidebarNewsletterBtn")
+        .addEventListener("click", () => {
+          subscribeNewsletter(
+            document.getElementById("sidebarNewsletterEmail").value,
+          );
+          document.getElementById("sidebarNewsletterEmail").value = "";
+        });
+
+      renderArticles();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,2279 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>
+      Wellness Marketplace | CARESPHERE WELLNESS | Ergonomic & Rehabilitative
+      Products
+    </title>
+    <meta
+      name="description"
+      content="Shop premium ergonomic chairs, posture correctors, blood pressure monitors, therapy bands, and rehabilitative aids. Free delivery in Nairobi."
+    />
+
+    <!-- Google Fonts + Bootstrap 5 + Font Awesome + SweetAlert -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="shortcut icon"
+      href="img/caresphere_logo_icon.png"
+      type="image/x-icon"
+    />
+
+    <style>
+      :root {
+        --navy: #07192e;
+        --navy-mid: #0e2a47;
+        --gold: #c8a044;
+        --gold-light: #e4c070;
+        --gold-pale: #fdf6e7;
+        --cream: #faf8f4;
+        --white: #ffffff;
+        --gray-50: #f8fafc;
+        --gray-100: #f1f5f9;
+        --gray-200: #e2e8f0;
+        --gray-400: #94a3b8;
+        --gray-600: #475569;
+        --text-dark: #0f1e30;
+        --text-mid: #3d5166;
+        --radius-sm: 12px;
+        --radius-md: 20px;
+        --radius-lg: 32px;
+        --shadow-sm: 0 2px 8px rgba(7, 25, 46, 0.06);
+        --shadow-md: 0 8px 24px rgba(7, 25, 46, 0.1);
+        --shadow-lg: 0 20px 48px rgba(7, 25, 46, 0.14);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+      @media (max-width: 1200px) {
+        html {
+          font-size: 15px;
+        }
+      }
+      @media (max-width: 992px) {
+        html {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 768px) {
+        html {
+          font-size: 13px;
+        }
+      }
+      @media (max-width: 576px) {
+        html {
+          font-size: 12px;
+        }
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--cream);
+        color: var(--text-dark);
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "DM Serif Display", serif;
+        letter-spacing: -0.01em;
+      }
+
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--gray-100);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--gold);
+        border-radius: 4px;
+      }
+
+      /* Top Bar - Sticky */
+      .top-bar {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.7rem;
+        font-weight: 500;
+        padding: 6px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1001;
+        border-bottom: 1px solid rgba(200, 160, 68, 0.2);
+      }
+      .top-bar a {
+        color: rgba(255, 255, 255, 0.75);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .top-bar a:hover {
+        color: var(--gold-light);
+      }
+      .top-bar .icon-badge {
+        color: var(--gold-light);
+        margin-right: 4px;
+      }
+      .top-bar .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        font-size: 0.7rem;
+        margin-left: 5px;
+        transition: all 0.2s;
+      }
+      .top-bar .social-links a:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-2px);
+      }
+      @media (max-width: 768px) {
+        .top-bar .contact-info span {
+          display: none;
+        }
+        .top-bar .social-links a {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      /* Navbar - Sticky with mobile cart visible */
+      .navbar-custom {
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--gray-200);
+        padding: 0.5rem 0;
+        position: sticky;
+        top: 32px;
+        z-index: 1000;
+        transition: box-shadow 0.3s;
+      }
+      @media (max-width: 768px) {
+        .navbar-custom {
+          top: 30px;
+        }
+      }
+      .navbar-custom.scrolled {
+        box-shadow: var(--shadow-md);
+      }
+      .navbar-brand img {
+        height: 42px;
+        object-fit: contain;
+      }
+      .nav-link {
+        font-family: "DM Sans", sans-serif;
+        font-weight: 500;
+        font-size: 0.8rem;
+        color: var(--text-mid) !important;
+        padding: 0.4rem 0.7rem !important;
+        border-radius: 8px;
+        transition: all 0.2s;
+      }
+      .nav-link:hover {
+        color: var(--navy) !important;
+        background: var(--gray-100);
+      }
+      .nav-link.active {
+        color: var(--gold) !important;
+      }
+      .btn-gold {
+        background: var(--gold);
+        color: var(--navy);
+        border: none;
+        font-weight: 700;
+        font-size: 0.75rem;
+        padding: 8px 18px;
+        border-radius: 50px;
+        transition: all 0.25s;
+      }
+      .btn-gold:hover {
+        background: var(--gold-light);
+        transform: translateY(-1px);
+      }
+      .btn-navy {
+        background: var(--navy);
+        color: white;
+        border: none;
+        font-weight: 700;
+        font-size: 0.75rem;
+        padding: 8px 18px;
+        border-radius: 50px;
+        transition: all 0.25s;
+      }
+      .btn-navy:hover {
+        background: var(--navy-mid);
+        transform: translateY(-1px);
+      }
+      .btn-outline-gold {
+        border: 1.5px solid var(--gold);
+        background: transparent;
+        color: var(--navy);
+        font-weight: 600;
+        font-size: 0.75rem;
+        padding: 7px 18px;
+        border-radius: 50px;
+        transition: all 0.25s;
+      }
+      .btn-outline-gold:hover {
+        background: var(--gold);
+        color: var(--navy);
+      }
+
+      /* Mobile cart button */
+      .mobile-cart-btn {
+        display: none;
+      }
+      @media (max-width: 991px) {
+        .desktop-cart-btn {
+          display: none !important;
+        }
+        .mobile-cart-btn {
+          display: inline-flex !important;
+          align-items: center;
+          justify-content: center;
+          background: var(--navy);
+          color: white;
+          border: none;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          position: relative;
+          margin-right: 8px;
+        }
+        .mobile-cart-btn:hover {
+          background: var(--gold);
+          color: var(--navy);
+        }
+        .navbar-toggler {
+          order: 2;
+        }
+        .navbar-collapse {
+          order: 3;
+          width: 100%;
+        }
+      }
+      @media (min-width: 992px) {
+        .desktop-cart-btn {
+          display: inline-flex !important;
+          align-items: center;
+          gap: 5px;
+        }
+        .mobile-cart-btn {
+          display: none !important;
+        }
+      }
+      .cart-count {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #e63946;
+        color: white;
+        font-size: 0.6rem;
+        font-weight: 700;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid white;
+      }
+
+      /* Store Hero */
+      .store-hero {
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          #1a3558 55%,
+          #0d2540 100%
+        );
+        padding: 40px 0 30px;
+        position: relative;
+        overflow: hidden;
+      }
+      .store-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a044' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.4;
+      }
+      .store-hero .hero-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(200, 160, 68, 0.15);
+        border: 1px solid rgba(200, 160, 68, 0.3);
+        color: var(--gold-light);
+        padding: 4px 12px;
+        border-radius: 50px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+      .store-hero h1 {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        color: white;
+        margin-bottom: 10px;
+      }
+      .store-hero h1 em {
+        color: var(--gold-light);
+        font-style: italic;
+      }
+      .store-hero p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.8rem;
+        max-width: 520px;
+      }
+      .hero-stat-card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-sm);
+        padding: 10px 16px;
+        text-align: center;
+        backdrop-filter: blur(8px);
+      }
+      .hero-stat-card .num {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.3rem;
+        color: var(--gold-light);
+      }
+      .hero-stat-card .lbl {
+        font-size: 0.65rem;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* Category Strip */
+      .category-strip {
+        background: white;
+        border-bottom: 1px solid var(--gray-200);
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .cat-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 16px;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        font-weight: 600;
+        font-size: 0.75rem;
+        color: var(--text-mid);
+        transition: all 0.2s;
+      }
+      .cat-pill:hover {
+        color: var(--navy);
+        border-bottom-color: var(--gray-200);
+      }
+      .cat-pill.active {
+        color: var(--gold);
+        border-bottom-color: var(--gold);
+        background: var(--gold-pale);
+      }
+
+      /* Layout */
+      .store-layout {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 20px;
+        padding: 24px 0 40px;
+      }
+      @media (max-width: 991px) {
+        .store-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Filter Sidebar */
+      .filter-panel {
+        background: white;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--gray-200);
+        padding: 16px;
+        position: sticky;
+        top: 90px;
+        height: fit-content;
+        box-shadow: var(--shadow-sm);
+      }
+      @media (max-width: 991px) {
+        .filter-panel {
+          position: relative;
+          top: 0;
+          margin-bottom: 20px;
+        }
+      }
+      .filter-section {
+        margin-bottom: 16px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--gray-100);
+      }
+      .filter-section:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .filter-section-title {
+        font-weight: 700;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--gray-400);
+        margin-bottom: 10px;
+      }
+      .check-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 8px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .check-item:hover {
+        background: var(--gray-50);
+      }
+      .check-item input[type="checkbox"] {
+        width: 14px;
+        height: 14px;
+        accent-color: var(--gold);
+        cursor: pointer;
+      }
+      .check-item label {
+        font-size: 0.8rem;
+        color: var(--text-mid);
+        cursor: pointer;
+        flex: 1;
+      }
+      .check-item .count-badge {
+        background: var(--gray-100);
+        color: var(--gray-600);
+        font-size: 0.65rem;
+        padding: 2px 6px;
+        border-radius: 20px;
+      }
+      .price-inputs {
+        display: flex;
+        gap: 8px;
+      }
+      .price-input {
+        flex: 1;
+        border: 1.5px solid var(--gray-200);
+        border-radius: 8px;
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        outline: none;
+      }
+      .price-input:focus {
+        border-color: var(--gold);
+      }
+
+      /* Products */
+      .products-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .products-header .result-count {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.1rem;
+        color: var(--navy);
+      }
+      .sort-select {
+        border: 1.5px solid var(--gray-200);
+        border-radius: 8px;
+        padding: 6px 12px;
+        font-size: 0.75rem;
+        background: white;
+      }
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+      }
+      @media (max-width: 576px) {
+        .products-grid {
+          grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+          gap: 12px;
+        }
+      }
+
+      /* Product Card */
+      .product-card {
+        background: white;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--gray-200);
+        overflow: hidden;
+        transition: all 0.3s;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+      .product-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--gold);
+      }
+      .product-badge {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        background: var(--gold);
+        color: var(--navy);
+        font-size: 0.6rem;
+        font-weight: 800;
+        padding: 2px 8px;
+        border-radius: 50px;
+        z-index: 2;
+      }
+      .product-badge.new {
+        background: #06b6d4;
+        color: white;
+      }
+      .product-badge.popular {
+        background: #f97316;
+        color: white;
+      }
+      .wishlist-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 28px;
+        height: 28px;
+        background: white;
+        border: 1px solid var(--gray-200);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        cursor: pointer;
+        z-index: 2;
+        transition: all 0.2s;
+      }
+      .wishlist-btn:hover {
+        background: #fef2f2;
+        border-color: #fca5a5;
+        color: #ef4444;
+      }
+      .wishlist-btn.active {
+        background: #fef2f2;
+        border-color: #ef4444;
+        color: #ef4444;
+      }
+      .product-img-wrap {
+        height: 160px;
+        background: linear-gradient(135deg, #f8f9fc 0%, #eef2f8 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      .product-img-wrap img {
+        max-height: 120px;
+        max-width: 90%;
+        object-fit: contain;
+        transition: transform 0.3s;
+      }
+      .product-card:hover .product-img-wrap img {
+        transform: scale(1.05);
+      }
+      .quick-view-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(7, 25, 46, 0.55);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+        border-radius: var(--radius-md);
+      }
+      .product-card:hover .quick-view-overlay {
+        opacity: 1;
+      }
+      .quick-view-btn {
+        background: white;
+        border: none;
+        font-weight: 700;
+        font-size: 0.65rem;
+        padding: 5px 12px;
+        border-radius: 50px;
+        cursor: pointer;
+      }
+      .quick-view-btn:hover {
+        background: var(--gold);
+        color: var(--navy);
+      }
+      .product-body {
+        padding: 12px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .product-category-tag {
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 4px;
+      }
+      .product-name {
+        font-family: "DM Serif Display", serif;
+        font-size: 0.85rem;
+        color: var(--navy);
+        margin-bottom: 4px;
+      }
+      .product-desc {
+        font-size: 0.7rem;
+        color: var(--gray-600);
+        margin-bottom: 6px;
+        flex: 1;
+      }
+      .product-rating {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-bottom: 6px;
+      }
+      .stars {
+        color: #f59e0b;
+        font-size: 0.7rem;
+      }
+      .rating-count {
+        font-size: 0.65rem;
+        color: var(--gray-400);
+      }
+      .product-price-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6px;
+      }
+      .product-price {
+        font-family: "DM Serif Display", serif;
+        font-size: 1rem;
+        color: var(--navy);
+        font-weight: 700;
+      }
+      .product-old-price {
+        font-size: 0.65rem;
+        color: var(--gray-400);
+        text-decoration: line-through;
+      }
+      .add-cart-btn {
+        background: var(--navy);
+        color: white;
+        border: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .add-cart-btn:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: scale(1.05);
+      }
+
+      /* Cart Sidebar */
+      .cart-sidebar {
+        position: fixed;
+        top: 0;
+        right: -420px;
+        width: 400px;
+        max-width: 90vw;
+        height: 100vh;
+        background: white;
+        z-index: 1050;
+        transition: 0.35s ease;
+        display: flex;
+        flex-direction: column;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+      }
+      .cart-sidebar.open {
+        right: 0;
+      }
+      .cart-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1040;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.2s;
+      }
+      .cart-overlay.active {
+        visibility: visible;
+        opacity: 1;
+      }
+      .cart-header {
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--gray-200);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .cart-header h4 {
+        font-size: 1.1rem;
+      }
+      .cart-items-wrap {
+        flex: 1;
+        overflow-y: auto;
+        padding: 12px 16px;
+      }
+      .cart-item {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--gray-100);
+      }
+      .cart-item-thumb {
+        width: 50px;
+        height: 50px;
+        background: var(--gray-100);
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+      .cart-item-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 5px;
+      }
+      .cart-item-info {
+        flex: 1;
+        min-width: 0;
+      }
+      .cart-item-name {
+        font-weight: 600;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .cart-item-price {
+        font-size: 0.75rem;
+        color: var(--gold);
+        font-weight: 700;
+      }
+      .cart-qty-ctrl {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-top: 5px;
+      }
+      .cart-qty-btn {
+        background: var(--gray-100);
+        border: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        font-weight: 700;
+        cursor: pointer;
+        font-size: 0.8rem;
+      }
+      .cart-qty-btn:hover {
+        background: var(--gold);
+        color: var(--navy);
+      }
+      .cart-qty-val {
+        min-width: 24px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 0.8rem;
+      }
+      .cart-remove {
+        background: none;
+        border: none;
+        color: var(--gray-400);
+        cursor: pointer;
+        font-size: 0.8rem;
+      }
+      .cart-remove:hover {
+        color: #ef4444;
+      }
+      .cart-footer {
+        border-top: 1px solid var(--gray-200);
+        padding: 12px 16px;
+      }
+      .cart-subtotal-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
+      .cart-subtotal-val {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.1rem;
+        color: var(--navy);
+      }
+      .cart-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      /* Product Modal - Fixed */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(7, 25, 46, 0.7);
+        backdrop-filter: blur(4px);
+        z-index: 1100;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+      }
+      .modal-overlay.open {
+        opacity: 1;
+        visibility: visible;
+      }
+      .product-modal {
+        background: white;
+        border-radius: var(--radius-md);
+        max-width: 700px;
+        width: 100%;
+        max-height: 85vh;
+        overflow-y: auto;
+        transform: scale(0.95);
+        transition: transform 0.3s;
+      }
+      .modal-overlay.open .product-modal {
+        transform: scale(1);
+      }
+      .modal-img-area {
+        background: linear-gradient(135deg, #f0f4fb 0%, #e6eef8 100%);
+        padding: 30px;
+        text-align: center;
+        position: relative;
+      }
+      .modal-img-area img {
+        max-height: 180px;
+        max-width: 100%;
+        object-fit: contain;
+      }
+      .modal-close {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+        background: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.2s;
+      }
+      .modal-close:hover {
+        background: #fee2e2;
+        color: #dc2626;
+      }
+      .modal-body {
+        padding: 20px;
+      }
+      .modal-title {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+      }
+      .modal-desc {
+        font-size: 0.85rem;
+        color: var(--text-mid);
+        margin-bottom: 16px;
+      }
+      .modal-price {
+        font-size: 1.5rem;
+        color: var(--navy);
+        font-weight: 700;
+      }
+      .qty-control {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--gray-100);
+        border-radius: 50px;
+        padding: 4px 8px;
+      }
+      .qty-btn {
+        background: white;
+        border: none;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .qty-btn:hover {
+        background: var(--gold);
+        color: var(--navy);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 30px 0 20px;
+      }
+      .footer-brand-text {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.1rem;
+        color: white;
+      }
+      .footer-link {
+        display: block;
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.75rem;
+        margin-bottom: 6px;
+        transition: all 0.2s;
+      }
+      .footer-link:hover {
+        color: var(--gold-light);
+        transform: translateX(4px);
+      }
+      .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        margin-right: 6px;
+        transition: all 0.2s;
+        color: white;
+      }
+      .footer-social a:hover {
+        background: var(--gold);
+        color: var(--navy);
+      }
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #25d366;
+        color: white;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.05);
+        background: #20b859;
+      }
+
+      .no-results {
+        text-align: center;
+        padding: 40px;
+      }
+      @media (max-width: 768px) {
+        .store-hero {
+          padding: 30px 0 20px;
+        }
+        .hero-stats {
+          display: none;
+        }
+        .products-grid {
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="container">
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-2"
+        >
+          <div class="d-flex align-items-center gap-2 flex-wrap">
+            <a href="tel:+254712155510"
+              ><i class="fas fa-phone-alt icon-badge"></i>+254 712 155 510</a
+            ><a href="https://wa.me/254712155510" target="_blank"
+              ><i class="fab fa-whatsapp icon-badge"></i>WhatsApp</a
+            ><a href="mailto:Carespherewellness@gmail.com"
+              ><i class="far fa-envelope icon-badge"></i>Email</a
+            ><span><i class="fas fa-map-marker-alt icon-badge"></i>Nairobi</span
+            ><span style="color: #4ade80"
+              ><i class="fas fa-truck icon-badge"></i>Free delivery over KSh
+              10,000</span
+            >
+          </div>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/1LjcBqoMEe/" target="_blank"
+              ><i class="fab fa-facebook-f"></i></a
+            ><a
+              href="https://www.instagram.com/caresphere_wellness"
+              target="_blank"
+              ><i class="fab fa-instagram"></i></a
+            ><a href="https://ke.linkedin.com/in/e-amiani" target="_blank"
+              ><i class="fab fa-linkedin-in"></i></a
+            ><a
+              href="https://www.tiktok.com/@carespherewellness"
+              target="_blank"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CART OVERLAY & SIDEBAR -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="cart-header">
+        <h4>
+          <i class="fas fa-bag-shopping me-2" style="color: var(--gold)"></i
+          >Your Cart
+        </h4>
+        <button class="btn-close" id="closeCartBtn"></button>
+      </div>
+      <div class="cart-items-wrap" id="cartItemsList">
+        <div class="text-center py-5">
+          <i class="fas fa-cart-shopping fa-3x text-muted mb-2"></i>
+          <p>Your cart is empty</p>
+        </div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-subtotal-row">
+          <span>Subtotal:</span
+          ><span class="cart-subtotal-val" id="cartTotalAmount">KSh 0</span>
+        </div>
+        <div class="cart-actions">
+          <button class="btn-outline-gold w-50" id="continueShoppingBtn">
+            Continue</button
+          ><button class="btn-navy w-50" id="proceedCheckoutBtn">
+            Checkout →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-custom" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"
+          ><img
+            src="img/caresphere_logo.png"
+            alt="CARESPHERE WELLNESS"
+            onerror="this.innerHTML = 'CARESPHERE'" /></a
+        ><button class="mobile-cart-btn" id="mobileCartIconBtn">
+          <i class="fas fa-shopping-cart"></i
+          ><span class="cart-count" id="mobileCartCountBadge">0</span></button
+        ><button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="store.html">E-Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="partners.html">Partners</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Insights</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center gap-2 ms-3">
+            <a href="booking.html" class="btn-gold d-none d-lg-inline-block"
+              >Book Consultation</a
+            ><button
+              class="desktop-cart-btn btn-outline-gold position-relative"
+              id="cartIconBtn"
+            >
+              <i class="fas fa-shopping-cart"></i
+              ><span class="cart-count" id="cartCountBadge">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- STORE HERO -->
+    <section class="store-hero">
+      <div class="container">
+        <div class="row align-items-center g-3">
+          <div class="col-lg-7">
+            <div class="hero-pill">
+              <i class="fas fa-shield-heart"></i> Trusted Medical-Grade Products
+            </div>
+            <h1>Wellness <em>Marketplace</em> for Better Living</h1>
+            <p class="mt-2">
+              Premium ergonomic & rehabilitative essentials, curated by
+              healthcare professionals.
+            </p>
+            <div class="d-flex gap-2 mt-3 flex-wrap">
+              <a href="#products-section" class="btn-gold"
+                >Shop Now <i class="fas fa-arrow-right ms-1"></i></a
+              ><a href="contact.html" class="btn-outline-gold"
+                >Get Expert Advice</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="row g-2">
+              <div class="col-6">
+                <div class="hero-stat-card">
+                  <span class="num">250+</span><span class="lbl">Products</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="hero-stat-card">
+                  <span class="num">4.8★</span><span class="lbl">Rating</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="hero-stat-card">
+                  <span class="num">2,400+</span
+                  ><span class="lbl">Clients</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="hero-stat-card">
+                  <span class="num">NBO</span
+                  ><span class="lbl">Free Delivery</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORY STRIP -->
+    <div class="category-strip">
+      <div class="container d-flex">
+        <div class="cat-pill active" data-cat="All"><span>🏪</span>All</div>
+        <div class="cat-pill" data-cat="Ergonomic">
+          <span>🪑</span>Ergonomic
+        </div>
+        <div class="cat-pill" data-cat="Rehabilitative">
+          <span>🩺</span>Rehabilitative
+        </div>
+        <div class="cat-pill" data-cat="Mobility"><span>♿</span>Mobility</div>
+        <div class="cat-pill" data-cat="Diagnostic">
+          <span>📊</span>Diagnostic
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN STORE -->
+    <div class="container" id="products-section">
+      <div class="store-layout">
+        <aside>
+          <div class="filter-panel">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div>
+                <i class="fas fa-sliders me-2" style="color: var(--gold)"></i
+                >Filters
+              </div>
+              <button
+                id="resetFiltersBtn"
+                class="border-0 bg-transparent text-gold small fw-bold"
+              >
+                Reset All
+              </button>
+            </div>
+            <div class="filter-section">
+              <div class="filter-section-title">Category</div>
+              <div class="check-item">
+                <input
+                  type="checkbox"
+                  id="fAll"
+                  class="category-filter"
+                  value="All"
+                  checked
+                /><label for="fAll">All Products</label
+                ><span class="count-badge" id="cnt-All"></span>
+              </div>
+              <div class="check-item">
+                <input
+                  type="checkbox"
+                  id="fErgo"
+                  class="category-filter"
+                  value="Ergonomic"
+                /><label for="fErgo">Ergonomic</label
+                ><span class="count-badge" id="cnt-Ergonomic"></span>
+              </div>
+              <div class="check-item">
+                <input
+                  type="checkbox"
+                  id="fRehab"
+                  class="category-filter"
+                  value="Rehabilitative"
+                /><label for="fRehab">Rehabilitative</label
+                ><span class="count-badge" id="cnt-Rehabilitative"></span>
+              </div>
+              <div class="check-item">
+                <input
+                  type="checkbox"
+                  id="fMob"
+                  class="category-filter"
+                  value="Mobility"
+                /><label for="fMob">Mobility Aids</label
+                ><span class="count-badge" id="cnt-Mobility"></span>
+              </div>
+              <div class="check-item">
+                <input
+                  type="checkbox"
+                  id="fDiag"
+                  class="category-filter"
+                  value="Diagnostic"
+                /><label for="fDiag">Diagnostic</label
+                ><span class="count-badge" id="cnt-Diagnostic"></span>
+              </div>
+            </div>
+            <div class="filter-section">
+              <div class="filter-section-title">Gender</div>
+              <div class="check-item">
+                <input
+                  type="checkbox"
+                  id="gAll"
+                  class="gender-filter"
+                  value="All"
+                  checked
+                /><label for="gAll">All</label>
+              </div>
+              <div class="check-item">
+                <input
+                  type="checkbox"
+                  id="gMen"
+                  class="gender-filter"
+                  value="Men"
+                /><label for="gMen">Men</label>
+              </div>
+              <div class="check-item">
+                <input
+                  type="checkbox"
+                  id="gWomen"
+                  class="gender-filter"
+                  value="Women"
+                /><label for="gWomen">Women</label>
+              </div>
+              <div class="check-item">
+                <input
+                  type="checkbox"
+                  id="gUnisex"
+                  class="gender-filter"
+                  value="Unisex"
+                /><label for="gUnisex">Unisex</label>
+              </div>
+            </div>
+            <div class="filter-section">
+              <div class="filter-section-title">Price (KES)</div>
+              <div class="price-inputs">
+                <input
+                  type="number"
+                  class="price-input"
+                  id="minPrice"
+                  placeholder="Min"
+                /><span>–</span
+                ><input
+                  type="number"
+                  class="price-input"
+                  id="maxPrice"
+                  placeholder="Max"
+                />
+              </div>
+              <button
+                class="btn-gold w-100 mt-2"
+                id="applyPriceBtn"
+                style="padding: 6px; font-size: 0.7rem"
+              >
+                Apply
+              </button>
+            </div>
+            <div class="filter-section">
+              <div class="filter-section-title">Rating</div>
+              <div class="check-item">
+                <input
+                  type="checkbox"
+                  id="r45"
+                  class="rating-filter"
+                  value="4.5"
+                /><label><span style="color: #f59e0b">★★★★★</span> 4.5+</label>
+              </div>
+              <div class="check-item">
+                <input
+                  type="checkbox"
+                  id="r4"
+                  class="rating-filter"
+                  value="4.0"
+                /><label><span style="color: #f59e0b">★★★★</span> 4.0+</label>
+              </div>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="inStock" class="avail-filter" /><label
+                >In Stock Only</label
+              >
+            </div>
+          </div>
+        </aside>
+        <div>
+          <div class="products-header">
+            <div class="result-count">
+              <span id="productCount">0</span> Products Found
+            </div>
+            <select class="sort-select" id="sortSelect">
+              <option value="default">Sort: Featured</option>
+              <option value="priceLowHigh">Price: Low → High</option>
+              <option value="priceHighLow">Price: High → Low</option>
+              <option value="rating">Highest Rated</option>
+            </select>
+          </div>
+          <div class="products-grid" id="productsContainer"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="footer-brand-text mb-2">
+              CARESPHERE <span style="color: var(--gold-light)">WELLNESS</span>
+            </div>
+            <p class="small">
+              Nairobi-based executive health governance and care coordination.
+            </p>
+            <div class="footer-social mt-2">
+              <a
+                href="https://www.facebook.com/share/1LjcBqoMEe/"
+                target="_blank"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                href="https://www.instagram.com/caresphere_wellness"
+                target="_blank"
+                ><i class="fab fa-instagram"></i></a
+              ><a
+                href="https://www.tiktok.com/@carespherewellness"
+                target="_blank"
+                ><i class="fab fa-tiktok"></i></a
+              ><a href="https://ke.linkedin.com/in/e-amiani" target="_blank"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <h6 class="text-white">Quick Links</h6>
+            <a href="index.html" class="footer-link">Home</a
+            ><a href="about.html" class="footer-link">About</a
+            ><a href="services.html" class="footer-link">Services</a
+            ><a href="store.html" class="footer-link">Store</a>
+          </div>
+          <div class="col-md-3">
+            <h6 class="text-white">Legal</h6>
+            <a href="privacy.html" class="footer-link">Privacy Policy</a
+            ><a href="terms.html" class="footer-link">Terms & Conditions</a
+            ><a href="faq.html" class="footer-link">FAQs</a
+            ><a href="standards.html" class="footer-link">ISO 9001:2015</a>
+          </div>
+          <div class="col-md-3">
+            <h6 class="text-white">Stay Updated</h6>
+            <div class="input-group mb-2">
+              <input
+                type="email"
+                class="form-control form-control-sm"
+                placeholder="Email"
+                id="footerSubscribeEmail"
+              /><button class="btn-gold btn-sm" id="footerSubscribeBtn">
+                Join
+              </button>
+            </div>
+            <div><i class="fas fa-phone-alt me-2"></i>+254 712 155 510</div>
+            <div>
+              <i class="far fa-envelope me-2"></i>Carespherewellness@gmail.com
+            </div>
+          </div>
+        </div>
+        <hr class="my-3" />
+        <div class="text-center small">
+          © <span id="dynamicYear"></span> CARESPHERE WELLNESS — All rights
+          reserved. Designed by
+          <a
+            href="https://eontechsystems.com/"
+            target="_blank"
+            class="text-gold"
+            >EonTech Systems</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/254712155510?text=Hello%20CARESPHERE%20WELLNESS%2C%20I%20am%20interested%20in%20your%20products"
+      target="_blank"
+      class="whatsapp-float"
+      ><i class="fab fa-whatsapp"></i
+    ></a>
+
+    <!-- Product Modal Template -->
+    <div class="modal-overlay" id="productModal">
+      <div class="product-modal">
+        <div class="modal-img-area">
+          <button class="modal-close" id="closeModalBtn">
+            <i class="fas fa-times"></i>
+          </button>
+          <div id="modalImgPlaceholder"></div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-category" id="modalCategory"></div>
+          <h2 class="modal-title" id="modalTitle"></h2>
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div id="modalRating"></div>
+            <span id="modalGender" class="badge bg-light text-dark"></span>
+          </div>
+          <p class="modal-desc" id="modalDesc"></p>
+          <ul class="list-unstyled" id="modalFeatures"></ul>
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <div>
+              <div class="modal-price" id="modalPrice"></div>
+              <div
+                id="modalOldPrice"
+                class="text-decoration-line-through text-muted small"
+              ></div>
+            </div>
+            <div class="qty-control">
+              <button class="qty-btn" id="modalDecQty">−</button
+              ><span class="qty-val" id="modalQtyVal">1</span
+              ><button class="qty-btn" id="modalIncQty">+</button>
+            </div>
+          </div>
+          <div class="d-flex gap-2 mt-4">
+            <button class="btn-navy flex-grow-1" id="modalAddToCart">
+              Add to Cart</button
+            ><button class="btn-outline-gold" id="modalWhatsApp">
+              Enquire
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.getElementById("dynamicYear").innerText =
+        new Date().getFullYear();
+
+      // Products Database - Expanded to 18 items
+      const products = [
+        {
+          id: 1,
+          name: "Ergonomic Office Chair Pro",
+          category: "Ergonomic",
+          gender: "Unisex",
+          price: 24500,
+          oldPrice: 28000,
+          rating: 4.8,
+          reviews: 142,
+          icon: "fas fa-chair",
+          image: "img/product_chair.jpg",
+          badge: "popular",
+          stock: true,
+          description:
+            "Premium mesh chair with 6-zone lumbar support, breathable back, 3D armrests.",
+          features: [
+            "Breathable mesh back",
+            "Adjustable lumbar support",
+            "3D adjustable armrests",
+            "5-year warranty",
+          ],
+        },
+        {
+          id: 2,
+          name: "Memory Foam Lumbar Cushion",
+          category: "Ergonomic",
+          gender: "Unisex",
+          price: 3200,
+          oldPrice: 3800,
+          rating: 4.6,
+          reviews: 89,
+          icon: "fas fa-couch",
+          image: "img/product_lumbar.jpg",
+          stock: true,
+          description:
+            "High-density memory foam lumbar support for back pain relief.",
+          features: [
+            "Memory foam core",
+            "Anti-slip backing",
+            "Machine washable cover",
+          ],
+        },
+        {
+          id: 3,
+          name: "Posture Corrector Brace",
+          category: "Ergonomic",
+          gender: "Unisex",
+          price: 2450,
+          rating: 4.5,
+          reviews: 67,
+          icon: "fas fa-person-walking",
+          image: "img/product_posture.jpg",
+          badge: "new",
+          stock: true,
+          description: "Adjustable upper back and shoulder corrector.",
+          features: [
+            "Adjustable shoulder straps",
+            "Breathable neoprene",
+            "S/M and L/XL sizes",
+          ],
+        },
+        {
+          id: 4,
+          name: "Standing Desk Converter",
+          category: "Ergonomic",
+          gender: "Unisex",
+          price: 18900,
+          oldPrice: 22000,
+          rating: 4.7,
+          reviews: 53,
+          icon: "fas fa-desktop",
+          image: "img/product_desk.jpg",
+          stock: true,
+          description: "Height-adjustable desk riser, holds up to 20kg.",
+          features: [
+            "11 height positions",
+            "Dual monitor support",
+            "Keyboard tray included",
+          ],
+        },
+        {
+          id: 5,
+          name: "Digital Blood Pressure Monitor",
+          category: "Rehabilitative",
+          gender: "Unisex",
+          price: 5800,
+          oldPrice: 6500,
+          rating: 4.9,
+          reviews: 201,
+          icon: "fas fa-heart-pulse",
+          image: "img/product_bp.jpg",
+          badge: "popular",
+          stock: true,
+          description: "Clinically validated upper-arm automatic BP monitor.",
+          features: [
+            "2-user memory (60 each)",
+            "Irregular heartbeat detection",
+            "Large backlit display",
+          ],
+        },
+        {
+          id: 6,
+          name: "Therapy Resistance Bands Set",
+          category: "Rehabilitative",
+          gender: "Unisex",
+          price: 2450,
+          rating: 4.6,
+          reviews: 112,
+          icon: "fas fa-dumbbell",
+          image: "img/product_bands.jpg",
+          stock: true,
+          description: "5-level color-coded latex resistance bands.",
+          features: [
+            "5 resistance levels",
+            "Carry bag included",
+            "Exercise guide included",
+          ],
+        },
+        {
+          id: 7,
+          name: "Orthopedic Knee Support",
+          category: "Rehabilitative",
+          gender: "Unisex",
+          price: 1850,
+          oldPrice: 2200,
+          rating: 4.4,
+          reviews: 88,
+          icon: "fas fa-bone",
+          image: "img/product_knee.jpg",
+          stock: true,
+          description: "Neoprene compression knee brace with patella gel ring.",
+          features: [
+            "Patella gel pad",
+            "Dual side stabilizers",
+            "Sizes S-3XL available",
+          ],
+        },
+        {
+          id: 8,
+          name: "Compression Socks",
+          category: "Rehabilitative",
+          gender: "Unisex",
+          price: 2200,
+          rating: 4.5,
+          reviews: 163,
+          icon: "fas fa-socks",
+          image: "img/product_socks.jpg",
+          stock: true,
+          description: "Medical-grade 20-30 mmHg graduated compression socks.",
+          features: [
+            "20-30 mmHg compression",
+            "Moisture-wicking fabric",
+            "OTC medical-grade",
+          ],
+        },
+        {
+          id: 9,
+          name: "Pulse Oximeter",
+          category: "Diagnostic",
+          gender: "Unisex",
+          price: 3450,
+          rating: 4.8,
+          reviews: 187,
+          icon: "fas fa-lungs",
+          image: "img/product_oxi.jpg",
+          badge: "popular",
+          stock: true,
+          description: "Fingertip pulse oximeter with OLED display.",
+          features: [
+            "SpO2 + heart rate",
+            "6-second reading",
+            "Auto-off function",
+          ],
+        },
+        {
+          id: 10,
+          name: "Folding Walking Cane",
+          category: "Mobility",
+          gender: "Unisex",
+          price: 3200,
+          rating: 4.3,
+          reviews: 41,
+          icon: "fas fa-person-cane",
+          image: "img/product_cane.jpg",
+          stock: true,
+          description:
+            "Lightweight aluminum folding cane with ergonomic handle.",
+          features: [
+            "Folds into 4 sections",
+            "Adjustable height 83-95cm",
+            "Non-slip rubber tip",
+          ],
+        },
+        {
+          id: 11,
+          name: "TENS Therapy Unit",
+          category: "Rehabilitative",
+          gender: "Unisex",
+          price: 6500,
+          oldPrice: 7800,
+          rating: 4.7,
+          reviews: 76,
+          icon: "fas fa-bolt",
+          image: "img/product_tens.jpg",
+          badge: "new",
+          stock: true,
+          description: "Dual-channel TENS unit for pain relief.",
+          features: [
+            "20 intensity levels",
+            "12 preset modes",
+            "Rechargeable battery",
+          ],
+        },
+        {
+          id: 12,
+          name: "Wrist Support Splint",
+          category: "Ergonomic",
+          gender: "Unisex",
+          price: 1650,
+          rating: 4.4,
+          reviews: 55,
+          icon: "fas fa-hand-peace",
+          image: "img/product_wrist.jpg",
+          stock: true,
+          description: "Adjustable wrist brace for carpal tunnel relief.",
+          features: [
+            "Removable metal splint",
+            "Breathable material",
+            "Left/right options",
+          ],
+        },
+        {
+          id: 13,
+          name: "Rollator Walker with Seat",
+          category: "Mobility",
+          gender: "Unisex",
+          price: 18500,
+          oldPrice: 21000,
+          rating: 4.7,
+          reviews: 58,
+          icon: "fas fa-wheelchair",
+          image: "img/product_walker.jpg",
+          stock: true,
+          description: "4-wheel rollator with built-in padded seat.",
+          features: ["Padded seat", "Storage bag", "Height-adjustable handles"],
+        },
+        {
+          id: 14,
+          name: "Anti-Fatigue Standing Mat",
+          category: "Ergonomic",
+          gender: "Unisex",
+          price: 4800,
+          oldPrice: 5500,
+          rating: 4.5,
+          reviews: 67,
+          icon: "fas fa-rectangle-history",
+          image: "img/product_mat.jpg",
+          stock: true,
+          description: "Ergonomic standing mat with massage nodules.",
+          features: ["20mm foam core", "Massage nodules", "Anti-slip base"],
+        },
+        {
+          id: 15,
+          name: "Blood Glucose Monitor Kit",
+          category: "Diagnostic",
+          gender: "Unisex",
+          price: 4200,
+          oldPrice: 5000,
+          rating: 4.6,
+          reviews: 94,
+          icon: "fas fa-droplet",
+          image: "img/product_glucose.jpg",
+          stock: true,
+          description: "Complete blood glucose monitoring system.",
+          features: ["50 test strips", "100 lancets", "5-second results"],
+        },
+        {
+          id: 16,
+          name: "Digital Thermometer",
+          category: "Diagnostic",
+          gender: "Unisex",
+          price: 2800,
+          oldPrice: 3200,
+          rating: 4.6,
+          reviews: 112,
+          icon: "fas fa-thermometer",
+          image: "img/product_thermometer.jpg",
+          stock: true,
+          description: "Non-contact infrared forehead thermometer.",
+          features: ["1-second reading", "Fever alarm", "32 reading memory"],
+        },
+        {
+          id: 17,
+          name: "Forearm Crutches (Pair)",
+          category: "Mobility",
+          gender: "Unisex",
+          price: 7500,
+          oldPrice: 8800,
+          rating: 4.5,
+          reviews: 29,
+          icon: "fas fa-person-walking-with-cane",
+          image: "img/product_crutches.jpg",
+          stock: true,
+          description: "Aluminum forearm crutches, sold as a pair.",
+          features: [
+            "Medical-grade aluminum",
+            "Ergonomic forearm cuff",
+            "Height adjustable",
+          ],
+        },
+        {
+          id: 18,
+          name: "Ergonomic Mouse & Wrist Rest",
+          category: "Ergonomic",
+          gender: "Unisex",
+          price: 2800,
+          rating: 4.5,
+          reviews: 78,
+          icon: "fas fa-mouse",
+          image: "img/product_mouse.jpg",
+          stock: true,
+          description: "Vertical ergonomic mouse with gel wrist rest.",
+          features: [
+            "Vertical design",
+            "Gel wrist pad",
+            "Wireless connectivity",
+          ],
+        },
+      ];
+
+      let cart = JSON.parse(localStorage.getItem("caresphereCart") || "[]");
+      let activeCategories = ["All"],
+        activeGenders = ["All"],
+        minPriceFilter = null,
+        maxPriceFilter = null,
+        sortBy = "default",
+        ratingFilter = null,
+        inStockOnly = false,
+        modalQty = 1,
+        modalProductId = null;
+      let wishlist = JSON.parse(
+        localStorage.getItem("caresphereWishlist") || "[]",
+      );
+
+      function saveCart() {
+        localStorage.setItem("caresphereCart", JSON.stringify(cart));
+        updateCartUI();
+      }
+      function saveWishlist() {
+        localStorage.setItem("caresphereWishlist", JSON.stringify(wishlist));
+      }
+      function starsHTML(rating) {
+        let html = "";
+        for (let i = 1; i <= 5; i++) {
+          if (rating >= i) html += '<i class="fas fa-star"></i>';
+          else if (rating >= i - 0.5)
+            html += '<i class="fas fa-star-half-stroke"></i>';
+          else html += '<i class="far fa-star"></i>';
+        }
+        return `<span class="stars">${html}</span>`;
+      }
+      function formatPrice(n) {
+        return "KSh " + n.toLocaleString();
+      }
+
+      function updateCartUI() {
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        const count = cart.reduce((s, i) => s + i.qty, 0);
+        document.getElementById("cartCountBadge").textContent = count;
+        document.getElementById("mobileCartCountBadge").textContent = count;
+        document.getElementById("cartTotalAmount").textContent =
+          formatPrice(total);
+        const wrap = document.getElementById("cartItemsList");
+        if (!cart.length) {
+          wrap.innerHTML =
+            '<div class="text-center py-5"><i class="fas fa-cart-shopping fa-3x text-muted mb-2"></i><p>Your cart is empty</p></div>';
+          return;
+        }
+        wrap.innerHTML = cart
+          .map(
+            (item) =>
+              `<div class="cart-item"><div class="cart-item-thumb"><img src="${item.image}" onerror="this.src='https://placehold.co/50x50/0B1F3A/white?text=CSW'"></div><div class="cart-item-info"><div class="cart-item-name">${item.name}</div><div class="cart-item-price">${formatPrice(item.price)}</div><div class="cart-qty-ctrl"><button class="cart-qty-btn dec-btn" data-id="${item.id}">−</button><span class="cart-qty-val">${item.qty}</span><button class="cart-qty-btn inc-btn" data-id="${item.id}">+</button></div></div><button class="cart-remove remove-btn" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button></div>`,
+          )
+          .join("");
+        document.querySelectorAll(".inc-btn").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const id = +btn.dataset.id;
+            const idx = cart.findIndex((i) => i.id === id);
+            if (idx > -1) {
+              cart[idx].qty++;
+              saveCart();
+            }
+          }),
+        );
+        document.querySelectorAll(".dec-btn").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const id = +btn.dataset.id;
+            const idx = cart.findIndex((i) => i.id === id);
+            if (idx > -1 && cart[idx].qty > 1) {
+              cart[idx].qty--;
+              saveCart();
+            } else if (idx > -1 && cart[idx].qty === 1) {
+              confirmDeleteItem(id);
+            }
+          }),
+        );
+        document.querySelectorAll(".remove-btn").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const id = +btn.dataset.id;
+            confirmDeleteItem(id);
+          }),
+        );
+      }
+      function confirmDeleteItem(id) {
+        const item = cart.find((i) => i.id === id);
+        Swal.fire({
+          title: `Remove ${item?.name}?`,
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Remove",
+        }).then((res) => {
+          if (res.isConfirmed) {
+            cart = cart.filter((i) => i.id !== id);
+            saveCart();
+            Swal.fire("Removed", "", "success");
+          }
+        });
+      }
+      function addToCart(product, qty = 1) {
+        const idx = cart.findIndex((i) => i.id === product.id);
+        if (idx > -1) cart[idx].qty += qty;
+        else cart.push({ ...product, qty, image: product.image });
+        saveCart();
+        Swal.fire({
+          toast: true,
+          icon: "success",
+          title: "Added to cart!",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      }
+
+      function getFilteredProducts() {
+        return products.filter((p) => {
+          if (
+            !activeCategories.includes("All") &&
+            !activeCategories.includes(p.category)
+          )
+            return false;
+          if (
+            !activeGenders.includes("All") &&
+            !activeGenders.includes(p.gender)
+          )
+            return false;
+          if (minPriceFilter !== null && p.price < minPriceFilter) return false;
+          if (maxPriceFilter !== null && p.price > maxPriceFilter) return false;
+          if (ratingFilter && p.rating < ratingFilter) return false;
+          if (inStockOnly && !p.stock) return false;
+          return true;
+        });
+      }
+
+      function renderProducts() {
+        let filtered = getFilteredProducts();
+        if (sortBy === "priceLowHigh")
+          filtered.sort((a, b) => a.price - b.price);
+        else if (sortBy === "priceHighLow")
+          filtered.sort((a, b) => b.price - a.price);
+        else if (sortBy === "rating")
+          filtered.sort((a, b) => b.rating - a.rating);
+        document.getElementById("productCount").textContent = filtered.length;
+        [
+          "All",
+          "Ergonomic",
+          "Rehabilitative",
+          "Mobility",
+          "Diagnostic",
+        ].forEach((cat) => {
+          const el = document.getElementById("cnt-" + cat);
+          if (el)
+            el.textContent =
+              cat === "All"
+                ? products.length
+                : products.filter((p) => p.category === cat).length;
+        });
+        const container = document.getElementById("productsContainer");
+        if (!filtered.length) {
+          container.innerHTML = `<div class="no-results"><i class="fas fa-search-minus fa-3x text-muted mb-2"></i><h5>No products found</h5><button class="btn-outline-gold mt-2" onclick="resetAllFilters()">Reset Filters</button></div>`;
+          return;
+        }
+        container.innerHTML = filtered
+          .map(
+            (p) =>
+              `<div class="product-card" data-id="${p.id}">${p.badge ? `<div class="product-badge ${p.badge}">${p.badge === "popular" ? "🔥 Popular" : "✨ New"}</div>` : ""}<button class="wishlist-btn ${wishlist.includes(p.id) ? "active" : ""}" data-wid="${p.id}"><i class="${wishlist.includes(p.id) ? "fas" : "far"} fa-heart"></i></button><div class="product-img-wrap" data-pid="${p.id}"><img src="${p.image}" alt="${p.name}" onerror="this.src='https://placehold.co/120x120/0B1F3A/white?text=CSW'"><div class="quick-view-overlay"><button class="quick-view-btn" data-pid="${p.id}">Quick View</button></div></div><div class="product-body"><div class="product-category-tag">${p.category}</div><div class="product-name">${p.name}</div><div class="product-rating">${starsHTML(p.rating)}<span class="rating-count">(${p.reviews})</span></div><div class="product-price-row"><div><span class="product-price">${formatPrice(p.price)}</span>${p.oldPrice ? `<span class="product-old-price ms-1">${formatPrice(p.oldPrice)}</span>` : ""}</div><button class="add-cart-btn" data-id="${p.id}"><i class="fas fa-cart-plus"></i></button></div></div></div>`,
+          )
+          .join("");
+        document.querySelectorAll(".add-cart-btn").forEach((btn) =>
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const p = products.find((x) => x.id === +btn.dataset.id);
+            if (p) addToCart(p);
+          }),
+        );
+        document
+          .querySelectorAll(".quick-view-btn, .product-img-wrap")
+          .forEach((el) =>
+            el.addEventListener("click", (e) => {
+              const pid = +(
+                el.dataset.pid || el.closest(".product-card")?.dataset.id
+              );
+              if (pid) openProductModal(pid);
+            }),
+          );
+        document.querySelectorAll(".wishlist-btn").forEach((btn) =>
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const id = +btn.dataset.wid;
+            if (wishlist.includes(id)) {
+              wishlist = wishlist.filter((x) => x !== id);
+              btn.classList.remove("active");
+              btn.innerHTML = '<i class="far fa-heart"></i>';
+            } else {
+              wishlist.push(id);
+              btn.classList.add("active");
+              btn.innerHTML = '<i class="fas fa-heart"></i>';
+            }
+            saveWishlist();
+          }),
+        );
+      }
+
+      // Modal Functions - Fully Functional
+      function openProductModal(pid) {
+        const p = products.find((x) => x.id === pid);
+        if (!p) return;
+        modalProductId = pid;
+        modalQty = 1;
+        document.getElementById("modalQtyVal").textContent = "1";
+        document.getElementById("modalCategory").textContent = p.category;
+        document.getElementById("modalTitle").textContent = p.name;
+        document.getElementById("modalDesc").textContent = p.description;
+        document.getElementById("modalImgPlaceholder").innerHTML =
+          `<img src="${p.image}" onerror="this.src='https://placehold.co/200x200/0B1F3A/white?text=CSW'">`;
+        document.getElementById("modalPrice").textContent = formatPrice(
+          p.price,
+        );
+        document.getElementById("modalOldPrice").textContent = p.oldPrice
+          ? formatPrice(p.oldPrice)
+          : "";
+        document.getElementById("modalGender").textContent = p.gender;
+        document.getElementById("modalRating").innerHTML =
+          starsHTML(p.rating) +
+          `<span class="ms-1">(${p.reviews} reviews)</span>`;
+        document.getElementById("modalFeatures").innerHTML = (p.features || [])
+          .map(
+            (f) =>
+              `<li><i class="fas fa-check-circle text-gold me-2"></i>${f}</li>`,
+          )
+          .join("");
+        document.getElementById("productModal").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeModal() {
+        document.getElementById("productModal").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      document
+        .getElementById("closeModalBtn")
+        ?.addEventListener("click", closeModal);
+      document
+        .getElementById("productModal")
+        ?.addEventListener("click", (e) => {
+          if (e.target === document.getElementById("productModal"))
+            closeModal();
+        });
+
+      // Modal quantity controls
+      document.getElementById("modalIncQty")?.addEventListener("click", () => {
+        modalQty++;
+        document.getElementById("modalQtyVal").textContent = modalQty;
+      });
+      document.getElementById("modalDecQty")?.addEventListener("click", () => {
+        if (modalQty > 1) {
+          modalQty--;
+          document.getElementById("modalQtyVal").textContent = modalQty;
+        }
+      });
+
+      // Modal Add to Cart
+      document
+        .getElementById("modalAddToCart")
+        ?.addEventListener("click", () => {
+          const p = products.find((x) => x.id === modalProductId);
+          if (p) {
+            addToCart(p, modalQty);
+            closeModal();
+          }
+        });
+
+      // Modal WhatsApp Enquiry
+      document
+        .getElementById("modalWhatsApp")
+        ?.addEventListener("click", () => {
+          const p = products.find((x) => x.id === modalProductId);
+          if (p)
+            window.open(
+              `https://wa.me/254712155510?text=Hello, I am interested in ${p.name} for ${formatPrice(p.price)}`,
+              "_blank",
+            );
+        });
+
+      function updateFilters() {
+        const cats = Array.from(
+          document.querySelectorAll(".category-filter:checked"),
+        ).map((c) => c.value);
+        activeCategories = cats.length ? cats : ["All"];
+        const gends = Array.from(
+          document.querySelectorAll(".gender-filter:checked"),
+        ).map((c) => c.value);
+        activeGenders = gends.length ? gends : ["All"];
+        const rChecked = document.querySelector(".rating-filter:checked");
+        ratingFilter = rChecked ? parseFloat(rChecked.value) : null;
+        inStockOnly = document.getElementById("inStock")?.checked || false;
+        renderProducts();
+      }
+      function resetAllFilters() {
+        document
+          .querySelectorAll(".category-filter")
+          .forEach((c) => (c.checked = false));
+        document.getElementById("fAll").checked = true;
+        document
+          .querySelectorAll(".gender-filter")
+          .forEach((c) => (c.checked = false));
+        document.getElementById("gAll").checked = true;
+        document
+          .querySelectorAll(".rating-filter")
+          .forEach((c) => (c.checked = false));
+        if (document.getElementById("inStock"))
+          document.getElementById("inStock").checked = false;
+        document.getElementById("minPrice").value = "";
+        document.getElementById("maxPrice").value = "";
+        minPriceFilter = null;
+        maxPriceFilter = null;
+        ratingFilter = null;
+        inStockOnly = false;
+        activeCategories = ["All"];
+        activeGenders = ["All"];
+        renderProducts();
+      }
+      document
+        .querySelectorAll(
+          ".category-filter, .gender-filter, .rating-filter, .avail-filter",
+        )
+        .forEach((el) => el.addEventListener("change", updateFilters));
+      document
+        .getElementById("applyPriceBtn")
+        ?.addEventListener("click", () => {
+          minPriceFilter = document.getElementById("minPrice").value
+            ? parseInt(document.getElementById("minPrice").value)
+            : null;
+          maxPriceFilter = document.getElementById("maxPrice").value
+            ? parseInt(document.getElementById("maxPrice").value)
+            : null;
+          renderProducts();
+        });
+      document
+        .getElementById("resetFiltersBtn")
+        ?.addEventListener("click", resetAllFilters);
+      document.getElementById("sortSelect")?.addEventListener("change", (e) => {
+        sortBy = e.target.value;
+        renderProducts();
+      });
+      document.querySelectorAll(".cat-pill").forEach((pill) =>
+        pill.addEventListener("click", () => {
+          document
+            .querySelectorAll(".cat-pill")
+            .forEach((p) => p.classList.remove("active"));
+          pill.classList.add("active");
+          const cat = pill.dataset.cat;
+          document
+            .querySelectorAll(".category-filter")
+            .forEach((c) => (c.checked = false));
+          if (cat === "All") document.getElementById("fAll").checked = true;
+          else {
+            const map = {
+              Ergonomic: "fErgo",
+              Rehabilitative: "fRehab",
+              Mobility: "fMob",
+              Diagnostic: "fDiag",
+            };
+            if (map[cat]) document.getElementById(map[cat]).checked = true;
+          }
+          updateFilters();
+        }),
+      );
+
+      function closeCart() {
+        document.getElementById("cartSidebar").classList.remove("open");
+        document.getElementById("cartOverlay").classList.remove("active");
+      }
+      document.getElementById("cartIconBtn")?.addEventListener("click", () => {
+        document.getElementById("cartSidebar").classList.add("open");
+        document.getElementById("cartOverlay").classList.add("active");
+      });
+      document
+        .getElementById("mobileCartIconBtn")
+        ?.addEventListener("click", () => {
+          document.getElementById("cartSidebar").classList.add("open");
+          document.getElementById("cartOverlay").classList.add("active");
+        });
+      document
+        .getElementById("closeCartBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("cartOverlay")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("continueShoppingBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("proceedCheckoutBtn")
+        ?.addEventListener("click", () => {
+          if (!cart.length)
+            Swal.fire("Cart empty", "Add items before checkout", "info");
+          else window.location.href = "checkout.html";
+        });
+
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("mainNav")
+          ?.classList.toggle("scrolled", window.scrollY > 40);
+      });
+      document
+        .getElementById("footerSubscribeBtn")
+        ?.addEventListener("click", () => {
+          const email = document.getElementById("footerSubscribeEmail")?.value;
+          if (email && email.includes("@"))
+            Swal.fire("Subscribed!", "Weekly insights delivered.", "success");
+          else Swal.fire("Error", "Enter valid email", "error");
+        });
+
+      renderProducts();
+      updateCartUI();
+    </script>
+  </body>
+</html>

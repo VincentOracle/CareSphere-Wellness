@@ -1,0 +1,1401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>
+      About Us | CARESPHERE WELLNESS | Health Governance & Care Coordination
+    </title>
+    <meta
+      name="description"
+      content="CARESPHERE WELLNESS is a Nairobi-based health governance firm. We move beyond reactive clinic models to provide preventive oversight, care coordination, and long-term health continuity."
+    />
+
+    <!-- Google Fonts + Bootstrap 5 + Font Awesome + SweetAlert -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="shortcut icon"
+      href="img/caresphere_logo_icon.png"
+      type="image/x-icon"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        color: #1e2a3e;
+        background-color: #ffffff;
+        scroll-behavior: smooth;
+      }
+      :root {
+        --navy: #0b1f3a;
+        --gold: #c8a96a;
+        --gold-light: #e0c88c;
+        --white: #ffffff;
+        --gray-light: #f8fafc;
+        --gray-border: #eef2f6;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      .text-navy {
+        color: var(--navy);
+      }
+      .text-gold {
+        color: var(--gold);
+      }
+      .bg-navy {
+        background-color: var(--navy);
+      }
+      .bg-gold {
+        background-color: var(--gold);
+      }
+
+      /* Responsive Typography */
+      html {
+        font-size: 16px;
+      }
+      @media (max-width: 1200px) {
+        html {
+          font-size: 15px;
+        }
+      }
+      @media (max-width: 992px) {
+        html {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 768px) {
+        html {
+          font-size: 13px;
+        }
+      }
+      @media (max-width: 576px) {
+        html {
+          font-size: 12px;
+        }
+      }
+
+      .about-hero h1 {
+        font-size: clamp(1.8rem, 5vw, 3.2rem);
+        font-weight: 800;
+      }
+      .lead {
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+      }
+
+      .btn-gold {
+        background-color: var(--gold);
+        border: none;
+        color: var(--navy);
+        font-weight: 600;
+        padding: 10px 24px;
+        border-radius: 40px;
+        transition: 0.3s;
+        font-size: 0.85rem;
+      }
+      .btn-gold:hover {
+        background-color: #b89a54;
+        color: white;
+        transform: translateY(-2px);
+      }
+      .btn-outline-gold {
+        border: 2px solid var(--gold);
+        background: transparent;
+        color: var(--navy);
+        font-weight: 600;
+        padding: 8px 20px;
+        border-radius: 40px;
+        transition: 0.3s;
+        font-size: 0.8rem;
+      }
+      .btn-outline-gold:hover {
+        background: var(--gold);
+        color: var(--navy);
+      }
+      .btn-navy {
+        background-color: var(--navy);
+        color: white;
+        border-radius: 40px;
+        padding: 10px 24px;
+        font-weight: 600;
+        transition: 0.3s;
+        font-size: 0.85rem;
+      }
+      .btn-navy:hover {
+        background-color: #1e3a5f;
+        transform: translateY(-2px);
+        color: white;
+      }
+
+      /* Top Bar */
+      .top-bar {
+        background-color: #0a1a2f;
+        color: #e0e6ed;
+        font-size: 0.7rem;
+        padding: 6px 0;
+        border-bottom: 1px solid rgba(200, 169, 106, 0.2);
+      }
+      .top-bar a {
+        color: #e0e6ed;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+      .top-bar a:hover {
+        color: var(--gold);
+      }
+      .top-bar .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        margin-left: 6px;
+        transition: 0.2s;
+        font-size: 0.8rem;
+      }
+      .top-bar .social-links a:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-2px);
+      }
+      .top-bar .contact-info i {
+        margin-right: 5px;
+        color: var(--gold);
+      }
+      @media (max-width: 768px) {
+        .top-bar .contact-info span {
+          display: none;
+        }
+        .top-bar .social-links a {
+          width: 26px;
+          height: 26px;
+        }
+      }
+
+      /* navbar */
+      .navbar-custom {
+        background-color: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+        padding: 0.5rem 1rem;
+      }
+      .navbar-brand img {
+        height: 45px;
+        object-fit: contain;
+      }
+      .nav-link {
+        font-weight: 500;
+        color: var(--navy) !important;
+        margin: 0 0.4rem;
+        transition: 0.2s;
+        font-size: 0.85rem;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--gold) !important;
+      }
+      .cart-badge {
+        background: var(--gold);
+        color: var(--navy);
+        border-radius: 30px;
+        padding: 2px 8px;
+        font-size: 0.65rem;
+        font-weight: bold;
+        margin-left: 5px;
+      }
+
+      /* Mobile cart button */
+      .mobile-cart-btn {
+        display: none;
+      }
+      @media (max-width: 991px) {
+        .desktop-cart-btn {
+          display: none !important;
+        }
+        .mobile-cart-btn {
+          display: inline-flex !important;
+          align-items: center;
+          justify-content: center;
+          background: var(--navy);
+          color: white;
+          border: none;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          position: relative;
+          margin-right: 8px;
+        }
+        .mobile-cart-btn:hover {
+          background: var(--gold);
+          color: var(--navy);
+        }
+        .navbar-toggler {
+          order: 2;
+        }
+        .navbar-collapse {
+          order: 3;
+          width: 100%;
+        }
+      }
+      @media (min-width: 992px) {
+        .desktop-cart-btn {
+          display: inline-flex !important;
+        }
+        .mobile-cart-btn {
+          display: none !important;
+        }
+      }
+
+      /* Cart Sidebar */
+      .cart-sidebar {
+        position: fixed;
+        top: 0;
+        right: -480px;
+        width: 420px;
+        max-width: 90vw;
+        height: 100vh;
+        background: white;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+        z-index: 1050;
+        transition: 0.35s ease;
+        padding: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      .cart-sidebar.open {
+        right: 0;
+      }
+      .cart-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1040;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.2s;
+      }
+      .cart-overlay.active {
+        visibility: visible;
+        opacity: 1;
+      }
+      .cart-item-img {
+        width: 55px;
+        height: 55px;
+        background: #f0f2f5;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 12px;
+        overflow: hidden;
+      }
+      .cart-item-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .quantity-btn {
+        background: #eef2f6;
+        border: none;
+        width: 28px;
+        height: 28px;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: 0.2s;
+        font-size: 0.9rem;
+      }
+      .quantity-btn:hover {
+        background: var(--gold);
+        color: white;
+      }
+
+      /* About Hero */
+      .about-hero {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(11, 31, 58, 0.94) 0%,
+            rgba(11, 31, 58, 0.85) 100%
+          ),
+          url("img/about_hero_bg.jpg");
+        background-size: cover;
+        background-position: center;
+        padding: 70px 0 50px;
+        color: white;
+      }
+      .stat-card {
+        background: white;
+        border-radius: 20px;
+        padding: 1.5rem;
+        transition: 0.2s;
+        border: none;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        height: 100%;
+      }
+      .problem-card {
+        background: var(--gray-light);
+        border-left: 4px solid var(--gold);
+        padding: 1.2rem;
+        border-radius: 16px;
+        margin-bottom: 1rem;
+      }
+      .step-model {
+        background: white;
+        border-radius: 24px;
+        padding: 1rem;
+        text-align: center;
+        transition: 0.2s;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        height: 100%;
+        border: 1px solid var(--gray-border);
+      }
+      .step-model:hover {
+        transform: translateY(-4px);
+        border-color: var(--gold);
+      }
+      .leadership-img {
+        background: #f0f2f5;
+        border-radius: 28px;
+        padding: 0.8rem;
+        text-align: center;
+      }
+      .compliance-badge {
+        background: rgba(200, 169, 106, 0.1);
+        border-radius: 50px;
+        padding: 8px 16px;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 5px;
+        font-size: 0.8rem;
+      }
+      .testimonial-card {
+        background: white;
+        border-radius: 20px;
+        padding: 1.5rem;
+        transition: 0.2s;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        height: 100%;
+        border: 1px solid var(--gray-border);
+      }
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--gold);
+      }
+      .testimonial-card .quote-icon {
+        color: var(--gold);
+        font-size: 1.8rem;
+        opacity: 0.4;
+        margin-bottom: 0.8rem;
+      }
+      .whatsapp-float {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background-color: #25d366;
+        color: white;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        transition: 0.2s;
+      }
+      .whatsapp-float:hover {
+        background-color: #20b859;
+        transform: scale(1.05);
+        color: white;
+      }
+      footer {
+        background:
+          linear-gradient(rgba(11, 31, 58, 0.95), rgba(11, 31, 58, 0.97)),
+          url("img/footer_bg.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #cfdee9;
+      }
+      .footer-link {
+        color: #cfdee9;
+        text-decoration: none;
+        transition: 0.2s;
+        display: inline-block;
+        margin-bottom: 6px;
+        font-size: 0.8rem;
+      }
+      .footer-link:hover {
+        color: var(--gold);
+        transform: translateX(4px);
+      }
+      .social-icon {
+        background: rgba(255, 255, 255, 0.12);
+        width: 34px;
+        height: 34px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-right: 6px;
+        transition: 0.2s;
+        color: white;
+        font-size: 16px;
+      }
+      .social-icon:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-3px);
+      }
+      .payment-icon {
+        font-size: 24px;
+        margin-right: 8px;
+        opacity: 0.8;
+        transition: 0.2s;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .payment-icon:hover {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+      .section-title {
+        margin-bottom: 2rem;
+      }
+      .section-title h2 {
+        font-weight: 700;
+        font-size: clamp(1.4rem, 4vw, 2rem);
+      }
+      .section-title span {
+        border-bottom: 4px solid var(--gold);
+        display: inline-block;
+        padding-bottom: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-8 text-center text-md-start">
+            <div
+              class="contact-info d-flex flex-wrap justify-content-center justify-content-md-start gap-3"
+            >
+              <a href="tel:+254712155510"
+                ><i class="fas fa-phone-alt"></i> +254 712 155 510</a
+              >
+              <a href="https://wa.me/254712155510" target="_blank"
+                ><i class="fab fa-whatsapp"></i> WhatsApp</a
+              >
+              <a href="mailto:Carespherewellness@gmail.com"
+                ><i class="far fa-envelope"></i> Carespherewellness@gmail.com</a
+              >
+              <span><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</span>
+            </div>
+          </div>
+          <div class="col-md-4 text-center text-md-end">
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/share/1LjcBqoMEe/"
+                target="_blank"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/caresphere_wellness"
+                target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="https://ke.linkedin.com/in/e-amiani" target="_blank"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@carespherewellness"
+                target="_blank"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CART OVERLAY & SIDEBAR -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="mb-0">
+          <i class="fas fa-shopping-cart text-gold"></i> Your Cart
+        </h5>
+        <button class="btn-close" id="closeCartBtn"></button>
+      </div>
+      <div
+        id="cartItemsList"
+        class="flex-grow-1 mb-3"
+        style="max-height: 55vh; overflow-y: auto"
+      >
+        <p class="text-muted text-center py-4">Your cart is empty.</p>
+      </div>
+      <div class="border-top pt-3">
+        <div class="d-flex justify-content-between fw-bold mb-2">
+          <span>Total:</span><span id="cartTotalAmount">KSh 0</span>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-gold w-50" id="continueShoppingBtn">
+            <i class="fas fa-arrow-left me-1"></i> Shop More</button
+          ><button class="btn btn-navy w-50" id="proceedCheckoutBtn">
+            Checkout →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR with mobile cart visible -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"
+          ><img
+            src="img/caresphere_logo.png"
+            alt="CARESPHERE WELLNESS"
+            style="height: 50px"
+            onerror="
+              this.src = 'https://placehold.co/180x50/0B1F3A/white?text=CSW'
+            "
+        /></a>
+
+        <!-- Mobile Cart Button -->
+        <button class="mobile-cart-btn" id="mobileCartIconBtn">
+          <i class="fas fa-shopping-cart"></i
+          ><span class="cart-badge" id="mobileCartCountBadge">0</span>
+        </button>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="store.html">E-Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="partners.html">Partners</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Insights</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <a
+            href="booking.html"
+            class="btn btn-gold ms-3 d-none d-lg-inline-block"
+            >Book Consultation</a
+          >
+          <button
+            class="desktop-cart-btn btn btn-outline-gold ms-2 position-relative"
+            id="cartIconBtn"
+          >
+            <i class="fas fa-shopping-cart"></i
+            ><span class="cart-badge" id="cartCountBadge">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ABOUT HERO -->
+    <section class="about-hero">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-8">
+            <h1 class="mb-3">
+              Beyond Traditional Clinics<br /><span class="text-gold"
+                >Health Governance</span
+              >
+              Redefined
+            </h1>
+            <p class="lead">
+              CARESPHERE WELLNESS is Nairobi's premier health advisory and care
+              coordination firm. We do not just treat illness, we provide
+              structured oversight, preventive risk management, and long term
+              health continuity for those who demand more from healthcare.
+            </p>
+            <div class="mt-4">
+              <a href="#mission" class="btn btn-gold me-2">Our Mission</a
+              ><a href="#leadership" class="btn btn-outline-gold"
+                >Meet Our Founder</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM STATEMENT -->
+    <section class="container py-5">
+      <div class="section-title text-center">
+        <h2><span>The Healthcare Gap We Exist to Solve</span></h2>
+        <p class="text-muted">
+          Modern healthcare is reactive, fragmented, and leaves people
+          navigating alone
+        </p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="problem-card">
+            <i class="fas fa-network-wired fa-2x text-gold mb-3"></i>
+            <h5>Fragmented Care</h5>
+            <p class="mb-0">
+              Hospitals, labs, specialists and insurers rarely communicate,
+              forcing you to manage disconnected pieces.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="problem-card">
+            <i class="fas fa-clock fa-2x text-gold mb-3"></i>
+            <h5>Delayed Diagnoses</h5>
+            <p class="mb-0">
+              Reactive models wait for symptoms to escalate. Silent chronic
+              conditions go undetected for years.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="problem-card">
+            <i class="fas fa-eye-slash fa-2x text-gold mb-3"></i>
+            <h5>Missed Follow Ups</h5>
+            <p class="mb-0">
+              Without coordinated oversight, critical appointments, test results
+              and referrals fall through the cracks.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-6 mx-auto text-center">
+          <div class="bg-light p-4 rounded-4">
+            <i class="fas fa-chart-line fa-2x text-gold mb-2"></i>
+            <h5>Preventable emergencies · Rising costs · Confusion</h5>
+            <p>
+              This is why CARESPHERE exists to replace reaction with structure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION & VISION -->
+    <section class="container py-5" id="mission">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="stat-card">
+            <i class="fas fa-bullseye fa-3x text-gold mb-3"></i>
+            <h3>Our Mission</h3>
+            <p>
+              To empower individuals and families to stay ahead of health risks
+              through intelligent oversight, personalized strategies, proactive
+              planning, and seamless coordination across all healthcare
+              touchpoints.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="stat-card">
+            <i class="fas fa-eye fa-3x text-gold mb-3"></i>
+            <h3>Our Vision</h3>
+            <p>
+              To become Africa's leading health governance partner, redefining
+              how individuals, families, and professionals manage their health
+              through proactive, structured, and coordinated systems of care.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="bg-navy text-white p-4 rounded-4 text-center">
+            <h4 class="text-gold mb-3">
+              Core Philosophy: Intelligence driven health
+            </h4>
+            <div class="row g-3 mt-1">
+              <div class="col-md-3">
+                <i class="fas fa-shield-alt fa-2x mb-2"></i>
+                <p>
+                  <strong>Preventive first</strong><br />Early detection over
+                  late intervention
+                </p>
+              </div>
+              <div class="col-md-3">
+                <i class="fas fa-link fa-2x mb-2"></i>
+                <p>
+                  <strong>Continuity</strong><br />Long term oversight not
+                  episodic visits
+                </p>
+              </div>
+              <div class="col-md-3">
+                <i class="fas fa-brain fa-2x mb-2"></i>
+                <p>
+                  <strong>Intelligence</strong><br />Risk analytics and data
+                  driven decisions
+                </p>
+              </div>
+              <div class="col-md-3">
+                <i class="fas fa-hand-holding-heart fa-2x mb-2"></i>
+                <p>
+                  <strong>Personalization</strong><br />Strategies built around
+                  you
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section class="container py-5" id="leadership">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-5">
+          <div class="leadership-img">
+            <img
+              src="img/ephraim_amiani.jpg"
+              alt="Ephraim Amiani, Founder"
+              class="img-fluid rounded-4 shadow"
+              style="width: 100%"
+              onerror="
+                this.src =
+                  'https://placehold.co/400x400/0B1F3A/white?text=Ephraim+Amiani'
+              "
+            />
+            <div class="mt-2 text-center">
+              <i class="fas fa-user-md text-gold fa-2x"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <span class="badge bg-gold text-navy mb-2 px-3 py-2"
+            >Founder and Clinical Lead</span
+          >
+          <h2 class="mb-2">
+            Ephraim Amiani <span class="text-gold">Clinical Officer</span>
+          </h2>
+          <p class="lead">
+            Preventive health strategist, systems thinker, and advocate for
+            structured health governance.
+          </p>
+          <p>
+            Ephraim Amiani is a trained Clinical Officer with deep expertise in
+            preventive health, healthcare systems architecture, risk based care
+            models, and structured health management. His work bridges clinical
+            insight with operational coordination ensuring that individuals and
+            families receive not just treatment, but intelligent oversight and
+            continuity across every provider.
+          </p>
+          <p>
+            Recognizing that most healthcare failures stem from fragmentation
+            rather than lack of facilities, he founded CARESPHERE WELLNESS to
+            bring executive level health governance to professionals, families,
+            and diaspora households.
+          </p>
+          <div class="mt-3 d-flex gap-2">
+            <a
+              href="https://ke.linkedin.com/in/e-amiani"
+              target="_blank"
+              class="btn btn-outline-gold"
+              ><i class="fab fa-linkedin"></i> LinkedIn</a
+            ><button class="btn btn-navy" id="consultLeaderBtn">
+              <i class="fas fa-calendar-check"></i> Book a consultation
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IS HEALTH GOVERNANCE -->
+    <section class="bg-light py-5">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6">
+            <span class="badge bg-gold text-navy mb-2 px-3 py-2"
+              >Our approach</span
+            >
+            <h2 class="mb-3">
+              Introducing <span class="text-gold">Health Governance</span>
+            </h2>
+            <p class="lead">
+              A proactive, coordinated framework that provides continuous
+              oversight across your entire health journey.
+            </p>
+            <p>
+              Unlike traditional clinics that focus only on episodic treatment,
+              CARESPHERE acts as your central health partner identifying risks
+              early, coordinating care across every provider, and ensuring
+              nothing is missed over months and years.
+            </p>
+            <ul class="list-unstyled mt-3">
+              <li>
+                <i class="fas fa-check-circle text-gold me-2"></i
+                ><strong>Clinical insight</strong> combined with preventive
+                principles
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-gold me-2"></i
+                ><strong>Systems thinking</strong> for true continuity
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-gold me-2"></i
+                ><strong>Personalized coordination</strong> across every
+                touchpoint
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <div class="bg-white p-4 rounded-4 shadow-sm">
+              <h4 class="mb-3 text-center">
+                From reactive to structured management
+              </h4>
+              <div class="row g-3">
+                <div class="col-6 text-center">
+                  <i class="fas fa-ambulance fa-2x text-danger"></i>
+                  <p class="mt-1 small">Reactive: Waiting for symptoms</p>
+                </div>
+                <div class="col-6 text-center">
+                  <i class="fas fa-chart-line fa-2x text-gold"></i>
+                  <p class="mt-1 small">Proactive: Continuous oversight</p>
+                </div>
+                <div class="col-12">
+                  <div class="progress mb-2" style="height: 6px">
+                    <div class="progress-bar bg-gold" style="width: 100%"></div>
+                  </div>
+                </div>
+                <div class="col-6 text-center">
+                  <i class="fas fa-user-md fa-2x text-muted"></i>
+                  <p class="mt-1 small">Fragmented doctors</p>
+                </div>
+                <div class="col-6 text-center">
+                  <i class="fas fa-network-wired fa-2x text-gold"></i>
+                  <p class="mt-1 small">Unified coordination</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HEALTH GOVERNANCE MODEL -->
+    <section class="container py-5">
+      <div class="section-title text-center">
+        <h2><span>Our Health Governance Model</span></h2>
+        <p>
+          The framework that transforms healthcare from isolated reactions into
+          continuous management
+        </p>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-2 col-6">
+          <div class="step-model">
+            <div
+              class="bg-gold rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2"
+              style="width: 50px; height: 50px"
+            >
+              <i class="fas fa-search fa-xl text-white"></i>
+            </div>
+            <h6>Assess</h6>
+            <small>Identify risks</small>
+          </div>
+        </div>
+        <div class="col-md-2 col-6">
+          <div class="step-model">
+            <div
+              class="bg-gold rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2"
+              style="width: 50px; height: 50px"
+            >
+              <i class="fas fa-map fa-xl text-white"></i>
+            </div>
+            <h6>Map</h6>
+            <small>Patterns & priorities</small>
+          </div>
+        </div>
+        <div class="col-md-2 col-6">
+          <div class="step-model">
+            <div
+              class="bg-gold rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2"
+              style="width: 50px; height: 50px"
+            >
+              <i class="fas fa-clipboard-list fa-xl text-white"></i>
+            </div>
+            <h6>Plan</h6>
+            <small>Personalized strategy</small>
+          </div>
+        </div>
+        <div class="col-md-2 col-6">
+          <div class="step-model">
+            <div
+              class="bg-gold rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2"
+              style="width: 50px; height: 50px"
+            >
+              <i class="fas fa-people-arrows fa-xl text-white"></i>
+            </div>
+            <h6>Coordinate</h6>
+            <small>Align providers</small>
+          </div>
+        </div>
+        <div class="col-md-2 col-6">
+          <div class="step-model">
+            <div
+              class="bg-gold rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2"
+              style="width: 50px; height: 50px"
+            >
+              <i class="fas fa-chart-line fa-xl text-white"></i>
+            </div>
+            <h6>Monitor</h6>
+            <small>Track & maintain</small>
+          </div>
+        </div>
+        <div class="col-md-2 col-6">
+          <div class="step-model">
+            <div
+              class="bg-navy rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2"
+              style="width: 50px; height: 50px"
+            >
+              <i class="fas fa-undo-alt fa-xl text-white"></i>
+            </div>
+            <h6>Iterate</h6>
+            <small>Continuous optimization</small>
+          </div>
+        </div>
+      </div>
+      <p class="text-center mt-3 text-muted small">
+        From fragmented visits to structured health lifecycle management.
+      </p>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="bg-light py-5">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2><span>What Our Clients Say</span></h2>
+          <p class="text-muted">
+            Trusted by executives, families, and professionals across Kenya and
+            beyond
+          </p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+              <p>
+                The coordination and proactive health oversight from CARESPHERE
+                has completely changed how our family manages wellness.
+              </p>
+              <div class="d-flex align-items-center mt-3">
+                <div
+                  class="bg-gold rounded-circle d-flex align-items-center justify-content-center me-2"
+                  style="width: 45px; height: 45px"
+                >
+                  <i class="fas fa-user text-white"></i>
+                </div>
+                <div>
+                  <strong>Lydia Mwangi</strong><br /><small class="text-muted"
+                    >Executive Director</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+              <p>
+                Knowing that CARESPHERE looks after my parents' healthcare gives
+                me peace of mind every single day. The diaspora support is
+                exceptional.
+              </p>
+              <div class="d-flex align-items-center mt-3">
+                <div
+                  class="bg-gold rounded-circle d-flex align-items-center justify-content-center me-2"
+                  style="width: 45px; height: 45px"
+                >
+                  <i class="fas fa-user text-white"></i>
+                </div>
+                <div>
+                  <strong>Andrew Kipchoge</strong><br /><small
+                    class="text-muted"
+                    >Diaspora Client</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+              <p>
+                The Executive Health Risk Assessment revealed early signs of
+                hypertension. I made lifestyle changes before any serious damage
+                occurred.
+              </p>
+              <div class="d-flex align-items-center mt-3">
+                <div
+                  class="bg-gold rounded-circle d-flex align-items-center justify-content-center me-2"
+                  style="width: 45px; height: 45px"
+                >
+                  <i class="fas fa-user text-white"></i>
+                </div>
+                <div>
+                  <strong>Dr. James Otieno</strong><br /><small
+                    class="text-muted"
+                    >Corporate Executive</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGULATORY & COMPLIANCE -->
+    <section class="py-5">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2><span>Regulatory and Professional Standards</span></h2>
+          <p>Operating with integrity, compliance and clinical excellence</p>
+        </div>
+        <div class="row justify-content-center g-2 mb-4">
+          <div class="col-md-3 col-6">
+            <div class="compliance-badge">
+              <i class="fas fa-file-invoice text-gold"></i> KMPDC Licensed
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="compliance-badge">
+              <i class="fas fa-lock text-gold"></i> Data Protection Act 2019
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="compliance-badge">
+              <i class="fas fa-id-card text-gold"></i> Registered Clinical
+              Personnel
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="compliance-badge">
+              <i class="fas fa-shield text-gold"></i> Professional Indemnity
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <h4 class="mb-3">
+            Your health. Professionally managed. Ethically governed.
+          </h4>
+          <a href="contact.html" class="btn btn-gold"
+            >Speak with a Health Governance Advisor</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pt-4 pb-3">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <a href="index.html" class="d-inline-block mb-2"
+              ><img
+                src="img/caresphere_footer_logo.png"
+                alt="logo"
+                style="height: 45px"
+                onerror="
+                  this.src =
+                    'https://placehold.co/160x45/FFFFFF/0B1F3A?text=CSW'
+                "
+            /></a>
+            <p class="mt-2 small">
+              Nairobi based health governance and care coordination. Your
+              health, professionally managed.
+            </p>
+            <div class="mt-2">
+              <i class="fab fa-cc-visa fa-xl payment-icon"></i
+              ><i class="fab fa-cc-mastercard fa-xl payment-icon"></i
+              ><i class="fab fa-cc-paypal fa-xl payment-icon"></i
+              ><i class="fas fa-mobile-alt fa-xl payment-icon"></i>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <h5 class="text-white">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li><a href="about.html" class="footer-link">About</a></li>
+              <li><a href="services.html" class="footer-link">Services</a></li>
+              <li><a href="store.html" class="footer-link">E-Store</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5 class="text-white">Useful Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="terms.html" class="footer-link"
+                  >Terms and Conditions</a
+                >
+              </li>
+              <li><a href="faq.html" class="footer-link">FAQs</a></li>
+              <li>
+                <a href="standards.html" class="footer-link"
+                  >ISO 9001:2015 Standards</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5 class="text-white">Subscribe</h5>
+            <p class="small">Get weekly preventive insights and offers</p>
+            <div class="input-group mb-2">
+              <input
+                type="email"
+                class="form-control form-control-sm"
+                placeholder="Your email"
+                id="subscribeEmail"
+              /><button class="btn btn-gold btn-sm" id="subscribeBtn">
+                Join
+              </button>
+            </div>
+            <div class="mt-2">
+              <a
+                href="https://www.facebook.com/share/1LjcBqoMEe/"
+                target="_blank"
+                class="social-icon"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                href="https://www.instagram.com/caresphere_wellness"
+                target="_blank"
+                class="social-icon"
+                ><i class="fab fa-instagram"></i></a
+              ><a
+                href="https://www.tiktok.com/@carespherewellness"
+                target="_blank"
+                class="social-icon"
+                ><i class="fab fa-tiktok"></i></a
+              ><a
+                href="https://ke.linkedin.com/in/e-amiani"
+                target="_blank"
+                class="social-icon"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <hr class="my-3 opacity-25" />
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start small">
+            © <span id="dynamicYear"></span> CARESPHERE WELLNESS — Executive
+            Health Governance. All rights reserved.
+          </div>
+          <div class="col-md-6 text-center text-md-end small">
+            Designed by
+            <a
+              href="https://eontechsystems.com/"
+              target="_blank"
+              class="text-gold text-decoration-none"
+              >EonTech Systems</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/254712155510?text=Hello%20CARESPHERE%20WELLNESS"
+      target="_blank"
+      class="whatsapp-float"
+      ><i class="fab fa-whatsapp"></i
+    ></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const startYear = 2020,
+        currentYear = new Date().getFullYear();
+      document.getElementById("dynamicYear").innerText =
+        startYear + (currentYear > startYear ? `-${currentYear}` : "");
+
+      // Cart functionality
+      let cart = [];
+      function saveCart() {
+        localStorage.setItem("caresphereCart", JSON.stringify(cart));
+        updateCartUI();
+      }
+      function loadCart() {
+        const saved = localStorage.getItem("caresphereCart");
+        if (saved) cart = JSON.parse(saved);
+        updateCartUI();
+      }
+      function updateCartUI() {
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        const count = cart.reduce((s, i) => s + i.qty, 0);
+        document.getElementById("cartCountBadge").innerText = count;
+        document.getElementById("mobileCartCountBadge").innerText = count;
+        document.getElementById("cartTotalAmount").innerHTML =
+          `KSh ${total.toLocaleString()}`;
+        const container = document.getElementById("cartItemsList");
+        if (cart.length === 0) {
+          container.innerHTML =
+            '<p class="text-muted text-center py-4">Your cart is empty.</p>';
+          return;
+        }
+        container.innerHTML = cart
+          .map(
+            (item) =>
+              `<div class="d-flex align-items-center border-bottom pb-2 mb-2"><div class="cart-item-img"><img src="${item.image || ""}" onerror="this.parentElement.innerHTML='<i class=\'${item.icon || "fas fa-box"}\' style=\'font-size:24px\'></i>'"></div><div class="flex-grow-1"><strong>${item.name}</strong><br><small>KSh ${item.price.toLocaleString()}</small><div class="d-flex gap-2 mt-1"><button class="quantity-btn decQty" data-id="${item.id}">−</button><span class="mx-1">${item.qty}</span><button class="quantity-btn incQty" data-id="${item.id}">+</button></div></div><button class="btn btn-sm text-danger removeCartItemBtn" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button></div>`,
+          )
+          .join("");
+        document.querySelectorAll(".incQty").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            let id = parseInt(btn.dataset.id);
+            let idx = cart.findIndex((i) => i.id === id);
+            if (idx !== -1) {
+              cart[idx].qty++;
+              saveCart();
+            }
+          }),
+        );
+        document.querySelectorAll(".decQty").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            let id = parseInt(btn.dataset.id);
+            let idx = cart.findIndex((i) => i.id === id);
+            if (idx !== -1 && cart[idx].qty > 1) {
+              cart[idx].qty--;
+              saveCart();
+            } else if (idx !== -1 && cart[idx].qty === 1) confirmDeleteItem(id);
+          }),
+        );
+        document.querySelectorAll(".removeCartItemBtn").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            let id = parseInt(btn.dataset.id);
+            confirmDeleteItem(id);
+          }),
+        );
+      }
+      function confirmDeleteItem(id) {
+        const item = cart.find((i) => i.id === id);
+        Swal.fire({
+          title: `Remove ${item?.name}?`,
+          text: "Item will be removed.",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Remove",
+        }).then((res) => {
+          if (res.isConfirmed) {
+            cart = cart.filter((i) => i.id !== id);
+            saveCart();
+            Swal.fire("Removed", "", "success");
+          }
+        });
+      }
+      function closeCart() {
+        document.getElementById("cartSidebar").classList.remove("open");
+        document.getElementById("cartOverlay").classList.remove("active");
+      }
+
+      document.getElementById("cartIconBtn")?.addEventListener("click", () => {
+        document.getElementById("cartSidebar").classList.add("open");
+        document.getElementById("cartOverlay").classList.add("active");
+      });
+      document
+        .getElementById("mobileCartIconBtn")
+        ?.addEventListener("click", () => {
+          document.getElementById("cartSidebar").classList.add("open");
+          document.getElementById("cartOverlay").classList.add("active");
+        });
+      document
+        .getElementById("closeCartBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("cartOverlay")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("continueShoppingBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("proceedCheckoutBtn")
+        ?.addEventListener("click", () => {
+          if (cart.length === 0)
+            Swal.fire("Cart empty", "Add items before checkout", "info");
+          else window.location.href = "checkout.html";
+        });
+
+      // Consultation redirect to booking page
+      const showConsult = () => (window.location.href = "booking.html");
+      document
+        .getElementById("consultBtnNav")
+        ?.addEventListener("click", showConsult);
+      document
+        .getElementById("consultLeaderBtn")
+        ?.addEventListener("click", showConsult);
+
+      // Subscribe
+      document.getElementById("subscribeBtn")?.addEventListener("click", () => {
+        let email = document.getElementById("subscribeEmail")?.value;
+        if (email && email.includes("@"))
+          Swal.fire("Subscribed!", "Weekly insights delivered.", "success");
+        else Swal.fire("Error", "Enter valid email", "error");
+      });
+
+      loadCart();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>FAQs | CARESPHERE WELLNESS | Frequently Asked Questions</title>
+    <meta
+      name="description"
+      content="Find answers to frequently asked questions about CARESPHERE WELLNESS health governance services, care coordination, consultations, products, and privacy practices."
+    />
+
+    <!-- Google Fonts + Bootstrap 5 + Font Awesome + SweetAlert -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="shortcut icon"
+      href="img/caresphere_logo_icon.png"
+      type="image/x-icon"
+    />
+
+    <style>
+      :root {
+        --navy: #07192e;
+        --navy-mid: #0e2a47;
+        --gold: #c8a044;
+        --gold-light: #e4c070;
+        --gold-pale: #fdf6e7;
+        --cream: #faf8f4;
+        --white: #ffffff;
+        --gray-50: #f8fafc;
+        --gray-100: #f1f5f9;
+        --gray-200: #e2e8f0;
+        --gray-400: #94a3b8;
+        --gray-600: #475569;
+        --text-dark: #0f1e30;
+        --text-mid: #3d5166;
+        --radius-sm: 12px;
+        --radius-md: 20px;
+        --radius-lg: 32px;
+        --shadow-sm: 0 2px 8px rgba(7, 25, 46, 0.06);
+        --shadow-md: 0 8px 24px rgba(7, 25, 46, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--cream);
+        color: var(--text-dark);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "DM Serif Display", serif;
+        letter-spacing: -0.01em;
+      }
+
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--gray-100);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--gold);
+        border-radius: 4px;
+      }
+
+      /* Top Bar */
+      .top-bar {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 9px 0;
+        letter-spacing: 0.01em;
+      }
+      .top-bar a {
+        color: rgba(255, 255, 255, 0.75);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .top-bar a:hover {
+        color: var(--gold-light);
+      }
+      .top-bar .icon-badge {
+        color: var(--gold-light);
+        margin-right: 5px;
+      }
+      .top-bar .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        font-size: 0.78rem;
+        margin-left: 6px;
+        transition: all 0.2s;
+      }
+      .top-bar .social-links a:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-2px);
+      }
+
+      /* Navbar */
+      .navbar-custom {
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--gray-200);
+        padding: 0.6rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 900;
+        transition: box-shadow 0.3s;
+      }
+      .navbar-custom.scrolled {
+        box-shadow: var(--shadow-md);
+      }
+      .navbar-brand img {
+        height: 52px;
+        object-fit: contain;
+      }
+      .nav-link {
+        font-weight: 500;
+        font-size: 0.88rem;
+        color: var(--text-mid) !important;
+        padding: 0.5rem 0.9rem !important;
+        border-radius: 8px;
+        transition: all 0.2s;
+      }
+      .nav-link:hover {
+        color: var(--navy) !important;
+        background: var(--gray-100);
+      }
+      .nav-link.active {
+        color: var(--gold) !important;
+      }
+      .btn-gold {
+        background: var(--gold);
+        color: var(--navy);
+        border: none;
+        font-weight: 700;
+        font-size: 0.85rem;
+        padding: 10px 22px;
+        border-radius: 50px;
+        transition: all 0.25s;
+      }
+      .btn-gold:hover {
+        background: var(--gold-light);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(200, 160, 68, 0.35);
+      }
+      .btn-navy {
+        background: var(--navy);
+        color: white;
+        border: none;
+        font-weight: 700;
+        font-size: 0.85rem;
+        padding: 10px 22px;
+        border-radius: 50px;
+        transition: all 0.25s;
+      }
+      .btn-navy:hover {
+        background: var(--navy-mid);
+        transform: translateY(-1px);
+      }
+      .cart-btn {
+        background: var(--navy);
+        color: white;
+        border: none;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        cursor: pointer;
+        position: relative;
+      }
+      .cart-btn:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: scale(1.08);
+      }
+      .cart-count {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #e63946;
+        color: white;
+        font-size: 0.65rem;
+        font-weight: 700;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid white;
+      }
+
+      /* FAQ Hero */
+      .faq-hero {
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          #1a3558 55%,
+          #0d2540 100%
+        );
+        padding: 64px 0 52px;
+        position: relative;
+        overflow: hidden;
+      }
+      .faq-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a044' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.4;
+      }
+      .faq-hero h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        color: white;
+        line-height: 1.15;
+      }
+      .faq-hero h1 em {
+        color: var(--gold-light);
+        font-style: italic;
+      }
+      .hero-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(200, 160, 68, 0.15);
+        border: 1px solid rgba(200, 160, 68, 0.3);
+        color: var(--gold-light);
+        padding: 6px 16px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+
+      /* Search Bar */
+      .search-container {
+        max-width: 600px;
+        margin: 0 auto 2rem;
+      }
+      .search-wrapper {
+        position: relative;
+        background: white;
+        border-radius: 60px;
+        box-shadow: var(--shadow-md);
+      }
+      .search-wrapper i {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gold);
+        font-size: 1rem;
+      }
+      .search-wrapper input {
+        width: 100%;
+        padding: 16px 20px 16px 50px;
+        border: none;
+        border-radius: 60px;
+        font-size: 0.95rem;
+        background: white;
+        outline: none;
+        font-family: "DM Sans", sans-serif;
+      }
+      .search-wrapper input:focus {
+        box-shadow: 0 0 0 2px var(--gold);
+      }
+
+      /* Category Pills */
+      .faq-categories {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 2rem;
+      }
+      .cat-pill {
+        padding: 8px 20px;
+        border-radius: 50px;
+        background: white;
+        border: 1px solid var(--gray-200);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-mid);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .cat-pill:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .cat-pill.active {
+        background: var(--gold);
+        color: var(--navy);
+        border-color: var(--gold);
+      }
+
+      /* FAQ Accordion */
+      .faq-section {
+        margin-bottom: 2.5rem;
+      }
+      .faq-section-title {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.4rem;
+        color: var(--navy);
+        margin-bottom: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .faq-section-title i {
+        color: var(--gold);
+        font-size: 1.6rem;
+      }
+      .accordion-item {
+        background: white;
+        border: 1px solid var(--gray-200);
+        border-radius: var(--radius-md) !important;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        transition: all 0.2s;
+      }
+      .accordion-item:hover {
+        border-color: var(--gold);
+        box-shadow: var(--shadow-sm);
+      }
+      .accordion-header {
+        background: white;
+        padding: 0;
+      }
+      .accordion-button {
+        font-weight: 600;
+        color: var(--navy);
+        background: white;
+        padding: 1.2rem 1.5rem;
+        font-family: "DM Sans", sans-serif;
+        font-size: 1rem;
+        border: none;
+        box-shadow: none;
+      }
+      .accordion-button:not(.collapsed) {
+        background: var(--gold-pale);
+        color: var(--navy);
+        border-bottom: 1px solid var(--gray-200);
+      }
+      .accordion-button:focus {
+        box-shadow: none;
+        border-color: var(--gold);
+      }
+      .accordion-button::after {
+        background-size: 1rem;
+      }
+      .accordion-body {
+        padding: 1.2rem 1.5rem;
+        color: var(--text-mid);
+        line-height: 1.7;
+        background: white;
+      }
+      .accordion-body p:last-child {
+        margin-bottom: 0;
+      }
+      .accordion-body ul {
+        margin-bottom: 0;
+        padding-left: 1.2rem;
+      }
+
+      /* No Results */
+      .no-results {
+        text-align: center;
+        padding: 3rem;
+        background: white;
+        border-radius: var(--radius-lg);
+      }
+      .no-results i {
+        font-size: 3rem;
+        color: var(--gray-400);
+        margin-bottom: 1rem;
+      }
+
+      /* Still Have Questions */
+      .contact-card {
+        background: var(--gold-pale);
+        border-radius: var(--radius-lg);
+        padding: 2rem;
+        text-align: center;
+        border: 1px solid var(--gold-light);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 60px 0 32px;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .footer-brand-text {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.3rem;
+        color: white;
+      }
+      .footer-heading {
+        font-family: "DM Sans", sans-serif;
+        font-weight: 700;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--gold-light);
+        margin-bottom: 16px;
+      }
+      .footer-link {
+        display: block;
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.88rem;
+        margin-bottom: 9px;
+        transition: all 0.2s;
+      }
+      .footer-link:hover {
+        color: var(--gold-light);
+        transform: translateX(4px);
+      }
+      .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        margin-right: 8px;
+        transition: all 0.2s;
+      }
+      .footer-social a:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-3px);
+      }
+      .subscribe-input-group {
+        display: flex;
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .subscribe-input {
+        background: rgba(255, 255, 255, 0.08);
+        border: none;
+        color: white;
+        padding: 10px 14px;
+        font-size: 0.85rem;
+        flex: 1;
+        outline: none;
+      }
+      .subscribe-btn {
+        background: var(--gold);
+        color: var(--navy);
+        border: none;
+        font-weight: 700;
+        font-size: 0.82rem;
+        padding: 10px 16px;
+        cursor: pointer;
+      }
+      .subscribe-btn:hover {
+        background: var(--gold-light);
+      }
+      .whatsapp-float {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        background: #25d366;
+        color: white;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        z-index: 800;
+        text-decoration: none;
+        transition: all 0.25s;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.1) translateY(-3px);
+        background: #20b859;
+      }
+
+      @media (max-width: 768px) {
+        .faq-hero {
+          padding: 44px 0 36px;
+        }
+        .cat-pill {
+          padding: 6px 14px;
+          font-size: 0.75rem;
+        }
+        .accordion-button {
+          padding: 1rem;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="container">
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-2"
+        >
+          <div class="d-flex align-items-center gap-3 flex-wrap">
+            <a href="tel:+254712155510"
+              ><i class="fas fa-phone-alt icon-badge"></i>+254 712 155 510</a
+            >
+            <a href="https://wa.me/254712155510" target="_blank"
+              ><i class="fab fa-whatsapp icon-badge"></i>WhatsApp</a
+            >
+            <a href="mailto:Carespherewellness@gmail.com"
+              ><i class="far fa-envelope icon-badge"></i
+              >Carespherewellness@gmail.com</a
+            >
+            <span
+              ><i class="fas fa-map-marker-alt icon-badge"></i>Nairobi,
+              Kenya</span
+            >
+          </div>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/1LjcBqoMEe/" target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/caresphere_wellness"
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://ke.linkedin.com/in/e-amiani" target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="https://www.tiktok.com/@carespherewellness" target="_blank"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CART SIDEBAR -->
+    <div
+      class="cart-overlay"
+      id="cartOverlay"
+      style="
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+      "
+    ></div>
+    <div
+      class="cart-sidebar"
+      id="cartSidebar"
+      style="
+        position: fixed;
+        top: 0;
+        right: -500px;
+        width: 460px;
+        max-width: 100vw;
+        height: 100vh;
+        background: white;
+        z-index: 1001;
+        transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        box-shadow: -8px 0 32px rgba(7, 25, 46, 0.15);
+      "
+    >
+      <div
+        class="cart-header p-4 border-bottom d-flex justify-content-between align-items-center"
+      >
+        <h4 style="font-family: &quot;DM Serif Display&quot;, serif">
+          <i class="fas fa-bag-shopping me-2" style="color: var(--gold)"></i
+          >Your Cart
+        </h4>
+        <button class="btn-close" id="closeCartBtn"></button>
+      </div>
+      <div
+        class="cart-items-wrap flex-grow-1 p-4 overflow-auto"
+        id="cartItemsList"
+      >
+        <p class="text-muted text-center py-5">Your cart is empty.</p>
+      </div>
+      <div class="cart-footer p-4 border-top">
+        <div class="d-flex justify-content-between fw-bold mb-3">
+          <span>Total:</span><span id="cartTotalAmount">KSh 0</span>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-gold w-50" id="continueShoppingBtn">
+            Continue Shopping</button
+          ><button class="btn btn-navy w-50" id="proceedCheckoutBtn">
+            Checkout →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-custom" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="img/caresphere_logo.png"
+            alt="CARESPHERE WELLNESS"
+            onerror="
+              this.parentElement.innerHTML =
+                '<span style=\'font-family:DM Serif Display,serif;font-size:1.3rem;color:var(--navy);font-weight:700\'>CARESPHERE <span style=\'color:var(--gold)\'>WELLNESS</span></span>'
+            "
+          />
+        </a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="partners.html">Partners</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Insights</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="store.html">E-Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center gap-2 ms-3">
+            <a
+              href="booking.html"
+              class="btn-gold d-none d-lg-inline-block"
+              style="text-decoration: none"
+              >Book Consultation</a
+            >
+            <button
+              class="cart-btn position-relative"
+              id="cartIconBtn"
+              aria-label="Open cart"
+            >
+              <i class="fas fa-bag-shopping"></i>
+              <span class="cart-count" id="cartCountBadge">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- FAQ HERO -->
+    <section class="faq-hero">
+      <div class="container text-center">
+        <div class="hero-pill mx-auto">
+          <i class="fas fa-question-circle"></i> Got Questions?
+        </div>
+        <h1>Frequently Asked <em>Questions</em></h1>
+        <p class="mt-3 text-white-50">
+          Find answers about our health governance services, consultations,
+          products, and policies.
+        </p>
+      </div>
+    </section>
+
+    <!-- MAIN FAQ CONTENT -->
+    <section class="container py-5">
+      <!-- Search Bar -->
+      <div class="search-container">
+        <div class="search-wrapper">
+          <i class="fas fa-search"></i>
+          <input
+            type="text"
+            id="faqSearch"
+            placeholder="Search FAQs..."
+            autocomplete="off"
+          />
+        </div>
+      </div>
+
+      <!-- Category Filters -->
+      <div class="faq-categories" id="categoryFilters">
+        <span class="cat-pill active" data-cat="all">All Questions</span>
+        <span class="cat-pill" data-cat="services"
+          >Services & Consultations</span
+        >
+        <span class="cat-pill" data-cat="ecommerce">E-Commerce & Products</span>
+        <span class="cat-pill" data-cat="payments">Payments & Billing</span>
+        <span class="cat-pill" data-cat="privacy">Privacy & Data</span>
+        <span class="cat-pill" data-cat="general">General</span>
+      </div>
+
+      <!-- FAQ Accordion Container -->
+      <div id="faqContainer"></div>
+
+      <!-- No Results Message -->
+      <div id="noResults" class="no-results" style="display: none">
+        <i class="fas fa-search-minus"></i>
+        <h5 style="font-family: &quot;DM Serif Display&quot;, serif">
+          No matching questions found
+        </h5>
+        <p class="text-muted">
+          Try adjusting your search terms or browse all categories.
+        </p>
+        <button class="btn btn-outline-gold mt-2" id="resetSearchBtn">
+          Reset Search
+        </button>
+      </div>
+
+      <!-- Still Have Questions CTA -->
+      <div class="contact-card mt-5">
+        <i
+          class="fas fa-comments fa-2x"
+          style="color: var(--gold); margin-bottom: 1rem"
+        ></i>
+        <h4 style="font-family: &quot;DM Serif Display&quot;, serif">
+          Still have questions?
+        </h4>
+        <p class="mb-3">
+          Our care coordination team is here to help you with any unanswered
+          questions.
+        </p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+          <a
+            href="https://wa.me/254712155510?text=Hello%20CARESPHERE%20WELLNESS%2C%20I%20have%20a%20question%20about%20your%20services"
+            target="_blank"
+            class="btn-navy"
+            style="background: #25d366"
+            ><i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp</a
+          >
+          <a href="contact.html" class="btn-outline-gold"
+            ><i class="fas fa-envelope me-2"></i>Contact Form</a
+          >
+          <a href="tel:+254712155510" class="btn-gold"
+            ><i class="fas fa-phone-alt me-2"></i>Call Us</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-md-4">
+            <div class="footer-brand-text mb-3">
+              CARESPHERE <span style="color: var(--gold-light)">WELLNESS</span>
+            </div>
+            <p style="font-size: 0.88rem; line-height: 1.7; max-width: 300px">
+              Nairobi-based executive health governance and care coordination.
+              Your health, professionally managed.
+            </p>
+            <div class="footer-social mt-4">
+              <a
+                href="https://www.facebook.com/share/1LjcBqoMEe/"
+                target="_blank"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/caresphere_wellness"
+                target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@carespherewellness"
+                target="_blank"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+              <a href="https://ke.linkedin.com/in/e-amiani" target="_blank"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-2 col-6">
+            <div class="footer-heading">Quick Links</div>
+            <a href="index.html" class="footer-link">Home</a
+            ><a href="about.html" class="footer-link">About</a
+            ><a href="services.html" class="footer-link">Services</a
+            ><a href="store.html" class="footer-link">E-Store</a
+            ><a href="blog.html" class="footer-link">Insights</a>
+          </div>
+          <div class="col-md-2 col-6">
+            <div class="footer-heading">Legal</div>
+            <a href="privacy.html" class="footer-link">Privacy Policy</a
+            ><a href="terms.html" class="footer-link">Terms & Conditions</a
+            ><a href="faqs.html" class="footer-link">FAQs</a
+            ><a href="our_standards.html" class="footer-link">ISO 9001:2015</a>
+          </div>
+          <div class="col-md-4">
+            <div class="footer-heading">Stay Updated</div>
+            <p style="font-size: 0.85rem; margin-bottom: 14px">
+              Get weekly preventive health insights and offers.
+            </p>
+            <div class="subscribe-input-group mb-4">
+              <input
+                type="email"
+                class="subscribe-input"
+                id="footerSubscribeEmail"
+                placeholder="Your email address"
+              /><button class="subscribe-btn" id="footerSubscribeBtn">
+                Join
+              </button>
+            </div>
+            <div>
+              <i
+                class="fas fa-phone-alt me-2"
+                style="color: var(--gold-light)"
+              ></i
+              >+254 712 155 510<br /><i
+                class="far fa-envelope me-2"
+                style="color: var(--gold-light)"
+              ></i
+              >Carespherewellness@gmail.com
+            </div>
+          </div>
+        </div>
+        <hr class="mt-4" style="border-color: rgba(255, 255, 255, 0.07)" />
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-2 footer-bottom"
+        >
+          <div>
+            © <span id="dynamicYear"></span> CARESPHERE WELLNESS — All rights
+            reserved.
+          </div>
+          <div>
+            Designed by
+            <a
+              href="https://eontechsystems.com/"
+              target="_blank"
+              style="color: var(--gold-light); text-decoration: none"
+              >EonTech Systems</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/254712155510?text=Hello%20CARESPHERE%20WELLNESS"
+      target="_blank"
+      class="whatsapp-float"
+      ><i class="fab fa-whatsapp"></i
+    ></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Dynamic year
+      document.getElementById("dynamicYear").innerText =
+        new Date().getFullYear();
+
+      // Cart functionality (consistent across pages)
+      let cart = JSON.parse(localStorage.getItem("caresphereCart") || "[]");
+      function updateCartUI() {
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        const count = cart.reduce((s, i) => s + i.qty, 0);
+        document.getElementById("cartCountBadge").textContent = count;
+        document.getElementById("cartTotalAmount").innerHTML =
+          `KSh ${total.toLocaleString()}`;
+        const container = document.getElementById("cartItemsList");
+        if (!cart.length) {
+          container.innerHTML =
+            '<p class="text-muted text-center py-5">Your cart is empty.</p>';
+          return;
+        }
+        container.innerHTML = cart
+          .map(
+            (item) =>
+              `<div class="d-flex gap-3 align-items-center border-bottom pb-3 mb-3"><div style="width:60px;height:60px;background:#f0f2f5;border-radius:12px;display:flex;align-items:center;justify-content:center;"><i class="${item.icon || "fas fa-box"}" style="font-size:1.5rem;color:var(--gold)"></i></div><div class="flex-grow-1"><div class="fw-bold">${item.name}</div><div>KSh ${item.price.toLocaleString()}</div><div class="d-flex gap-2 mt-1"><button class="btn btn-sm btn-outline-secondary dec-cart" data-id="${item.id}">-</button><span>${item.qty}</span><button class="btn btn-sm btn-outline-secondary inc-cart" data-id="${item.id}">+</button></div></div><button class="btn btn-sm text-danger remove-cart" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button></div>`,
+          )
+          .join("");
+        document.querySelectorAll(".inc-cart").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const id = +btn.dataset.id;
+            const idx = cart.findIndex((i) => i.id === id);
+            if (idx > -1) {
+              cart[idx].qty++;
+              saveCart();
+              updateCartUI();
+            }
+          }),
+        );
+        document.querySelectorAll(".dec-cart").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const id = +btn.dataset.id;
+            const idx = cart.findIndex((i) => i.id === id);
+            if (idx > -1 && cart[idx].qty > 1) {
+              cart[idx].qty--;
+              saveCart();
+              updateCartUI();
+            } else if (idx > -1 && cart[idx].qty === 1) {
+              cart.splice(idx, 1);
+              saveCart();
+              updateCartUI();
+            }
+          }),
+        );
+        document.querySelectorAll(".remove-cart").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const id = +btn.dataset.id;
+            cart = cart.filter((i) => i.id !== id);
+            saveCart();
+            updateCartUI();
+          }),
+        );
+      }
+      function saveCart() {
+        localStorage.setItem("caresphereCart", JSON.stringify(cart));
+        updateCartUI();
+      }
+      function openCart() {
+        document.getElementById("cartSidebar").style.right = "0";
+        document.getElementById("cartOverlay").style.opacity = "1";
+        document.getElementById("cartOverlay").style.visibility = "visible";
+      }
+      function closeCart() {
+        document.getElementById("cartSidebar").style.right = "-500px";
+        document.getElementById("cartOverlay").style.opacity = "0";
+        document.getElementById("cartOverlay").style.visibility = "hidden";
+      }
+      document
+        .getElementById("cartIconBtn")
+        ?.addEventListener("click", openCart);
+      document
+        .getElementById("closeCartBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("cartOverlay")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("continueShoppingBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("proceedCheckoutBtn")
+        ?.addEventListener("click", () => {
+          if (cart.length === 0)
+            Swal.fire("Cart Empty", "Add items before checkout", "info");
+          else window.location.href = "checkout.html";
+        });
+      updateCartUI();
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("mainNav")
+          ?.classList.toggle("scrolled", window.scrollY > 40);
+      });
+
+      // Footer subscribe
+      document
+        .getElementById("footerSubscribeBtn")
+        ?.addEventListener("click", () => {
+          const email = document.getElementById("footerSubscribeEmail").value;
+          if (email && email.includes("@"))
+            Swal.fire("Subscribed!", "Weekly insights delivered.", "success");
+          else Swal.fire("Error", "Enter valid email", "error");
+        });
+
+      // FAQ Data
+      const faqs = [
+        // Services & Consultations
+        {
+          id: 1,
+          category: "services",
+          question:
+            "What is Health Governance and how is it different from traditional healthcare?",
+          answer:
+            "Health Governance is a proactive, coordinated framework that provides continuous oversight across your entire health journey. Unlike traditional clinics that focus only on episodic treatment, CARESPHERE acts as your central health partner — identifying risks early, coordinating care across every provider, and ensuring nothing is missed over months and years. We emphasize prevention, continuity, and intelligent coordination rather than reactive treatment.",
+        },
+        {
+          id: 2,
+          category: "services",
+          question: "What services does CARESPHERE WELLNESS offer?",
+          answer:
+            "We offer five core services: Executive Health Risk Assessment (comprehensive preventive screening), Ongoing Health Advisory & Care Coordination (appointment management, referrals, follow-ups), Premium Concierge Health Support (24/7 priority access, hospital coordination), ReproHub (maternal and preconception advisory), and Diaspora Family Support (remote healthcare management for families abroad).",
+        },
+        {
+          id: 3,
+          category: "services",
+          question: "Do I need to live in Nairobi to use your services?",
+          answer:
+            "No. While our physical office is in Nairobi, we serve clients across Kenya and internationally via telehealth. Consultations can be conducted via Google Meet, Zoom, Microsoft Teams, or phone. Diaspora clients can manage care for family members in Kenya remotely.",
+        },
+        {
+          id: 4,
+          category: "services",
+          question: "How do I book a consultation?",
+          answer:
+            "You can book a consultation through our Booking page, call us at +254 712 155 510, or send a WhatsApp message. Our care coordinator will confirm availability and send you a confirmation within 2 hours.",
+        },
+        {
+          id: 5,
+          category: "services",
+          question: "What is included in an Executive Health Risk Assessment?",
+          answer:
+            "The assessment includes lifestyle and occupational risk review, chronic disease risk mapping, preventive screening analysis, stress and burnout assessment, personalized health intelligence report, and a 90-day health optimization roadmap. It typically takes 60-90 minutes.",
+        },
+        {
+          id: 6,
+          category: "services",
+          question: "Can CARESPHERE replace my primary care doctor?",
+          answer:
+            "No. CARESPHERE complements your existing healthcare relationships. We provide advisory, coordination, and oversight services while you maintain your relationship with your primary care physician and specialists. We help you navigate the system more effectively.",
+        },
+        // E-Commerce & Products
+        {
+          id: 7,
+          category: "ecommerce",
+          question: "What products do you sell?",
+          answer:
+            "We offer ergonomic products (office chairs, lumbar supports, standing desks, posture correctors, wrist supports) and rehabilitative products (blood pressure monitors, therapy bands, compression wear, orthopedic supports, mobility aids, and home rehabilitation tools).",
+        },
+        {
+          id: 8,
+          category: "ecommerce",
+          question: "Do you offer free delivery?",
+          answer:
+            "Yes, we offer free delivery within Nairobi for orders over KSh 10,000. For orders below KSh 10,000 or outside Nairobi, delivery fees apply and will be calculated at checkout.",
+        },
+        {
+          id: 9,
+          category: "ecommerce",
+          question: "What is your return policy?",
+          answer:
+            "Unopened, unused products may be returned within 14 days of delivery for a full refund (excluding shipping costs). Used medical devices cannot be returned for hygiene and safety reasons. Defective products are covered by manufacturer warranty.",
+        },
+        {
+          id: 10,
+          category: "ecommerce",
+          question: "Do you ship outside Kenya?",
+          answer:
+            "Currently, we ship only within Kenya. We are exploring international shipping options. Diaspora clients can order products for delivery to their relatives in Kenya.",
+        },
+        {
+          id: 11,
+          category: "ecommerce",
+          question: "Are your medical devices clinically validated?",
+          answer:
+            "Yes, all our medical devices (blood pressure monitors, pulse oximeters, glucose monitors, TENS units) are clinically validated, CE-marked or FDA-approved, and sourced from reputable manufacturers.",
+        },
+        // Payments & Billing
+        {
+          id: 12,
+          category: "payments",
+          question: "What payment methods do you accept?",
+          answer:
+            "We accept M-Pesa (Paybill), Visa and Mastercard credit/debit cards, and bank transfers. Payments are processed securely via encrypted payment gateways. Cash payments are accepted for in-person consultations.",
+        },
+        {
+          id: 13,
+          category: "payments",
+          question: "Do you accept insurance?",
+          answer:
+            "We work with major insurance providers including NHIF/SHA, Jubilee Health, APA Insurance, and Sanlam. Our care coordination team can help you navigate insurance claims. Please contact us for specific insurance inquiries.",
+        },
+        {
+          id: 14,
+          category: "payments",
+          question: "What is your cancellation policy?",
+          answer:
+            "Consultations canceled 24+ hours before the scheduled time receive a full refund. Cancellations within 24 hours receive a 50% refund. No-shows forfeit the full fee. For product orders, cancellation is possible before shipment.",
+        },
+        {
+          id: 15,
+          category: "payments",
+          question: "Do you offer payment plans?",
+          answer:
+            "Yes, for our premium concierge health support and corporate wellness programs, we offer flexible payment plans. Please contact us to discuss options tailored to your needs.",
+        },
+        // Privacy & Data
+        {
+          id: 16,
+          category: "privacy",
+          question: "How do you protect my personal health information?",
+          answer:
+            "We comply with the Kenya Data Protection Act (2019) and align with GDPR and HIPAA standards. All health data is encrypted, access is role-based and restricted, and we never sell your data. You have full rights to access, correct, or delete your information.",
+        },
+        {
+          id: 17,
+          category: "privacy",
+          question: "Is my data shared with third parties?",
+          answer:
+            "We only share data with your consent — for care coordination with healthcare providers, insurance claims, or as required by law. We do not sell your data to third parties for marketing purposes.",
+        },
+        {
+          id: 18,
+          category: "privacy",
+          question: "How long do you keep my health records?",
+          answer:
+            "Health records are retained for a minimum of 10 years following the last interaction, in compliance with KMPDC medical records retention guidelines. After that, data is securely deleted or anonymized.",
+        },
+        // General
+        {
+          id: 19,
+          category: "general",
+          question: "Is CARESPHERE WELLNESS a licensed medical facility?",
+          answer:
+            "CARESPHERE WELLNESS is a licensed health advisory and care coordination firm operating under KMPDC guidelines. Our clinical personnel are registered with relevant professional bodies. We are not a hospital or emergency care provider.",
+        },
+        {
+          id: 20,
+          category: "general",
+          question: "How can I become a partner?",
+          answer:
+            "We welcome partnerships with healthcare institutions, insurance companies, diagnostic labs, corporate organizations, and wellness brands. Please visit our Partners page or contact us directly to discuss collaboration opportunities.",
+        },
+        {
+          id: 21,
+          category: "general",
+          question: "Do you offer corporate wellness programs?",
+          answer:
+            "Yes. We provide organization-wide health risk assessments, executive wellness programs, occupational health advisory, and team health tracking. Contact our corporate team for a customized proposal.",
+        },
+        {
+          id: 22,
+          category: "general",
+          question: "What are your business hours?",
+          answer:
+            "Monday to Friday: 8:00 AM – 6:00 PM. Saturday: 9:00 AM – 1:00 PM. Sunday and public holidays: Closed (emergency support available via WhatsApp).",
+        },
+      ];
+
+      let activeCategory = "all";
+      let searchTerm = "";
+
+      function renderFAQs() {
+        let filtered = faqs.filter((f) => {
+          if (activeCategory !== "all" && f.category !== activeCategory)
+            return false;
+          if (
+            searchTerm &&
+            !f.question.toLowerCase().includes(searchTerm) &&
+            !f.answer.toLowerCase().includes(searchTerm)
+          )
+            return false;
+          return true;
+        });
+
+        const container = document.getElementById("faqContainer");
+        const noResultsDiv = document.getElementById("noResults");
+
+        if (filtered.length === 0) {
+          container.innerHTML = "";
+          noResultsDiv.style.display = "block";
+          return;
+        }
+        noResultsDiv.style.display = "none";
+
+        // Group by category for better organization
+        const grouped = {};
+        filtered.forEach((f) => {
+          if (!grouped[f.category]) grouped[f.category] = [];
+          grouped[f.category].push(f);
+        });
+
+        const categoryNames = {
+          services: "Services & Consultations",
+          ecommerce: "E-Commerce & Products",
+          payments: "Payments & Billing",
+          privacy: "Privacy & Data Protection",
+          general: "General Information",
+        };
+
+        let html = "";
+        for (const [cat, items] of Object.entries(grouped)) {
+          html += `<div class="faq-section"><div class="faq-section-title"><i class="fas fa-${cat === "services" ? "stethoscope" : cat === "ecommerce" ? "shopping-cart" : cat === "payments" ? "credit-card" : cat === "privacy" ? "shield-alt" : "info-circle"}"></i> ${categoryNames[cat] || cat}</div><div class="accordion" id="accordion-${cat}">`;
+          items.forEach((faq, idx) => {
+            const uniqueId = `faq-${faq.id}`;
+            html += `<div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button ${idx !== 0 ? "collapsed" : ""}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-${uniqueId}" aria-expanded="${idx === 0 ? "true" : "false"}" aria-controls="collapse-${uniqueId}"><i class="fas fa-question-circle me-2" style="color: var(--gold);"></i>${faq.question}</button></h2><div id="collapse-${uniqueId}" class="accordion-collapse collapse ${idx === 0 ? "show" : ""}" data-bs-parent="#accordion-${cat}"><div class="accordion-body">${faq.answer}</div></div></div>`;
+          });
+          html += `</div></div>`;
+        }
+        container.innerHTML = html;
+      }
+
+      // Category filter click handlers
+      document.querySelectorAll(".cat-pill").forEach((pill) => {
+        pill.addEventListener("click", () => {
+          document
+            .querySelectorAll(".cat-pill")
+            .forEach((p) => p.classList.remove("active"));
+          pill.classList.add("active");
+          activeCategory = pill.dataset.cat;
+          renderFAQs();
+        });
+      });
+
+      // Search functionality
+      const searchInput = document.getElementById("faqSearch");
+      searchInput.addEventListener("input", (e) => {
+        searchTerm = e.target.value.toLowerCase();
+        renderFAQs();
+      });
+
+      // Reset search button
+      document
+        .getElementById("resetSearchBtn")
+        ?.addEventListener("click", () => {
+          searchInput.value = "";
+          searchTerm = "";
+          activeCategory = "all";
+          document
+            .querySelectorAll(".cat-pill")
+            .forEach((p) => p.classList.remove("active"));
+          document
+            .querySelector(".cat-pill[data-cat='all']")
+            .classList.add("active");
+          renderFAQs();
+        });
+
+      // Initial render
+      renderFAQs();
+    </script>
+  </body>
+</html>

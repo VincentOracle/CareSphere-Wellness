@@ -1,0 +1,1306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>
+      ISO 9001:2015 Standards | CARESPHERE WELLNESS | Quality Management
+      Commitment
+    </title>
+    <meta
+      name="description"
+      content="CARESPHERE WELLNESS is committed to ISO 9001:2015 quality management standards, ensuring excellence in health governance, care coordination, and client satisfaction."
+    />
+
+    <!-- Google Fonts + Bootstrap 5 + Font Awesome + SweetAlert -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="shortcut icon"
+      href="img/caresphere_logo_icon.png"
+      type="image/x-icon"
+    />
+
+    <style>
+      :root {
+        --navy: #07192e;
+        --navy-mid: #0e2a47;
+        --gold: #c8a044;
+        --gold-light: #e4c070;
+        --gold-pale: #fdf6e7;
+        --cream: #faf8f4;
+        --white: #ffffff;
+        --gray-50: #f8fafc;
+        --gray-100: #f1f5f9;
+        --gray-200: #e2e8f0;
+        --gray-400: #94a3b8;
+        --gray-600: #475569;
+        --text-dark: #0f1e30;
+        --text-mid: #3d5166;
+        --radius-sm: 12px;
+        --radius-md: 20px;
+        --radius-lg: 32px;
+        --shadow-sm: 0 2px 8px rgba(7, 25, 46, 0.06);
+        --shadow-md: 0 8px 24px rgba(7, 25, 46, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--cream);
+        color: var(--text-dark);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "DM Serif Display", serif;
+        letter-spacing: -0.01em;
+      }
+
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--gray-100);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--gold);
+        border-radius: 4px;
+      }
+
+      /* Top Bar */
+      .top-bar {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 9px 0;
+        letter-spacing: 0.01em;
+      }
+      .top-bar a {
+        color: rgba(255, 255, 255, 0.75);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .top-bar a:hover {
+        color: var(--gold-light);
+      }
+      .top-bar .icon-badge {
+        color: var(--gold-light);
+        margin-right: 5px;
+      }
+      .top-bar .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        font-size: 0.78rem;
+        margin-left: 6px;
+        transition: all 0.2s;
+      }
+      .top-bar .social-links a:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-2px);
+      }
+
+      /* Navbar */
+      .navbar-custom {
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--gray-200);
+        padding: 0.6rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 900;
+        transition: box-shadow 0.3s;
+      }
+      .navbar-custom.scrolled {
+        box-shadow: var(--shadow-md);
+      }
+      .navbar-brand img {
+        height: 52px;
+        object-fit: contain;
+      }
+      .nav-link {
+        font-weight: 500;
+        font-size: 0.88rem;
+        color: var(--text-mid) !important;
+        padding: 0.5rem 0.9rem !important;
+        border-radius: 8px;
+        transition: all 0.2s;
+      }
+      .nav-link:hover {
+        color: var(--navy) !important;
+        background: var(--gray-100);
+      }
+      .nav-link.active {
+        color: var(--gold) !important;
+      }
+      .btn-gold {
+        background: var(--gold);
+        color: var(--navy);
+        border: none;
+        font-weight: 700;
+        font-size: 0.85rem;
+        padding: 10px 22px;
+        border-radius: 50px;
+        transition: all 0.25s;
+      }
+      .btn-gold:hover {
+        background: var(--gold-light);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(200, 160, 68, 0.35);
+      }
+      .btn-navy {
+        background: var(--navy);
+        color: white;
+        border: none;
+        font-weight: 700;
+        font-size: 0.85rem;
+        padding: 10px 22px;
+        border-radius: 50px;
+        transition: all 0.25s;
+      }
+      .btn-navy:hover {
+        background: var(--navy-mid);
+        transform: translateY(-1px);
+      }
+      .cart-btn {
+        background: var(--navy);
+        color: white;
+        border: none;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        cursor: pointer;
+        position: relative;
+      }
+      .cart-btn:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: scale(1.08);
+      }
+      .cart-count {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #e63946;
+        color: white;
+        font-size: 0.65rem;
+        font-weight: 700;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid white;
+      }
+
+      /* ISO Hero */
+      .iso-hero {
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          #1a3558 55%,
+          #0d2540 100%
+        );
+        padding: 64px 0 52px;
+        position: relative;
+        overflow: hidden;
+      }
+      .iso-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a044' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.4;
+      }
+      .iso-hero h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        color: white;
+        line-height: 1.15;
+      }
+      .iso-hero h1 em {
+        color: var(--gold-light);
+        font-style: italic;
+      }
+      .hero-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(200, 160, 68, 0.15);
+        border: 1px solid rgba(200, 160, 68, 0.3);
+        color: var(--gold-light);
+        padding: 6px 16px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+
+      /* ISO Cards */
+      .iso-card {
+        background: white;
+        border-radius: var(--radius-lg);
+        padding: 2rem;
+        border: 1px solid var(--gray-200);
+        box-shadow: var(--shadow-sm);
+        margin-bottom: 1.5rem;
+        transition: all 0.3s;
+      }
+      .iso-card:hover {
+        box-shadow: var(--shadow-md);
+        border-color: var(--gold);
+      }
+      .iso-card h2 {
+        font-size: 1.6rem;
+        color: var(--navy);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .iso-card h2 i {
+        color: var(--gold);
+        font-size: 1.8rem;
+      }
+      .iso-card h3 {
+        font-size: 1.2rem;
+        font-family: "DM Sans", sans-serif;
+        font-weight: 700;
+        color: var(--text-mid);
+        margin: 1.2rem 0 0.8rem;
+      }
+      .iso-card p {
+        line-height: 1.7;
+        color: var(--text-mid);
+        margin-bottom: 1rem;
+      }
+      .iso-card ul,
+      .iso-card ol {
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .iso-card li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+        color: var(--text-mid);
+      }
+      .highlight-box {
+        background: var(--gold-pale);
+        padding: 1.2rem;
+        border-radius: var(--radius-md);
+        margin: 1rem 0;
+        border-left: 4px solid var(--gold);
+      }
+      .principle-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+      }
+      .principle-item {
+        background: var(--gray-50);
+        padding: 1.5rem;
+        border-radius: var(--radius-md);
+        text-align: center;
+        transition: all 0.3s;
+      }
+      .principle-item:hover {
+        background: var(--gold-pale);
+        transform: translateY(-4px);
+      }
+      .principle-item i {
+        font-size: 2.5rem;
+        color: var(--gold);
+        margin-bottom: 1rem;
+      }
+      .principle-item h4 {
+        font-family: "DM Serif Display", serif;
+        margin-bottom: 0.5rem;
+      }
+      .principle-item p {
+        font-size: 0.85rem;
+        margin-bottom: 0;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 60px 0 32px;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .footer-brand-text {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.3rem;
+        color: white;
+      }
+      .footer-heading {
+        font-family: "DM Sans", sans-serif;
+        font-weight: 700;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--gold-light);
+        margin-bottom: 16px;
+      }
+      .footer-link {
+        display: block;
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.88rem;
+        margin-bottom: 9px;
+        transition: all 0.2s;
+      }
+      .footer-link:hover {
+        color: var(--gold-light);
+        transform: translateX(4px);
+      }
+      .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        margin-right: 8px;
+        transition: all 0.2s;
+      }
+      .footer-social a:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-3px);
+      }
+      .subscribe-input-group {
+        display: flex;
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .subscribe-input {
+        background: rgba(255, 255, 255, 0.08);
+        border: none;
+        color: white;
+        padding: 10px 14px;
+        font-size: 0.85rem;
+        flex: 1;
+        outline: none;
+      }
+      .subscribe-btn {
+        background: var(--gold);
+        color: var(--navy);
+        border: none;
+        font-weight: 700;
+        font-size: 0.82rem;
+        padding: 10px 16px;
+        cursor: pointer;
+      }
+      .subscribe-btn:hover {
+        background: var(--gold-light);
+      }
+      .whatsapp-float {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        background: #25d366;
+        color: white;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        z-index: 800;
+        text-decoration: none;
+        transition: all 0.25s;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.1) translateY(-3px);
+        background: #20b859;
+      }
+
+      @media (max-width: 768px) {
+        .iso-hero {
+          padding: 44px 0 36px;
+        }
+        .iso-card {
+          padding: 1.5rem;
+        }
+        .principle-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="container">
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-2"
+        >
+          <div class="d-flex align-items-center gap-3 flex-wrap">
+            <a href="tel:+254712155510"
+              ><i class="fas fa-phone-alt icon-badge"></i>+254 712 155 510</a
+            >
+            <a href="https://wa.me/254712155510" target="_blank"
+              ><i class="fab fa-whatsapp icon-badge"></i>WhatsApp</a
+            >
+            <a href="mailto:Carespherewellness@gmail.com"
+              ><i class="far fa-envelope icon-badge"></i
+              >Carespherewellness@gmail.com</a
+            >
+            <span
+              ><i class="fas fa-map-marker-alt icon-badge"></i>Nairobi,
+              Kenya</span
+            >
+          </div>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/1LjcBqoMEe/" target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/caresphere_wellness"
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://ke.linkedin.com/in/e-amiani" target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="https://www.tiktok.com/@carespherewellness" target="_blank"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CART SIDEBAR -->
+    <div
+      class="cart-overlay"
+      id="cartOverlay"
+      style="
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+      "
+    ></div>
+    <div
+      class="cart-sidebar"
+      id="cartSidebar"
+      style="
+        position: fixed;
+        top: 0;
+        right: -500px;
+        width: 460px;
+        max-width: 100vw;
+        height: 100vh;
+        background: white;
+        z-index: 1001;
+        transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        box-shadow: -8px 0 32px rgba(7, 25, 46, 0.15);
+      "
+    >
+      <div
+        class="cart-header p-4 border-bottom d-flex justify-content-between align-items-center"
+      >
+        <h4 style="font-family: &quot;DM Serif Display&quot;, serif">
+          <i class="fas fa-bag-shopping me-2" style="color: var(--gold)"></i
+          >Your Cart
+        </h4>
+        <button class="btn-close" id="closeCartBtn"></button>
+      </div>
+      <div
+        class="cart-items-wrap flex-grow-1 p-4 overflow-auto"
+        id="cartItemsList"
+      >
+        <p class="text-muted text-center py-5">Your cart is empty.</p>
+      </div>
+      <div class="cart-footer p-4 border-top">
+        <div class="d-flex justify-content-between fw-bold mb-3">
+          <span>Total:</span><span id="cartTotalAmount">KSh 0</span>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-gold w-50" id="continueShoppingBtn">
+            Continue Shopping</button
+          ><button class="btn btn-navy w-50" id="proceedCheckoutBtn">
+            Checkout →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-custom" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="img/caresphere_logo.png"
+            alt="CARESPHERE WELLNESS"
+            onerror="
+              this.parentElement.innerHTML =
+                '<span style=\'font-family:DM Serif Display,serif;font-size:1.3rem;color:var(--navy);font-weight:700\'>CARESPHERE <span style=\'color:var(--gold)\'>WELLNESS</span></span>'
+            "
+          />
+        </a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="partners.html">Partners</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Insights</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="store.html">E-Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center gap-2 ms-3">
+            <a
+              href="booking.html"
+              class="btn-gold d-none d-lg-inline-block"
+              style="text-decoration: none"
+              >Book Consultation</a
+            >
+            <button
+              class="cart-btn position-relative"
+              id="cartIconBtn"
+              aria-label="Open cart"
+            >
+              <i class="fas fa-bag-shopping"></i>
+              <span class="cart-count" id="cartCountBadge">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ISO HERO -->
+    <section class="iso-hero">
+      <div class="container text-center">
+        <div class="hero-pill mx-auto">
+          <i class="fas fa-certificate"></i> Quality Management System
+        </div>
+        <h1>ISO 9001:2015 <em>Standards</em> Commitment</h1>
+        <p class="mt-3 text-white-50">
+          CARESPHERE WELLNESS is dedicated to delivering excellence through
+          internationally recognized quality management principles.
+        </p>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="container py-5">
+      <div class="row g-5">
+        <div class="col-lg-12">
+          <!-- Introduction Card -->
+          <div class="iso-card">
+            <h2><i class="fas fa-medal"></i> Our Quality Commitment</h2>
+            <p>
+              CARESPHERE WELLNESS operates in full alignment with the
+              <strong>ISO 9001:2015 Quality Management System (QMS)</strong>
+              standards. This international framework ensures that we
+              consistently provide high-quality health governance services that
+              meet client expectations while continuously improving our
+              processes.
+            </p>
+            <div class="highlight-box">
+              <i
+                class="fas fa-check-circle me-2"
+                style="color: var(--gold)"
+              ></i>
+              <strong>Certification Status:</strong> CARESPHERE WELLNESS has
+              implemented ISO 9001:2015 compliant processes across all service
+              delivery areas, with scheduled external audits for formal
+              certification. Our quality manual is available for review upon
+              request.
+            </div>
+          </div>
+
+          <!-- Seven Quality Principles -->
+          <div class="iso-card">
+            <h2>
+              <i class="fas fa-gem"></i> ISO 9001:2015 Quality Principles in
+              Action
+            </h2>
+            <p>
+              The ISO 9001:2015 standard is built upon seven quality management
+              principles that guide every aspect of our operations:
+            </p>
+            <div class="principle-grid">
+              <div class="principle-item">
+                <i class="fas fa-users"></i>
+                <h4>Customer Focus</h4>
+                <p>
+                  We prioritize client needs, expectations, and feedback in
+                  every health governance service we deliver.
+                </p>
+              </div>
+              <div class="principle-item">
+                <i class="fas fa-chart-line"></i>
+                <h4>Leadership</h4>
+                <p>
+                  Our leadership establishes unity of purpose and direction,
+                  creating conditions for quality excellence.
+                </p>
+              </div>
+              <div class="principle-item">
+                <i class="fas fa-hand-peace"></i>
+                <h4>Engagement of People</h4>
+                <p>
+                  All team members are competent, empowered, and engaged to
+                  deliver value at every touchpoint.
+                </p>
+              </div>
+              <div class="principle-item">
+                <i class="fas fa-tasks"></i>
+                <h4>Process Approach</h4>
+                <p>
+                  We manage activities as interrelated processes for efficient
+                  and predictable outcomes.
+                </p>
+              </div>
+              <div class="principle-item">
+                <i class="fas fa-chart-simple"></i>
+                <h4>Improvement</h4>
+                <p>
+                  Continuous improvement is embedded in our culture through
+                  regular audits and feedback loops.
+                </p>
+              </div>
+              <div class="principle-item">
+                <i class="fas fa-database"></i>
+                <h4>Evidence-Based Decisions</h4>
+                <p>
+                  Decisions are based on analysis of data, client feedback, and
+                  performance metrics.
+                </p>
+              </div>
+              <div class="principle-item">
+                <i class="fas fa-handshake"></i>
+                <h4>Relationship Management</h4>
+                <p>
+                  We nurture mutually beneficial relationships with healthcare
+                  partners, insurers, and clients.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- QMS Implementation -->
+          <div class="iso-card">
+            <h2><i class="fas fa-cogs"></i> QMS Implementation Framework</h2>
+            <p>
+              CARESPHERE WELLNESS has implemented a comprehensive Quality
+              Management System aligned with ISO 9001:2015 clause structure:
+            </p>
+            <ul>
+              <li>
+                <strong>Context of the Organization (Clause 4):</strong> We have
+                identified internal and external issues affecting our quality
+                objectives, including regulatory requirements (KMPDC, DPA 2019)
+                and stakeholder expectations.
+              </li>
+              <li>
+                <strong>Leadership (Clause 5):</strong> Our quality policy is
+                established, communicated, and reviewed annually. Management
+                takes accountability for QMS effectiveness.
+              </li>
+              <li>
+                <strong>Planning (Clause 6):</strong> Quality objectives are set
+                for each service line with documented action plans and risk
+                assessments.
+              </li>
+              <li>
+                <strong>Support (Clause 7):</strong> Resources including
+                competent personnel, infrastructure, and documented information
+                are maintained and regularly updated.
+              </li>
+              <li>
+                <strong>Operation (Clause 8):</strong> Service delivery
+                processes for health assessments, care coordination, and
+                e-commerce are controlled and validated.
+              </li>
+              <li>
+                <strong>Performance Evaluation (Clause 9):</strong> Client
+                satisfaction surveys, internal audits, and management reviews
+                are conducted quarterly.
+              </li>
+              <li>
+                <strong>Improvement (Clause 10):</strong> Non-conformities are
+                addressed with corrective actions, and improvement opportunities
+                are systematically pursued.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Service-Specific Quality Controls -->
+          <div class="iso-card">
+            <h2>
+              <i class="fas fa-stethoscope"></i> Service-Specific Quality
+              Controls
+            </h2>
+            <p>
+              Each service we deliver incorporates specific quality measures to
+              ensure consistency and excellence:
+            </p>
+
+            <h3>
+              <i class="fas fa-chart-line me-2" style="color: var(--gold)"></i>
+              Executive Health Risk Assessment
+            </h3>
+            <ul>
+              <li>
+                Standardized assessment protocols based on evidence-based
+                guidelines
+              </li>
+              <li>
+                Double-reviewed health intelligence reports by qualified
+                clinical personnel
+              </li>
+              <li>
+                90-day follow-up tracking to monitor action plan adherence
+              </li>
+              <li>Client feedback surveys with >90% satisfaction target</li>
+            </ul>
+
+            <h3>
+              <i
+                class="fas fa-hand-holding-heart me-2"
+                style="color: var(--gold)"
+              ></i>
+              Care Coordination
+            </h3>
+            <ul>
+              <li>Appointment confirmation within 2 hours of booking</li>
+              <li>Provider credential verification before referral</li>
+              <li>Follow-up tracking with <48 hour response time</li>
+              <li>Monthly care plan reviews with clients</li>
+            </ul>
+
+            <h3>
+              <i
+                class="fas fa-concierge-bell me-2"
+                style="color: var(--gold)"
+              ></i>
+              Concierge Health Support
+            </h3>
+            <ul>
+              <li>
+                24/7 priority access with guaranteed response within 30 minutes
+              </li>
+              <li>Quarterly wellness reviews with comprehensive reporting</li>
+              <li>Hospital admission tracking and discharge follow-up</li>
+              <li>Personal health dashboard with real-time updates</li>
+            </ul>
+
+            <h3>
+              <i
+                class="fas fa-baby-carriage me-2"
+                style="color: var(--gold)"
+              ></i>
+              ReproHub & Maternal Advisory
+            </h3>
+            <ul>
+              <li>Evidence-based preconception and pregnancy protocols</li>
+              <li>
+                Coordinated care with accredited maternal health facilities
+              </li>
+              <li>Postnatal follow-up at scheduled intervals</li>
+              <li>Client education materials reviewed quarterly</li>
+            </ul>
+
+            <h3>
+              <i
+                class="fas fa-globe-africa me-2"
+                style="color: var(--gold)"
+              ></i>
+              Diaspora Family Support
+            </h3>
+            <ul>
+              <li>Weekly update reports sent to diaspora family members</li>
+              <li>
+                Emergency response protocol with <15 minute initial triage
+              </li>
+              <li>Provider communication logs maintained for transparency</li>
+              <li>Quarterly remote family meetings via video conference</li>
+            </ul>
+          </div>
+
+          <!-- Performance Metrics & Continuous Improvement -->
+          <div class="iso-card">
+            <h2>
+              <i class="fas fa-chart-simple"></i> Performance Metrics &
+              Continuous Improvement
+            </h2>
+            <p>
+              We track key performance indicators (KPIs) to measure and improve
+              our service quality:
+            </p>
+            <div class="row g-3 mt-2">
+              <div class="col-md-6">
+                <div class="highlight-box" style="margin: 0">
+                  <i class="fas fa-smile me-2" style="color: var(--gold)"></i>
+                  <strong>Client Satisfaction Score:</strong> Target > 90%
+                  (Current: 94%)
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="highlight-box" style="margin: 0">
+                  <i class="fas fa-clock me-2" style="color: var(--gold)"></i>
+                  <strong>Response Time (Consultations):</strong> Target < 2
+                  hours (Current: 1.4 hours)
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="highlight-box" style="margin: 0">
+                  <i class="fas fa-truck me-2" style="color: var(--gold)"></i>
+                  <strong>Order Fulfillment Accuracy:</strong> Target > 98%
+                  (Current: 99.2%)
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="highlight-box" style="margin: 0">
+                  <i
+                    class="fas fa-calendar-check me-2"
+                    style="color: var(--gold)"
+                  ></i>
+                  <strong>Appointment Adherence:</strong> Target > 95% (Current:
+                  96.5%)
+                </div>
+              </div>
+            </div>
+            <p class="mt-3">
+              Quarterly management reviews evaluate these metrics, identify
+              improvement opportunities, and implement corrective actions.
+              Client feedback is systematically collected and analyzed to drive
+              continuous improvement.
+            </p>
+          </div>
+
+          <!-- Audits & Compliance -->
+          <div class="iso-card">
+            <h2>
+              <i class="fas fa-clipboard-list"></i> Audits & Compliance
+              Verification
+            </h2>
+            <p>
+              Our commitment to ISO 9001:2015 is validated through multiple
+              layers of oversight:
+            </p>
+            <ul>
+              <li>
+                <strong>Internal Audits:</strong> Conducted quarterly by trained
+                internal auditors covering all QMS processes.
+              </li>
+              <li>
+                <strong>External Audits:</strong> Annual certification audits by
+                accredited ISO certification bodies.
+              </li>
+              <li>
+                <strong>Regulatory Compliance Audits:</strong> KMPDC inspections
+                ensure healthcare service compliance.
+              </li>
+              <li>
+                <strong>Data Protection Audits:</strong> Annual reviews against
+                Kenya Data Protection Act (2019) requirements.
+              </li>
+              <li>
+                <strong>Client Satisfaction Surveys:</strong> Distributed after
+                every service interaction with anonymous feedback options.
+              </li>
+            </ul>
+            <div class="highlight-box mt-3">
+              <i class="fas fa-file-alt me-2" style="color: var(--gold)"></i>
+              <strong>Documentation Available:</strong> Our Quality Manual,
+              Standard Operating Procedures (SOPs), and audit reports are
+              available for review by clients, partners, and regulatory bodies
+              upon reasonable notice.
+            </div>
+          </div>
+
+          <!-- Training & Competence -->
+          <div class="iso-card">
+            <h2>
+              <i class="fas fa-graduation-cap"></i> Personnel Training &
+              Competence
+            </h2>
+            <p>
+              All CARESPHERE WELLNESS team members undergo rigorous training to
+              ensure competence in quality management:
+            </p>
+            <ul>
+              <li>ISO 9001:2015 awareness training for all staff members</li>
+              <li>
+                Clinical personnel maintain active KMPDC registration and CPD
+                points
+              </li>
+              <li>
+                Customer service excellence training with quarterly refreshers
+              </li>
+              <li>Data protection and privacy training under DPA 2019</li>
+              <li>Emergency response and escalation protocol training</li>
+              <li>Competence assessments conducted annually and documented</li>
+            </ul>
+          </div>
+
+          <!-- Client Feedback & Complaints -->
+          <div class="iso-card">
+            <h2>
+              <i class="fas fa-comment-dots"></i> Client Feedback & Complaints
+              Handling
+            </h2>
+            <p>
+              We value all client feedback as a driver for improvement. Our
+              complaint handling process includes:
+            </p>
+            <ul>
+              <li>
+                <strong>Accessible Channels:</strong> Phone, email, WhatsApp,
+                website form, and in-person
+              </li>
+              <li>
+                <strong>Acknowledgment:</strong> Within 24 hours of receipt
+              </li>
+              <li>
+                <strong>Investigation:</strong> Completed within 5 business days
+              </li>
+              <li>
+                <strong>Resolution:</strong> Proposed within 10 business days
+                with root cause analysis
+              </li>
+              <li>
+                <strong>Appeal Process:</strong> Clients may escalate unresolved
+                complaints to senior management
+              </li>
+              <li>
+                <strong>Regulatory Escalation:</strong> Clients retain right to
+                lodge complaints with KMPDC or ODPC
+              </li>
+            </ul>
+            <div class="highlight-box">
+              <i class="fas fa-envelope me-2" style="color: var(--gold)"></i>
+              <strong>Complaints Contact:</strong>
+              quality@carespherewellness.co.ke | +254 712 155 510
+            </div>
+          </div>
+
+          <!-- Continuous Improvement Statement -->
+          <div
+            class="iso-card"
+            style="background: var(--gold-pale); border-color: var(--gold)"
+          >
+            <div class="text-center">
+              <i
+                class="fas fa-chart-line fa-3x"
+                style="color: var(--gold); margin-bottom: 1rem"
+              ></i>
+              <h3 style="font-family: &quot;DM Serif Display&quot;, serif">
+                Our Promise of Excellence
+              </h3>
+              <p class="mb-0">
+                CARESPHERE WELLNESS is unwavering in its commitment to quality.
+                Through rigorous adherence to ISO 9001:2015 standards,
+                continuous staff development, and client-centered process
+                improvement, we ensure that every interaction reflects our
+                dedication to professional health governance.
+              </p>
+              <hr class="my-3" />
+              <p class="small mb-0">
+                For more information about our Quality Management System or to
+                request documentation, please contact our Quality Assurance team
+                at
+                <a href="mailto:quality@carespherewellness.co.ke"
+                  >quality@carespherewellness.co.ke</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-md-4">
+            <div class="footer-brand-text mb-3">
+              CARESPHERE <span style="color: var(--gold-light)">WELLNESS</span>
+            </div>
+            <p style="font-size: 0.88rem; line-height: 1.7; max-width: 300px">
+              Nairobi-based executive health governance and care coordination.
+              Your health, professionally managed.
+            </p>
+            <div class="footer-social mt-4">
+              <a
+                href="https://www.facebook.com/share/1LjcBqoMEe/"
+                target="_blank"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/caresphere_wellness"
+                target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@carespherewellness"
+                target="_blank"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+              <a href="https://ke.linkedin.com/in/e-amiani" target="_blank"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-2 col-6">
+            <div class="footer-heading">Quick Links</div>
+            <a href="index.html" class="footer-link">Home</a
+            ><a href="about.html" class="footer-link">About</a
+            ><a href="services.html" class="footer-link">Services</a
+            ><a href="store.html" class="footer-link">E-Store</a
+            ><a href="blog.html" class="footer-link">Insights</a>
+          </div>
+          <div class="col-md-2 col-6">
+            <div class="footer-heading">Legal</div>
+            <a href="privacy.html" class="footer-link">Privacy Policy</a
+            ><a href="terms.html" class="footer-link">Terms & Conditions</a
+            ><a href="faqs.html" class="footer-link">FAQs</a
+            ><a href="iso.html" class="footer-link">ISO 9001:2015</a>
+          </div>
+          <div class="col-md-4">
+            <div class="footer-heading">Stay Updated</div>
+            <p style="font-size: 0.85rem; margin-bottom: 14px">
+              Get weekly preventive health insights and offers.
+            </p>
+            <div class="subscribe-input-group mb-4">
+              <input
+                type="email"
+                class="subscribe-input"
+                id="footerSubscribeEmail"
+                placeholder="Your email address"
+              /><button class="subscribe-btn" id="footerSubscribeBtn">
+                Join
+              </button>
+            </div>
+            <div>
+              <i
+                class="fas fa-phone-alt me-2"
+                style="color: var(--gold-light)"
+              ></i
+              >+254 712 155 510<br /><i
+                class="far fa-envelope me-2"
+                style="color: var(--gold-light)"
+              ></i
+              >Carespherewellness@gmail.com
+            </div>
+          </div>
+        </div>
+        <hr class="mt-4" style="border-color: rgba(255, 255, 255, 0.07)" />
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-2 footer-bottom"
+        >
+          <div>
+            © <span id="dynamicYear"></span> CARESPHERE WELLNESS — All rights
+            reserved.
+          </div>
+          <div>
+            Designed by
+            <a
+              href="https://eontechsystems.com/"
+              target="_blank"
+              style="color: var(--gold-light); text-decoration: none"
+              >EonTech Systems</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/254712155510?text=Hello%20CARESPHERE%20WELLNESS%2C%20I%20have%20a%20question%20about%20your%20quality%20standards"
+      target="_blank"
+      class="whatsapp-float"
+      ><i class="fab fa-whatsapp"></i
+    ></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Dynamic year
+      document.getElementById("dynamicYear").innerText =
+        new Date().getFullYear();
+
+      // Cart functionality (consistent across pages)
+      let cart = JSON.parse(localStorage.getItem("caresphereCart") || "[]");
+      function updateCartUI() {
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        const count = cart.reduce((s, i) => s + i.qty, 0);
+        document.getElementById("cartCountBadge").textContent = count;
+        document.getElementById("cartTotalAmount").innerHTML =
+          `KSh ${total.toLocaleString()}`;
+        const container = document.getElementById("cartItemsList");
+        if (!cart.length) {
+          container.innerHTML =
+            '<p class="text-muted text-center py-5">Your cart is empty.</p>';
+          return;
+        }
+        container.innerHTML = cart
+          .map(
+            (item) =>
+              `<div class="d-flex gap-3 align-items-center border-bottom pb-3 mb-3"><div style="width:60px;height:60px;background:#f0f2f5;border-radius:12px;display:flex;align-items:center;justify-content:center;"><i class="${item.icon || "fas fa-box"}" style="font-size:1.5rem;color:var(--gold)"></i></div><div class="flex-grow-1"><div class="fw-bold">${item.name}</div><div>KSh ${item.price.toLocaleString()}</div><div class="d-flex gap-2 mt-1"><button class="btn btn-sm btn-outline-secondary dec-cart" data-id="${item.id}">-</button><span>${item.qty}</span><button class="btn btn-sm btn-outline-secondary inc-cart" data-id="${item.id}">+</button></div></div><button class="btn btn-sm text-danger remove-cart" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button></div>`,
+          )
+          .join("");
+        document.querySelectorAll(".inc-cart").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const id = +btn.dataset.id;
+            const idx = cart.findIndex((i) => i.id === id);
+            if (idx > -1) {
+              cart[idx].qty++;
+              saveCart();
+              updateCartUI();
+            }
+          }),
+        );
+        document.querySelectorAll(".dec-cart").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const id = +btn.dataset.id;
+            const idx = cart.findIndex((i) => i.id === id);
+            if (idx > -1 && cart[idx].qty > 1) {
+              cart[idx].qty--;
+              saveCart();
+              updateCartUI();
+            } else if (idx > -1 && cart[idx].qty === 1) {
+              cart.splice(idx, 1);
+              saveCart();
+              updateCartUI();
+            }
+          }),
+        );
+        document.querySelectorAll(".remove-cart").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const id = +btn.dataset.id;
+            cart = cart.filter((i) => i.id !== id);
+            saveCart();
+            updateCartUI();
+          }),
+        );
+      }
+      function saveCart() {
+        localStorage.setItem("caresphereCart", JSON.stringify(cart));
+        updateCartUI();
+      }
+      function openCart() {
+        document.getElementById("cartSidebar").style.right = "0";
+        document.getElementById("cartOverlay").style.opacity = "1";
+        document.getElementById("cartOverlay").style.visibility = "visible";
+      }
+      function closeCart() {
+        document.getElementById("cartSidebar").style.right = "-500px";
+        document.getElementById("cartOverlay").style.opacity = "0";
+        document.getElementById("cartOverlay").style.visibility = "hidden";
+      }
+      document
+        .getElementById("cartIconBtn")
+        ?.addEventListener("click", openCart);
+      document
+        .getElementById("closeCartBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("cartOverlay")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("continueShoppingBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("proceedCheckoutBtn")
+        ?.addEventListener("click", () => {
+          if (cart.length === 0)
+            Swal.fire("Cart Empty", "Add items before checkout", "info");
+          else window.location.href = "checkout.html";
+        });
+      updateCartUI();
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("mainNav")
+          ?.classList.toggle("scrolled", window.scrollY > 40);
+      });
+
+      // Footer subscribe
+      document
+        .getElementById("footerSubscribeBtn")
+        ?.addEventListener("click", () => {
+          const email = document.getElementById("footerSubscribeEmail").value;
+          if (email && email.includes("@"))
+            Swal.fire("Subscribed!", "Weekly insights delivered.", "success");
+          else Swal.fire("Error", "Enter valid email", "error");
+        });
+    </script>
+  </body>
+</html>

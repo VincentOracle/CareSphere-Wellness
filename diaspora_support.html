@@ -1,0 +1,1311 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>
+      Diaspora Family Support | CARESPHERE WELLNESS | Peace of Mind for Your
+      Loved Ones
+    </title>
+    <meta
+      name="description"
+      content="Remote healthcare management for diaspora families. We coordinate appointments, provide medical updates, and offer emergency support for your loved ones in Kenya."
+    />
+
+    <!-- Google Fonts + Bootstrap 5 + Font Awesome + SweetAlert -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="shortcut icon"
+      href="img/caresphere_logo_icon.png"
+      type="image/x-icon"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        color: #1e2a3e;
+        background-color: #ffffff;
+        scroll-behavior: smooth;
+      }
+      :root {
+        --navy: #0b1f3a;
+        --gold: #c8a96a;
+        --gold-light: #e0c88c;
+        --white: #ffffff;
+        --gray-light: #f8fafc;
+        --gray-border: #eef2f6;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      .text-navy {
+        color: var(--navy);
+      }
+      .text-gold {
+        color: var(--gold);
+      }
+      .bg-navy {
+        background-color: var(--navy);
+      }
+      .bg-gold {
+        background-color: var(--gold);
+      }
+      .btn-gold {
+        background-color: var(--gold);
+        border: none;
+        color: var(--navy);
+        font-weight: 600;
+        padding: 12px 28px;
+        border-radius: 40px;
+        transition: 0.3s;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+      .btn-gold:hover {
+        background-color: #b89a54;
+        color: white;
+        transform: translateY(-2px);
+      }
+      .btn-outline-gold {
+        border: 2px solid var(--gold);
+        background: transparent;
+        color: var(--navy);
+        font-weight: 600;
+        padding: 10px 24px;
+        border-radius: 40px;
+        transition: 0.3s;
+      }
+      .btn-outline-gold:hover {
+        background: var(--gold);
+        color: var(--navy);
+      }
+      .btn-navy {
+        background-color: var(--navy);
+        color: white;
+        border-radius: 40px;
+        padding: 12px 28px;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+      .btn-navy:hover {
+        background-color: #1e3a5f;
+        transform: translateY(-2px);
+        color: white;
+      }
+
+      /* Top Bar */
+      .top-bar {
+        background-color: #0a1a2f;
+        color: #e0e6ed;
+        font-size: 0.85rem;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(200, 169, 106, 0.2);
+      }
+      .top-bar a {
+        color: #e0e6ed;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+      .top-bar a:hover {
+        color: var(--gold);
+      }
+      .top-bar .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        margin-left: 8px;
+        transition: 0.2s;
+        font-size: 0.9rem;
+      }
+      .top-bar .social-links a:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-2px);
+      }
+      .top-bar .contact-info i {
+        margin-right: 6px;
+        color: var(--gold);
+      }
+
+      /* navbar */
+      .navbar-custom {
+        background-color: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+        padding: 0.8rem 2rem;
+      }
+      .navbar-brand img {
+        height: 52px;
+        object-fit: contain;
+      }
+      .nav-link {
+        font-weight: 500;
+        color: var(--navy) !important;
+        margin: 0 0.5rem;
+        transition: 0.2s;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--gold) !important;
+      }
+      .cart-badge {
+        background: var(--gold);
+        color: var(--navy);
+        border-radius: 30px;
+        padding: 2px 10px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        margin-left: 6px;
+      }
+
+      /* Cart Sidebar */
+      .cart-sidebar {
+        position: fixed;
+        top: 0;
+        right: -480px;
+        width: 440px;
+        height: 100vh;
+        background: white;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+        z-index: 1050;
+        transition: 0.35s ease;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      .cart-sidebar.open {
+        right: 0;
+      }
+      .cart-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1040;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.2s;
+      }
+      .cart-overlay.active {
+        visibility: visible;
+        opacity: 1;
+      }
+      .cart-item-img {
+        width: 65px;
+        height: 65px;
+        background: #f0f2f5;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        font-size: 28px;
+        margin-right: 14px;
+        overflow: hidden;
+      }
+      .quantity-btn {
+        background: #eef2f6;
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: 0.2s;
+      }
+      .quantity-btn:hover {
+        background: var(--gold);
+        color: white;
+      }
+
+      /* Page Hero */
+      .page-hero {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(11, 31, 58, 0.94) 0%,
+            rgba(11, 31, 58, 0.85) 100%
+          ),
+          url("img/diaspora_hero_bg.jpg");
+        background-size: cover;
+        background-position: center;
+        padding: 100px 0 80px;
+        color: white;
+      }
+      .page-hero h1 {
+        font-size: 3.2rem;
+        font-weight: 800;
+      }
+
+      /* Service Cards */
+      .service-card {
+        background: white;
+        border-radius: 20px;
+        padding: 1.8rem;
+        transition: 0.3s;
+        height: 100%;
+        border: 1px solid var(--gray-border);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      }
+      .service-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--gold);
+      }
+      .service-icon {
+        width: 60px;
+        height: 60px;
+        background: rgba(200, 169, 106, 0.12);
+        border-radius: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.2rem;
+        color: var(--gold);
+        font-size: 28px;
+      }
+
+      /* How It Works */
+      .how-step {
+        text-align: center;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 24px;
+        height: 100%;
+        border: 1px solid var(--gray-border);
+        transition: 0.3s;
+      }
+      .how-step:hover {
+        border-color: var(--gold);
+        transform: translateY(-3px);
+      }
+      .step-number {
+        width: 50px;
+        height: 50px;
+        background: var(--gold);
+        color: var(--navy);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0 auto 1rem;
+      }
+
+      .feature-item {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .feature-item i {
+        font-size: 1.5rem;
+        color: var(--gold);
+        flex-shrink: 0;
+        margin-top: 0.2rem;
+      }
+
+      .testimonial-card {
+        background: white;
+        border-radius: 24px;
+        padding: 2rem;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        border-left: 4px solid var(--gold);
+      }
+
+      .faq-item {
+        border-bottom: 1px solid var(--gray-border);
+        padding: 1rem 0;
+        cursor: pointer;
+      }
+      .faq-question {
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .faq-answer {
+        display: none;
+        padding-top: 0.75rem;
+        color: #4a5568;
+        line-height: 1.5;
+      }
+      .faq-item.active .faq-answer {
+        display: block;
+      }
+
+      .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #25d366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        transition: 0.2s;
+      }
+      .whatsapp-float:hover {
+        background-color: #20b859;
+        transform: scale(1.05);
+        color: white;
+      }
+
+      footer {
+        background:
+          linear-gradient(rgba(11, 31, 58, 0.95), rgba(11, 31, 58, 0.97)),
+          url("img/footer_bg.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #cfdee9;
+      }
+      .footer-link {
+        color: #cfdee9;
+        text-decoration: none;
+        transition: 0.2s;
+        display: inline-block;
+        margin-bottom: 8px;
+      }
+      .footer-link:hover {
+        color: var(--gold);
+        transform: translateX(4px);
+      }
+      .social-icon {
+        background: rgba(255, 255, 255, 0.12);
+        width: 38px;
+        height: 38px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-right: 8px;
+        transition: 0.2s;
+        color: white;
+        font-size: 18px;
+      }
+      .social-icon:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-3px);
+      }
+      .payment-icon {
+        font-size: 32px;
+        margin-right: 12px;
+        opacity: 0.8;
+        transition: 0.2s;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .payment-icon:hover {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 768px) {
+        .page-hero h1 {
+          font-size: 2.2rem;
+        }
+        .navbar-custom {
+          padding: 0.6rem 1rem;
+        }
+        .top-bar .contact-info span {
+          display: none;
+        }
+        .cart-sidebar {
+          width: 100%;
+          right: -100%;
+        }
+      }
+      .section-title {
+        margin-bottom: 2.5rem;
+      }
+      .section-title h2 {
+        font-weight: 700;
+        font-size: 2rem;
+      }
+      .section-title span {
+        border-bottom: 4px solid var(--gold);
+        display: inline-block;
+        padding-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-8 text-center text-md-start">
+            <div
+              class="contact-info d-flex flex-wrap justify-content-center justify-content-md-start gap-3"
+            >
+              <a href="tel:+254712155510"
+                ><i class="fas fa-phone-alt"></i> +254 712 155 510</a
+              >
+              <a href="https://wa.me/254712155510" target="_blank"
+                ><i class="fab fa-whatsapp"></i> WhatsApp</a
+              >
+              <a href="mailto:Carespherewellness@gmail.com"
+                ><i class="far fa-envelope"></i> Carespherewellness@gmail.com</a
+              >
+              <span><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</span>
+            </div>
+          </div>
+          <div class="col-md-4 text-center text-md-end">
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/share/1LjcBqoMEe/"
+                target="_blank"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/caresphere_wellness"
+                target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="https://ke.linkedin.com/in/e-amiani" target="_blank"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@carespherewellness"
+                target="_blank"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CART SIDEBAR -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="mb-0">
+          <i class="fas fa-shopping-cart text-gold"></i> Your Cart
+        </h4>
+        <button class="btn-close" id="closeCartBtn"></button>
+      </div>
+      <div
+        id="cartItemsList"
+        class="flex-grow-1 mb-3"
+        style="max-height: 55vh; overflow-y: auto"
+      >
+        <p class="text-muted text-center">Your cart is empty.</p>
+      </div>
+      <div class="border-top pt-3">
+        <div class="d-flex justify-content-between fw-bold mb-3">
+          <span>Total:</span><span id="cartTotalAmount">KSh 0</span>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-gold w-50" id="continueShoppingBtn">
+            <i class="fas fa-arrow-left me-1"></i> Shop More</button
+          ><button class="btn btn-navy w-50" id="proceedCheckoutBtn">
+            Checkout →
+          </button>
+        </div>
+        <p class="small text-muted mt-2 text-center">
+          M Pesa and card payments coming soon
+        </p>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"
+          ><img
+            src="img/caresphere_logo.png"
+            alt="CARESPHERE WELLNESS"
+            style="height: 60px"
+            onerror="
+              this.src =
+                'https://placehold.co/200x60/0B1F3A/white?text=Caresphere+Wellness'
+            "
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="partners.html">Partners</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Insights</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="store.html">E-Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <a
+            href="#"
+            class="btn btn-gold ms-3 d-none d-lg-inline-block"
+            id="consultBtnNav"
+            >Book Consultation</a
+          >
+          <button
+            class="btn btn-outline-gold ms-2 position-relative"
+            id="cartIconBtn"
+          >
+            <i class="fas fa-shopping-cart"></i
+            ><span id="cartCountBadge" class="cart-badge">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-8">
+            <div
+              class="bg-gold text-navy d-inline-block px-3 py-1 rounded-pill mb-3"
+              style="font-weight: 600"
+            >
+              <i class="fas fa-globe-africa me-1"></i> Diaspora Family Support
+            </div>
+            <h1 class="mb-4">
+              You're far.<br /><span class="text-gold">We're here.</span>
+            </h1>
+            <p class="lead">
+              Peace of mind for you. Quality care for your loved ones in Kenya.
+            </p>
+            <div class="mt-4">
+              <a href="#book-diaspora" class="btn btn-gold btn-lg"
+                >Get Peace of Mind <i class="fas fa-arrow-right ms-2"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE PROBLEM -->
+    <section class="container py-5">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="badge bg-gold text-navy mb-3 px-3 py-2"
+            >The Challenge</span
+          >
+          <h2 class="mb-3">
+            Managing healthcare for loved ones
+            <span class="text-gold">from thousands of miles away</span>
+          </h2>
+          <p class="lead">
+            Worrying about appointments, medication adherence, and emergency
+            situations when you cannot be there.
+          </p>
+          <p>
+            For diaspora families, the distance creates constant anxiety. Who
+            will take your parent to the specialist appointment? Will they
+            remember to pick up their medication? What happens in a medical
+            emergency when you are in a different time zone?
+          </p>
+          <p>
+            CARESPHERE WELLNESS bridges that gap. We become your local health
+            partner — coordinating care, providing updates, and ensuring your
+            loved ones never navigate healthcare alone.
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-light p-4 rounded-4">
+            <i class="fas fa-plane fa-3x text-gold mb-3 opacity-50"></i>
+            <p class="lead mb-0">
+              "The hardest part of being abroad is not being there when your
+              parents need medical care. CARESPHERE changed that for our
+              family."
+            </p>
+            <p class="text-muted mt-3">— Diaspora family testimonial</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES WE PROVIDE -->
+    <section class="bg-light py-5">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2><span>We Take Care of What Matters</span></h2>
+          <p class="text-muted">Local presence. Global peace of mind.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
+              <h4>Health Assessment & Oversight</h4>
+              <p>
+                Comprehensive health evaluations to establish baseline and
+                identify emerging risks for your loved ones.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-user-md"></i></div>
+              <h4>Specialist Referrals & Coordination</h4>
+              <p>
+                We connect your family with the right specialists and coordinate
+                all appointments and follow-ups.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-pills"></i></div>
+              <h4>Medication Management</h4>
+              <p>
+                Prescription refill coordination, medication reminders, and
+                adherence monitoring.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+              <h4>Medical Updates & Reporting</h4>
+              <p>
+                Regular, detailed updates on all medical visits, test results,
+                and treatment progress — sent directly to you.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-ambulance"></i></div>
+              <h4>Emergency Support</h4>
+              <p>
+                24/7 emergency response coordination. When seconds count, we are
+                there.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-comments"></i></div>
+              <h4>Continuous Communication</h4>
+              <p>
+                Weekly updates and immediate alerts for any urgent matters. You
+                are always informed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="container py-5">
+      <div class="section-title text-center">
+        <h2><span>How Diaspora Care Works</span></h2>
+        <p class="text-muted">
+          Simple process. Seamless coordination. Complete transparency.
+        </p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-3 col-6">
+          <div class="how-step">
+            <div class="step-number">1</div>
+            <h6>Initial Family Assessment</h6>
+            <small
+              >We meet your loved ones and understand their health needs</small
+            >
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="how-step">
+            <div class="step-number">2</div>
+            <h6>Care Plan Creation</h6>
+            <small>Develop personalized health management plan</small>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="how-step">
+            <div class="step-number">3</div>
+            <h6>Active Coordination</h6>
+            <small>Manage appointments, medications, and follow-ups</small>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="how-step">
+            <div class="step-number">4</div>
+            <h6>Regular Reporting</h6>
+            <small>Continuous updates to you wherever you are</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES & BENEFITS -->
+    <section class="bg-light py-5">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <h2 class="mb-4">
+              Why Diaspora Families
+              <span class="text-gold">Choose CARESPHERE</span>
+            </h2>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <strong>Local Presence, Global Reach</strong><br /><small
+                  >We are physically in Nairobi, ready to assist your family at
+                  any time</small
+                >
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <strong>Regular Video Updates</strong><br /><small
+                  >Face to face virtual meetings to discuss your family's health
+                  status</small
+                >
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <strong>Emergency Response Protocol</strong><br /><small
+                  >Clear action plan for medical emergencies with immediate
+                  family notification</small
+                >
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <strong>Transparent Reporting</strong><br /><small
+                  >Detailed logs of every interaction, appointment, and medical
+                  outcome</small
+                >
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <strong>One Point of Contact</strong><br /><small
+                  >Single coordinator handles everything — no more chasing
+                  multiple people</small
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="testimonial-card">
+              <i class="fas fa-quote-left fa-2x text-gold mb-3 opacity-50"></i>
+              <p class="lead">
+                "Knowing my parents are in good hands gives me peace of mind
+                every single day. The weekly updates and immediate response
+                during my mother's hospitalization were invaluable."
+              </p>
+              <div class="mt-3">
+                <strong>Andrew Kipchoge</strong><br /><small class="text-muted"
+                  >Diaspora Client, London</small
+                >
+              </div>
+              <hr />
+              <p class="small text-muted mb-0">
+                <i class="fas fa-map-marker-alt text-gold me-1"></i> Supporting
+                families in Kenya from USA, UK, Canada, Australia, and across
+                Europe
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MORE TESTIMONIALS -->
+    <section class="container py-5">
+      <div class="section-title text-center">
+        <h2><span>From Diaspora Families to Yours</span></h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="bg-white p-4 rounded-4 shadow-sm h-100">
+            <i class="fas fa-quote-left fa-2x text-gold mb-3 opacity-50"></i>
+            <p>
+              I was constantly worried about my elderly father living alone in
+              Nairobi. CARESPHERE now manages his medications, accompanies him
+              to doctor visits, and calls me after every appointment. The relief
+              is indescribable.
+            </p>
+            <strong>Grace M.</strong><br /><small class="text-muted"
+              >Diaspora Client, USA</small
+            >
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="bg-white p-4 rounded-4 shadow-sm h-100">
+            <i class="fas fa-quote-left fa-2x text-gold mb-3 opacity-50"></i>
+            <p>
+              When my mother had a stroke, CARESPHERE coordinated her emergency
+              admission, communicated with the hospital, and kept our entire
+              family updated. They were our eyes and ears when we couldn't be
+              there.
+            </p>
+            <strong>The Otieno Family</strong><br /><small class="text-muted"
+              >Diaspora Family, Canada</small
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="bg-light py-5">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2><span>Frequently Asked Questions</span></h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="faq-item">
+              <div class="faq-question">
+                How do I sign up my parents who live in Kenya?
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                Simply complete our online inquiry or WhatsApp us. We will
+                arrange a local visit to meet your family, assess their health
+                needs, and develop a personalized care plan. You will receive
+                regular updates throughout the process.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                How often will I receive updates about my family's health?
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                You will receive weekly summary updates via email or WhatsApp.
+                For any medical appointments, lab results, or emergencies, you
+                will be notified immediately. Monthly video calls can also be
+                arranged.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                What happens in a medical emergency?
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                Our emergency protocol is activated immediately. We coordinate
+                ambulance services, hospital admission, and notify you within
+                minutes. We also liaise with hospital staff and ensure your
+                loved one receives timely care.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                Can you help with insurance claims and hospital bills?
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                Yes. We assist with insurance navigation, claim submissions, and
+                can help coordinate payment processes with hospitals on your
+                behalf.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                Do you support families in rural areas outside Nairobi?
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                We primarily serve Nairobi and its metropolitan area. For
+                families in other regions, we coordinate with local healthcare
+                providers and can arrange periodic visits. Please contact us to
+                discuss specific locations.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCAL CARE, GLOBAL PEACE - FEATURE BANNER -->
+    <section class="container py-4">
+      <div class="bg-navy text-white p-5 rounded-4 text-center">
+        <div class="row align-items-center">
+          <div class="col-md-8 text-md-start">
+            <i
+              class="fas fa-globe-africa fa-2x text-gold mb-3 mb-md-0 me-md-3 d-inline-block"
+            ></i
+            ><span class="lead fw-bold">LOCAL CARE. GLOBAL PEACE OF MIND.</span>
+            <p class="mb-0 mt-2">
+              Professional care coordination wherever you are in the world.
+            </p>
+          </div>
+          <div class="col-md-4 text-md-end mt-3 mt-md-0">
+            <a href="#book-diaspora" class="btn btn-gold"
+              >Get Started <i class="fas fa-arrow-right ms-2"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="container py-5 text-center" id="book-diaspora">
+      <div class="bg-light p-5 rounded-4">
+        <i class="fas fa-heart fa-3x text-gold mb-3"></i>
+        <h2 class="mb-3">
+          Let us manage the distance.<br /><span class="text-gold"
+            >Get peace of mind today.</span
+          >
+        </h2>
+        <p class="lead mb-4">
+          Book a care coordination consultation and discover how we support your
+          loved ones in Kenya.
+        </p>
+        <div class="d-flex flex-wrap gap-3 justify-content-center">
+          <button class="btn btn-gold btn-lg" id="bookDiasporaBtn">
+            <i class="fas fa-calendar-check me-2"></i> Book Care Coordination
+          </button>
+          <a
+            href="https://wa.me/254712155510?text=I%20want%20to%20learn%20more%20about%20Diaspora%20Family%20Support%20for%20my%20loved%20ones%20in%20Kenya"
+            target="_blank"
+            class="btn btn-navy btn-lg"
+            ><i class="fab fa-whatsapp me-2"></i> WhatsApp Inquiry</a
+          >
+        </div>
+        <p class="mt-3 small">
+          Call us directly:
+          <a href="tel:+254712155510" class="text-navy fw-bold">0712 155 510</a>
+          | Nairobi, Kenya. We come to your family.
+        </p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pt-5 pb-4">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-md-4">
+            <a href="index.html" class="d-inline-block mb-3"
+              ><img
+                src="img/caresphere_footer_logo.png"
+                alt="logo"
+                style="height: 55px"
+                onerror="
+                  this.src =
+                    'https://placehold.co/180x50/FFFFFF/0B1F3A?text=CSW'
+                "
+            /></a>
+            <p class="mt-3 small">
+              Nairobi based health governance and care coordination. Your
+              health, professionally managed.
+            </p>
+            <div class="mt-3">
+              <i class="fab fa-cc-visa fa-2x payment-icon me-2"></i
+              ><i class="fab fa-cc-mastercard fa-2x payment-icon me-2"></i
+              ><i class="fab fa-cc-paypal fa-2x payment-icon me-2"></i
+              ><i class="fas fa-mobile-alt fa-2x payment-icon me-2"></i>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <h5 class="text-white">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li><a href="about.html" class="footer-link">About</a></li>
+              <li><a href="services.html" class="footer-link">Services</a></li>
+              <li><a href="store.html" class="footer-link">E-Store</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5 class="text-white">Useful Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="terms.html" class="footer-link"
+                  >Terms and Conditions</a
+                >
+              </li>
+              <li><a href="faqs.html" class="footer-link">FAQs</a></li>
+              <li>
+                <a href="our_standards.html" class="footer-link"
+                  >ISO 9001:2015 Standards</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5 class="text-white">Subscribe</h5>
+            <p class="small">Get weekly preventive insights and offers</p>
+            <div class="input-group mb-3">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Your email"
+                id="subscribeEmail"
+              /><button class="btn btn-gold" id="subscribeBtn">Join</button>
+            </div>
+            <div class="mt-3">
+              <a
+                href="https://www.facebook.com/share/1LjcBqoMEe/"
+                target="_blank"
+                class="social-icon"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                href="https://www.instagram.com/caresphere_wellness"
+                target="_blank"
+                class="social-icon"
+                ><i class="fab fa-instagram"></i></a
+              ><a
+                href="https://www.tiktok.com/@carespherewellness"
+                target="_blank"
+                class="social-icon"
+                ><i class="fab fa-tiktok"></i></a
+              ><a
+                href="https://ke.linkedin.com/in/e-amiani"
+                target="_blank"
+                class="social-icon"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <hr class="mt-4 opacity-25" />
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start small">
+            © <span id="dynamicYear"></span> CARESPHERE WELLNESS — Executive
+            Health Governance. All rights reserved.
+          </div>
+          <div class="col-md-6 text-center text-md-end small">
+            Designed by
+            <a
+              href="https://eontechsystems.com/"
+              target="_blank"
+              class="text-gold text-decoration-none"
+              >EonTech Systems</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/254712155510?text=Hello%20CARESPHERE%20WELLNESS"
+      target="_blank"
+      class="whatsapp-float"
+      ><i class="fab fa-whatsapp"></i
+    ></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const startYear = 2020,
+        currentYear = new Date().getFullYear();
+      document.getElementById("dynamicYear").innerText =
+        startYear + (currentYear > startYear ? `-${currentYear}` : "");
+      let cart = [];
+      function saveCart() {
+        localStorage.setItem("caresphereCart", JSON.stringify(cart));
+        updateCartUI();
+      }
+      function loadCart() {
+        const saved = localStorage.getItem("caresphereCart");
+        if (saved) cart = JSON.parse(saved);
+        updateCartUI();
+      }
+      function updateCartUI() {
+        const container = document.getElementById("cartItemsList");
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        const cnt = cart.reduce((s, i) => s + i.qty, 0);
+        document.getElementById("cartCountBadge").innerText = cnt;
+        document.getElementById("cartTotalAmount").innerHTML =
+          `KSh ${total.toLocaleString()}`;
+        if (cart.length === 0) {
+          container.innerHTML =
+            '<p class="text-muted text-center">Your cart is empty.</p>';
+          return;
+        }
+        container.innerHTML = cart
+          .map(
+            (item) =>
+              `<div class="d-flex align-items-center border-bottom pb-3 mb-3"><div class="cart-item-img"><i class="${item.icon || "fas fa-box"} fa-2x"></i></div><div class="flex-grow-1"><strong>${item.name}</strong><br><small>KSh ${item.price.toLocaleString()} each</small></div><div class="d-flex align-items-center gap-2"><button class="quantity-btn decQty" data-id="${item.id}">−</button><span class="fw-bold mx-1">${item.qty}</span><button class="quantity-btn incQty" data-id="${item.id}">+</button></div><button class="btn btn-sm text-danger ms-2 removeCartItemBtn" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button></div>`,
+          )
+          .join("");
+        attachCartEvents();
+      }
+      function attachCartEvents() {
+        document.querySelectorAll(".incQty").forEach((btn) =>
+          btn.addEventListener("click", (e) => {
+            let id = parseInt(btn.dataset.id),
+              idx = cart.findIndex((i) => i.id === id);
+            if (idx !== -1) {
+              cart[idx].qty++;
+              saveCart();
+            }
+          }),
+        );
+        document.querySelectorAll(".decQty").forEach((btn) =>
+          btn.addEventListener("click", (e) => {
+            let id = parseInt(btn.dataset.id),
+              idx = cart.findIndex((i) => i.id === id);
+            if (idx !== -1 && cart[idx].qty > 1) {
+              cart[idx].qty--;
+              saveCart();
+            } else if (idx !== -1 && cart[idx].qty === 1) confirmDeleteItem(id);
+          }),
+        );
+        document.querySelectorAll(".removeCartItemBtn").forEach((btn) =>
+          btn.addEventListener("click", (e) => {
+            let id = parseInt(btn.dataset.id);
+            confirmDeleteItem(id);
+          }),
+        );
+      }
+      function confirmDeleteItem(id) {
+        const item = cart.find((i) => i.id === id);
+        Swal.fire({
+          title: `Remove ${item?.name}?`,
+          text: "Item will be removed.",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#C8A96A",
+          confirmButtonText: "Remove",
+        }).then((res) => {
+          if (res.isConfirmed) {
+            cart = cart.filter((i) => i.id !== id);
+            saveCart();
+            Swal.fire("Removed", "", "success");
+          }
+        });
+      }
+      function closeCart() {
+        document.getElementById("cartSidebar").classList.remove("open");
+        document.getElementById("cartOverlay").classList.remove("active");
+      }
+      document.getElementById("cartIconBtn")?.addEventListener("click", () => {
+        document.getElementById("cartSidebar").classList.add("open");
+        document.getElementById("cartOverlay").classList.add("active");
+      });
+      document
+        .getElementById("closeCartBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("cartOverlay")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("continueShoppingBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("proceedCheckoutBtn")
+        ?.addEventListener("click", () => {
+          if (cart.length === 0)
+            Swal.fire("Cart empty", "Add items before checkout", "info");
+          else window.location.href = "checkout.html";
+        });
+      const showConsult = () =>
+        Swal.fire({
+          title: "Schedule a Consultation",
+          text: "Call 0712 155 510 or click WhatsApp to book.",
+          icon: "info",
+          confirmButtonColor: "#C8A96A",
+          confirmButtonText: "WhatsApp",
+          showCancelButton: true,
+        }).then((res) => {
+          if (res.isConfirmed)
+            window.open(
+              "https://wa.me/254712155510?text=I want to book a consultation",
+              "_blank",
+            );
+        });
+      document
+        .getElementById("consultBtnNav")
+        ?.addEventListener("click", showConsult);
+      document
+        .getElementById("bookDiasporaBtn")
+        ?.addEventListener("click", () => {
+          Swal.fire({
+            title: "Diaspora Family Support",
+            text: "Call 0712 155 510 or WhatsApp to discuss how we can support your loved ones in Kenya.",
+            icon: "info",
+            confirmButtonColor: "#C8A96A",
+            confirmButtonText: "WhatsApp Now",
+            showCancelButton: true,
+          }).then((res) => {
+            if (res.isConfirmed)
+              window.open(
+                "https://wa.me/254712155510?text=I want to learn more about Diaspora Family Support for my loved ones in Kenya",
+                "_blank",
+              );
+          });
+        });
+      document.getElementById("subscribeBtn")?.addEventListener("click", () => {
+        let email = document.getElementById("subscribeEmail")?.value;
+        if (email)
+          Swal.fire("Subscribed!", "Weekly insights delivered.", "success");
+        else Swal.fire("Error", "Enter email address", "error");
+      });
+      document.querySelectorAll(".faq-item").forEach((item) => {
+        item.querySelector(".faq-question")?.addEventListener("click", () => {
+          item.classList.toggle("active");
+          const icon = item.querySelector(".fa-chevron-down, .fa-chevron-up");
+          if (icon) icon.classList.toggle("fa-chevron-up");
+        });
+      });
+      loadCart();
+    </script>
+  </body>
+</html>

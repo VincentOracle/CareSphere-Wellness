@@ -1,0 +1,1416 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Checkout | CARESPHERE WELLNESS | Secure Order Processing</title>
+    <meta
+      name="description"
+      content="Complete your order securely. Review cart items, enter shipping details, and confirm via WhatsApp."
+    />
+
+    <!-- Google Fonts + Bootstrap 5 + Font Awesome + SweetAlert -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="shortcut icon"
+      href="img/caresphere_logo_icon.png"
+      type="image/x-icon"
+    />
+
+    <style>
+      :root {
+        --navy: #07192e;
+        --navy-mid: #0e2a47;
+        --gold: #c8a044;
+        --gold-light: #e4c070;
+        --gold-pale: #fdf6e7;
+        --cream: #faf8f4;
+        --gray-50: #f8fafc;
+        --gray-100: #f1f5f9;
+        --gray-200: #e2e8f0;
+        --gray-400: #94a3b8;
+        --gray-600: #475569;
+        --text-dark: #0f1e30;
+        --text-mid: #3d5166;
+        --radius-sm: 12px;
+        --radius-md: 20px;
+        --radius-lg: 28px;
+        --shadow-sm: 0 2px 8px rgba(7, 25, 46, 0.06);
+        --shadow-md: 0 8px 24px rgba(7, 25, 46, 0.1);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+      @media (max-width: 1200px) {
+        html {
+          font-size: 15px;
+        }
+      }
+      @media (max-width: 992px) {
+        html {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 768px) {
+        html {
+          font-size: 13px;
+        }
+      }
+      @media (max-width: 576px) {
+        html {
+          font-size: 12px;
+        }
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--cream);
+        color: var(--text-dark);
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "DM Serif Display", serif;
+      }
+
+      ::-webkit-scrollbar {
+        width: 5px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--gold);
+        border-radius: 3px;
+      }
+
+      /* Top Bar - Sticky */
+      .top-bar {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.7rem;
+        padding: 6px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1001;
+        border-bottom: 1px solid rgba(200, 160, 68, 0.2);
+      }
+      .top-bar a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .top-bar a:hover {
+        color: var(--gold-light);
+      }
+      .icon-badge {
+        color: var(--gold-light);
+        margin-right: 4px;
+      }
+
+      /* Navbar */
+      .navbar-custom {
+        background: white;
+        border-bottom: 1px solid var(--gray-200);
+        padding: 0.5rem 0;
+        position: sticky;
+        top: 32px;
+        z-index: 1000;
+        box-shadow: var(--shadow-sm);
+      }
+      @media (max-width: 768px) {
+        .navbar-custom {
+          top: 30px;
+        }
+      }
+      .navbar-brand-text {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.2rem;
+        color: var(--navy);
+        text-decoration: none;
+        font-weight: 700;
+      }
+      .btn-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--text-mid);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 6px 12px;
+        border-radius: 50px;
+        background: var(--gray-100);
+        transition: all 0.2s;
+      }
+      .btn-back:hover {
+        background: var(--gold-pale);
+        color: var(--gold);
+      }
+
+      /* Checkout Progress */
+      .checkout-progress {
+        background: white;
+        border-bottom: 1px solid var(--gray-200);
+        padding: 12px 0;
+      }
+      .progress-steps {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      .step {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .step-dot {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        font-weight: 700;
+      }
+      .step-dot.done {
+        background: var(--gold);
+        color: var(--navy);
+      }
+      .step-dot.active {
+        background: var(--navy);
+        color: white;
+      }
+      .step-dot.pending {
+        background: var(--gray-200);
+        color: var(--gray-400);
+      }
+      .step-label {
+        font-size: 0.7rem;
+        font-weight: 600;
+      }
+      .step-label.active {
+        color: var(--navy);
+      }
+      .step-label.done {
+        color: var(--gold);
+      }
+      .step-label.pending {
+        color: var(--gray-400);
+      }
+      .step-sep {
+        width: 40px;
+        height: 2px;
+        background: var(--gray-200);
+        margin: 0 4px;
+      }
+      @media (max-width: 576px) {
+        .step-label {
+          display: none;
+        }
+        .step-sep {
+          width: 20px;
+        }
+      }
+
+      /* Layout */
+      .checkout-layout {
+        display: grid;
+        grid-template-columns: 1fr 380px;
+        gap: 20px;
+        padding: 24px 0 40px;
+      }
+      @media (max-width: 991px) {
+        .checkout-layout {
+          grid-template-columns: 1fr;
+        }
+        .order-summary-col {
+          order: -1;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* Form Sections */
+      .form-section {
+        background: white;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--gray-200);
+        margin-bottom: 16px;
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+      }
+      .section-header {
+        padding: 14px 20px;
+        border-bottom: 1px solid var(--gray-100);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-num {
+        width: 26px;
+        height: 26px;
+        background: var(--navy);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .section-title {
+        font-family: "DM Serif Display", serif;
+        font-size: 0.95rem;
+        color: var(--navy);
+      }
+      .section-body {
+        padding: 20px;
+      }
+
+      /* Form Fields */
+      .form-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--text-mid);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 4px;
+        display: block;
+      }
+      .form-input {
+        width: 100%;
+        border: 1.5px solid var(--gray-200);
+        border-radius: var(--radius-sm);
+        padding: 10px 12px;
+        font-size: 0.85rem;
+        font-family: "DM Sans", sans-serif;
+        color: var(--text-dark);
+        background: var(--gray-50);
+        transition: all 0.2s;
+        outline: none;
+      }
+      .form-input:focus {
+        border-color: var(--gold);
+        background: white;
+        box-shadow: 0 0 0 3px rgba(200, 160, 68, 0.12);
+      }
+      .form-input.error {
+        border-color: #ef4444;
+        background: #fef2f2;
+      }
+      .input-icon-wrap {
+        position: relative;
+      }
+      .input-icon-wrap .form-input {
+        padding-left: 36px;
+      }
+      .input-icon-wrap .input-icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gray-400);
+        font-size: 0.8rem;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      @media (max-width: 576px) {
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+      }
+      .field-wrap {
+        margin-bottom: 12px;
+      }
+      .error-msg {
+        font-size: 0.65rem;
+        color: #ef4444;
+        margin-top: 4px;
+        display: none;
+      }
+      .error-msg.show {
+        display: block;
+      }
+
+      /* Coupon */
+      .coupon-row {
+        display: flex;
+        gap: 10px;
+      }
+      .btn-apply {
+        background: var(--navy);
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        border-radius: var(--radius-sm);
+        font-weight: 700;
+        font-size: 0.75rem;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .btn-apply:hover {
+        background: var(--navy-mid);
+      }
+      .coupon-success {
+        display: none;
+        font-size: 0.7rem;
+        color: #16a34a;
+        font-weight: 600;
+        margin-top: 8px;
+      }
+      .coupon-success.show {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      /* Payment Options */
+      .payment-option {
+        border: 2px solid var(--gray-200);
+        border-radius: var(--radius-sm);
+        padding: 10px 12px;
+        cursor: pointer;
+        transition: all 0.2s;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .payment-option:hover {
+        border-color: var(--gold);
+        background: var(--gold-pale);
+      }
+      .payment-option.selected {
+        border-color: var(--gold);
+        background: var(--gold-pale);
+      }
+      .payment-option input[type="radio"] {
+        accent-color: var(--gold);
+        width: 14px;
+        height: 14px;
+      }
+      .payment-logo {
+        font-size: 1.1rem;
+      }
+      .payment-info {
+        flex: 1;
+      }
+      .payment-name {
+        font-weight: 700;
+        font-size: 0.8rem;
+        color: var(--navy);
+      }
+      .payment-sub {
+        font-size: 0.65rem;
+        color: var(--gray-600);
+      }
+      .payment-badge {
+        font-size: 0.6rem;
+        background: #dcfce7;
+        color: #16a34a;
+        padding: 2px 6px;
+        border-radius: 50px;
+        font-weight: 700;
+        margin-left: 6px;
+      }
+
+      /* Order Summary */
+      .order-summary-wrap {
+        position: sticky;
+        top: 90px;
+      }
+      @media (max-width: 991px) {
+        .order-summary-wrap {
+          position: relative;
+          top: 0;
+        }
+      }
+      .summary-card {
+        background: white;
+        border: 1px solid var(--gray-200);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+      }
+      .summary-header {
+        background: var(--navy);
+        color: white;
+        padding: 14px 20px;
+      }
+      .summary-header h4 {
+        font-size: 1rem;
+      }
+      .summary-body {
+        padding: 16px;
+      }
+      .summary-item {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--gray-100);
+      }
+      .summary-item-img {
+        width: 48px;
+        height: 48px;
+        background: var(--gray-100);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        flex-shrink: 0;
+        position: relative;
+      }
+      .summary-item-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 5px;
+      }
+      .qty-chip {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        background: var(--navy);
+        color: white;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        font-size: 0.55rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .summary-item-name {
+        flex: 1;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--navy);
+      }
+      .summary-item-price {
+        font-weight: 700;
+        font-size: 0.75rem;
+        color: var(--navy);
+        white-space: nowrap;
+      }
+      .summary-divider {
+        border: none;
+        border-top: 1px solid var(--gray-100);
+        margin: 10px 0;
+      }
+      .summary-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+        font-size: 0.8rem;
+      }
+      .summary-row .lbl {
+        color: var(--gray-600);
+      }
+      .summary-row .val {
+        font-weight: 600;
+        color: var(--navy);
+      }
+      .summary-total {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0 0;
+        border-top: 2px solid var(--navy);
+        margin-top: 5px;
+      }
+      .total-label {
+        font-family: "DM Serif Display", serif;
+        font-size: 0.95rem;
+        color: var(--navy);
+      }
+      .total-val {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.3rem;
+        color: var(--navy);
+      }
+
+      .trust-badges {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        padding: 12px 16px;
+        background: var(--gray-50);
+        border-top: 1px solid var(--gray-100);
+      }
+      .trust-badge {
+        text-align: center;
+      }
+      .trust-badge i {
+        font-size: 1rem;
+        color: var(--gold);
+        display: block;
+        margin-bottom: 3px;
+      }
+      .trust-badge span {
+        font-size: 0.6rem;
+        color: var(--gray-600);
+        font-weight: 600;
+      }
+
+      /* Place Order Button */
+      .place-order-btn {
+        width: 100%;
+        background: linear-gradient(135deg, #25d366 0%, #20b859 100%);
+        color: white;
+        border: none;
+        padding: 14px;
+        border-radius: var(--radius-md);
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.25s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .place-order-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+      }
+      .place-order-note {
+        font-size: 0.65rem;
+        color: var(--gray-600);
+        text-align: center;
+        margin-top: 8px;
+      }
+
+      .delivery-note {
+        background: #f0fdf4;
+        border: 1px solid #bbf7d0;
+        border-radius: var(--radius-sm);
+        padding: 10px 12px;
+        font-size: 0.7rem;
+        color: #15803d;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #25d366;
+        color: white;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        text-decoration: none;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.05);
+        background: #20b859;
+        color: white;
+      }
+
+      .mini-footer {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.5);
+        text-align: center;
+        padding: 16px;
+        font-size: 0.65rem;
+        margin-top: 20px;
+      }
+      .mini-footer a {
+        color: var(--gold-light);
+        text-decoration: none;
+      }
+
+      /* Empty Cart Notice */
+      .empty-cart-notice {
+        display: none;
+        background: white;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--gray-200);
+        padding: 40px 20px;
+        text-align: center;
+        margin-top: 16px;
+      }
+      .empty-cart-notice i {
+        font-size: 2rem;
+        color: var(--gray-200);
+        display: block;
+        margin-bottom: 12px;
+      }
+
+      /* Success State */
+      .success-container {
+        display: none;
+        padding: 40px 0;
+      }
+      .success-card {
+        background: white;
+        border-radius: var(--radius-md);
+        padding: 40px 20px;
+        text-align: center;
+        border: 1px solid var(--gray-200);
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .success-icon {
+        font-size: 3rem;
+        color: #25d366;
+        margin-bottom: 20px;
+        animation: pop 0.5s ease;
+      }
+      @keyframes pop {
+        0% {
+          transform: scale(0);
+        }
+        70% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .success-title {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+      }
+      .success-sub {
+        font-size: 0.85rem;
+        color: var(--gray-600);
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="container">
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-2"
+        >
+          <div class="d-flex gap-3 flex-wrap">
+            <a href="tel:+254712155510"
+              ><i class="fas fa-phone-alt icon-badge"></i>+254 712 155 510</a
+            >
+            <a href="https://wa.me/254712155510" target="_blank"
+              ><i class="fab fa-whatsapp icon-badge"></i>WhatsApp</a
+            >
+            <a href="mailto:Carespherewellness@gmail.com"
+              ><i class="far fa-envelope icon-badge"></i>Email</a
+            >
+          </div>
+          <span style="color: #4ade80"
+            ><i class="fas fa-shield-check icon-badge"></i>Secure SSL
+            Checkout</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar-custom">
+      <div class="container d-flex align-items-center justify-content-between">
+        <a href="index.html" class="navbar-brand-text"
+          >CARESPHERE <span style="color: var(--gold)">WELLNESS</span></a
+        >
+        <a href="store.html" class="btn-back"
+          ><i class="fas fa-arrow-left"></i> Back to Store</a
+        >
+      </div>
+    </nav>
+
+    <!-- CHECKOUT PROGRESS -->
+    <div class="checkout-progress">
+      <div class="container">
+        <div class="progress-steps">
+          <div class="step">
+            <div class="step-dot done">
+              <i class="fas fa-check" style="font-size: 0.6rem"></i>
+            </div>
+            <span class="step-label done">Cart</span>
+          </div>
+          <div class="step-sep done"></div>
+          <div class="step">
+            <div class="step-dot active">2</div>
+            <span class="step-label active">Checkout</span>
+          </div>
+          <div class="step-sep"></div>
+          <div class="step">
+            <div class="step-dot pending">3</div>
+            <span class="step-label pending">Confirm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CHECKOUT -->
+    <div class="container" id="checkoutContainer">
+      <div class="checkout-layout">
+        <!-- LEFT: FORMS -->
+        <div id="checkoutForms">
+          <!-- CONTACT INFO -->
+          <div class="form-section">
+            <div class="section-header">
+              <div class="section-num">1</div>
+              <div class="section-title">Contact Information</div>
+            </div>
+            <div class="section-body">
+              <div class="form-row">
+                <div class="field-wrap">
+                  <label class="form-label">First Name *</label>
+                  <div class="input-icon-wrap">
+                    <i class="fas fa-user input-icon"></i
+                    ><input
+                      type="text"
+                      class="form-input"
+                      id="firstName"
+                      placeholder="John"
+                    />
+                  </div>
+                  <span class="error-msg" id="errFirstName"
+                    >First name required</span
+                  >
+                </div>
+                <div class="field-wrap">
+                  <label class="form-label">Last Name *</label>
+                  <div class="input-icon-wrap">
+                    <i class="fas fa-user input-icon"></i
+                    ><input
+                      type="text"
+                      class="form-input"
+                      id="lastName"
+                      placeholder="Doe"
+                    />
+                  </div>
+                  <span class="error-msg" id="errLastName"
+                    >Last name required</span
+                  >
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="field-wrap">
+                  <label class="form-label">Email Address *</label>
+                  <div class="input-icon-wrap">
+                    <i class="fas fa-envelope input-icon"></i
+                    ><input
+                      type="email"
+                      class="form-input"
+                      id="email"
+                      placeholder="john@example.com"
+                    />
+                  </div>
+                  <span class="error-msg" id="errEmail"
+                    >Valid email required</span
+                  >
+                </div>
+                <div class="field-wrap">
+                  <label class="form-label">Phone Number *</label>
+                  <div class="input-icon-wrap">
+                    <i class="fas fa-phone input-icon"></i
+                    ><input
+                      type="tel"
+                      class="form-input"
+                      id="phone"
+                      placeholder="+254 712 155 510"
+                    />
+                  </div>
+                  <span class="error-msg" id="errPhone"
+                    >Valid phone required</span
+                  >
+                </div>
+              </div>
+              <div class="field-wrap">
+                <label class="form-label">Alternative Phone (Optional)</label>
+                <div class="input-icon-wrap">
+                  <i class="fas fa-phone-volume input-icon"></i
+                  ><input
+                    type="tel"
+                    class="form-input"
+                    id="altPhone"
+                    placeholder="+254 7XX XXX XXX"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SHIPPING INFO -->
+          <div class="form-section">
+            <div class="section-header">
+              <div class="section-num">2</div>
+              <div class="section-title">Shipping Address</div>
+            </div>
+            <div class="section-body">
+              <div class="form-row">
+                <div class="field-wrap">
+                  <label class="form-label">Country *</label>
+                  <div class="input-icon-wrap">
+                    <i class="fas fa-globe-africa input-icon"></i
+                    ><select class="form-input" id="country">
+                      <option value="">Select</option>
+                      <option value="Kenya" selected>Kenya</option>
+                      <option value="Uganda">Uganda</option>
+                      <option value="Tanzania">Tanzania</option>
+                    </select>
+                  </div>
+                  <span class="error-msg" id="errCountry"
+                    >Country required</span
+                  >
+                </div>
+                <div class="field-wrap">
+                  <label class="form-label">City / Town *</label>
+                  <div class="input-icon-wrap">
+                    <i class="fas fa-city input-icon"></i
+                    ><input
+                      type="text"
+                      class="form-input"
+                      id="city"
+                      placeholder="Nairobi"
+                    />
+                  </div>
+                  <span class="error-msg" id="errCity">City required</span>
+                </div>
+              </div>
+              <div class="field-wrap">
+                <label class="form-label">Street Address *</label>
+                <div class="input-icon-wrap">
+                  <i class="fas fa-map-marker-alt input-icon"></i
+                  ><input
+                    type="text"
+                    class="form-input"
+                    id="address"
+                    placeholder="Westlands, Mpaka Road"
+                  />
+                </div>
+                <span class="error-msg" id="errAddress"
+                  >Street address required</span
+                >
+              </div>
+              <div class="form-row">
+                <div class="field-wrap">
+                  <label class="form-label">Building/House No. *</label>
+                  <div class="input-icon-wrap">
+                    <i class="fas fa-building input-icon"></i
+                    ><input
+                      type="text"
+                      class="form-input"
+                      id="building"
+                      placeholder="Elgon Court, Apt 4B"
+                    />
+                  </div>
+                  <span class="error-msg" id="errBuilding"
+                    >Building/House required</span
+                  >
+                </div>
+                <div class="field-wrap">
+                  <label class="form-label">Landmark (Optional)</label>
+                  <div class="input-icon-wrap">
+                    <i class="fas fa-map-pin input-icon"></i
+                    ><input
+                      type="text"
+                      class="form-input"
+                      id="landmark"
+                      placeholder="Next to Carrefour"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="field-wrap">
+                <label class="form-label">Delivery Notes</label
+                ><textarea
+                  class="form-input"
+                  id="deliveryNotes"
+                  rows="2"
+                  placeholder="Gate code, preferred delivery time, etc."
+                  style="resize: vertical"
+                ></textarea>
+              </div>
+              <div class="delivery-note">
+                <i class="fas fa-truck"></i
+                ><span
+                  >Free delivery within Nairobi for orders over KSh 10,000.
+                  Other areas calculated at checkout.</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- COUPON -->
+          <div class="form-section">
+            <div class="section-header">
+              <div class="section-num">
+                <i class="fas fa-tag" style="font-size: 0.7rem"></i>
+              </div>
+              <div class="section-title">Coupon Code</div>
+            </div>
+            <div class="section-body">
+              <p class="small text-muted mb-2">
+                Have a coupon? Enter it below for a discount.
+              </p>
+              <div class="coupon-row">
+                <input
+                  type="text"
+                  class="form-input coupon-input"
+                  id="couponInput"
+                  placeholder="Enter coupon code"
+                /><button class="btn-apply" id="applyCouponBtn">Apply</button>
+              </div>
+              <div class="coupon-success" id="couponSuccess">
+                <i class="fas fa-check-circle"></i
+                ><span id="couponMsg">Coupon applied!</span>
+              </div>
+              <p class="small text-muted mt-2">
+                <i class="fas fa-info-circle me-1"></i>Try: CARE10 (10% off) ·
+                WELCOME15 (15% off) · REHAB20 (20% off)
+              </p>
+            </div>
+          </div>
+
+          <!-- PAYMENT METHOD -->
+          <div class="form-section">
+            <div class="section-header">
+              <div class="section-num">3</div>
+              <div class="section-title">Payment Method</div>
+            </div>
+            <div class="section-body">
+              <div class="payment-option selected" data-method="mpesa">
+                <input
+                  type="radio"
+                  name="payment"
+                  value="mpesa"
+                  id="pmMpesa"
+                  checked
+                />
+                <div class="payment-logo">📱</div>
+                <div class="payment-info">
+                  <div class="payment-name">
+                    M-Pesa <span class="payment-badge">Recommended</span>
+                  </div>
+                  <div class="payment-sub">
+                    Pay via Till/Paybill — details on WhatsApp
+                  </div>
+                </div>
+              </div>
+              <div class="payment-option" data-method="bank">
+                <input type="radio" name="payment" value="bank" id="pmBank" />
+                <div class="payment-logo">🏦</div>
+                <div class="payment-info">
+                  <div class="payment-name">Bank Transfer</div>
+                  <div class="payment-sub">
+                    Account details sent via WhatsApp
+                  </div>
+                </div>
+              </div>
+              <div class="payment-option" data-method="cod">
+                <input type="radio" name="payment" value="cod" id="pmCOD" />
+                <div class="payment-logo">💵</div>
+                <div class="payment-info">
+                  <div class="payment-name">Cash on Delivery</div>
+                  <div class="payment-sub">
+                    Pay when order arrives (Nairobi only)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Confirm Order Button (moved below for mobile) -->
+          <div class="d-block d-lg-none" style="margin-top: 20px">
+            <button class="place-order-btn" id="placeOrderBtnMobile">
+              <i class="fab fa-whatsapp"></i
+              ><span>Confirm Order via WhatsApp</span>
+            </button>
+            <p class="place-order-note">
+              <i class="fas fa-info-circle me-1"></i> Your order details will be
+              sent to our WhatsApp for confirmation.
+            </p>
+          </div>
+        </div>
+
+        <!-- RIGHT: ORDER SUMMARY -->
+        <div class="order-summary-col">
+          <div class="order-summary-wrap">
+            <div class="summary-card">
+              <div class="summary-header">
+                <h4>
+                  <i
+                    class="fas fa-receipt me-2"
+                    style="color: var(--gold-light)"
+                  ></i
+                  >Order Summary
+                </h4>
+              </div>
+              <div class="summary-body">
+                <div id="summaryItems"></div>
+                <hr class="summary-divider" />
+                <div class="summary-row">
+                  <span class="lbl">Subtotal</span
+                  ><span class="val" id="summarySubtotal">KSh 0</span>
+                </div>
+                <div
+                  class="summary-row discount"
+                  id="discountRow"
+                  style="display: none"
+                >
+                  <span class="lbl">Discount</span
+                  ><span class="val" id="discountVal">−KSh 0</span>
+                </div>
+                <div class="summary-row">
+                  <span class="lbl">Delivery</span
+                  ><span class="val" id="deliveryVal">To be confirmed</span>
+                </div>
+                <div class="summary-total">
+                  <span class="total-label">Total</span
+                  ><span class="total-val" id="summaryTotal">KSh 0</span>
+                </div>
+              </div>
+              <div class="trust-badges">
+                <div class="trust-badge">
+                  <i class="fas fa-lock"></i><span>Secure</span>
+                </div>
+                <div class="trust-badge">
+                  <i class="fas fa-truck"></i><span>Delivery</span>
+                </div>
+                <div class="trust-badge">
+                  <i class="fas fa-undo"></i><span>Returns</span>
+                </div>
+              </div>
+              <div style="padding: 0 16px 16px">
+                <button
+                  class="place-order-btn d-none d-lg-flex"
+                  id="placeOrderBtnDesktop"
+                >
+                  <i class="fab fa-whatsapp"></i
+                  ><span>Confirm Order via WhatsApp</span>
+                </button>
+              </div>
+            </div>
+            <div id="emptyCartNotice" class="empty-cart-notice">
+              <i class="fas fa-cart-shopping"></i>
+              <h5>No items in cart</h5>
+              <p>Go back to the store to add products</p>
+              <a
+                href="store.html"
+                class="btn-navy"
+                style="
+                  display: inline-block;
+                  background: var(--navy);
+                  color: white;
+                  padding: 10px 20px;
+                  border-radius: 50px;
+                  text-decoration: none;
+                  font-weight: 700;
+                "
+                >← Back to Store</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div class="container" id="successContainer" style="display: none">
+      <div class="success-card">
+        <div class="success-icon"><i class="fab fa-whatsapp"></i></div>
+        <h2 class="success-title">Order Sent to WhatsApp!</h2>
+        <p class="success-sub">
+          Your order has been submitted. Our team will confirm within 30
+          minutes.
+        </p>
+        <div class="d-flex gap-2 justify-content-center flex-wrap">
+          <a
+            href="store.html"
+            class="btn-navy"
+            style="
+              background: var(--navy);
+              color: white;
+              padding: 10px 20px;
+              border-radius: 50px;
+              text-decoration: none;
+            "
+            >Continue Shopping</a
+          ><a
+            href="https://wa.me/254712155510"
+            target="_blank"
+            style="
+              background: #25d366;
+              color: white;
+              padding: 10px 20px;
+              border-radius: 50px;
+              text-decoration: none;
+            "
+            ><i class="fab fa-whatsapp me-2"></i>Open WhatsApp</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <a href="https://wa.me/254712155510" target="_blank" class="whatsapp-float"
+      ><i class="fab fa-whatsapp"></i
+    ></a>
+
+    <div class="mini-footer">
+      <p>
+        © <span id="dynamicYear"></span> CARESPHERE WELLNESS —
+        <a href="store.html">E-Store</a> · <a href="privacy.html">Privacy</a> ·
+        <a href="terms.html">Terms</a> · Designed by
+        <a href="https://eontechsystems.com">EonTech Systems</a>
+      </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.getElementById("dynamicYear").textContent =
+        new Date().getFullYear();
+
+      let cart = JSON.parse(localStorage.getItem("caresphereCart") || "[]");
+      let discountPercent = 0,
+        appliedCoupon = "";
+      const COUPONS = {
+        CARE10: 10,
+        WELCOME15: 15,
+        REHAB20: 20,
+        CARESPHERE5: 5,
+      };
+      function formatPrice(n) {
+        return "KSh " + Math.round(n).toLocaleString();
+      }
+      function getSubtotal() {
+        return cart.reduce((s, i) => s + i.price * i.qty, 0);
+      }
+      function getDiscount() {
+        return Math.round((getSubtotal() * discountPercent) / 100);
+      }
+      function getTotal() {
+        return getSubtotal() - getDiscount();
+      }
+
+      function renderSummary() {
+        if (!cart.length) {
+          document.getElementById("checkoutContainer").style.display = "none";
+          document.getElementById("emptyCartNotice").style.display = "block";
+          return;
+        }
+        document.getElementById("checkoutContainer").style.display = "block";
+        document.getElementById("emptyCartNotice").style.display = "none";
+        const items = document.getElementById("summaryItems");
+        items.innerHTML = cart
+          .map(
+            (item) =>
+              `<div class="summary-item"><div class="summary-item-img"><img src="${item.image || "img/product_chair.jpg"}" onerror="this.src='https://placehold.co/48x48/0B1F3A/white?text=CSW'"><div class="qty-chip">${item.qty}</div></div><div class="summary-item-name">${item.name}</div><div class="summary-item-price">${formatPrice(item.price * item.qty)}</div></div>`,
+          )
+          .join("");
+        const sub = getSubtotal(),
+          disc = getDiscount();
+        document.getElementById("summarySubtotal").textContent =
+          formatPrice(sub);
+        document.getElementById("summaryTotal").textContent =
+          formatPrice(getTotal());
+        const discRow = document.getElementById("discountRow");
+        if (disc > 0) {
+          discRow.style.display = "flex";
+          document.getElementById("discountVal").textContent =
+            "−" + formatPrice(disc);
+        } else discRow.style.display = "none";
+        document.getElementById("deliveryVal").textContent =
+          sub >= 10000 ? "Free 🎉" : "To be confirmed";
+      }
+
+      document
+        .getElementById("applyCouponBtn")
+        .addEventListener("click", () => {
+          const code = document
+            .getElementById("couponInput")
+            .value.trim()
+            .toUpperCase();
+          if (COUPONS[code]) {
+            discountPercent = COUPONS[code];
+            appliedCoupon = code;
+            document.getElementById("couponSuccess").classList.add("show");
+            document.getElementById("couponMsg").textContent =
+              `✅ "${code}" applied — ${discountPercent}% off!`;
+            renderSummary();
+          } else
+            Swal.fire({
+              toast: true,
+              icon: "error",
+              title: "Invalid coupon",
+              position: "bottom-end",
+              timer: 2000,
+              showConfirmButton: false,
+            });
+        });
+
+      document.querySelectorAll(".payment-option").forEach((opt) =>
+        opt.addEventListener("click", () => {
+          document
+            .querySelectorAll(".payment-option")
+            .forEach((o) => o.classList.remove("selected"));
+          opt.classList.add("selected");
+          opt.querySelector('input[type="radio"]').checked = true;
+        }),
+      );
+
+      function validateField(id, errId, condition) {
+        const el = document.getElementById(id);
+        const err = document.getElementById(errId);
+        if (!condition(el.value)) {
+          el.classList.add("error");
+          err.classList.add("show");
+          return false;
+        }
+        el.classList.remove("error");
+        err.classList.remove("show");
+        return true;
+      }
+      function validateForm() {
+        return (
+          validateField(
+            "firstName",
+            "errFirstName",
+            (v) => v.trim().length > 1,
+          ) &&
+          validateField(
+            "lastName",
+            "errLastName",
+            (v) => v.trim().length > 1,
+          ) &&
+          validateField(
+            "email",
+            "errEmail",
+            (v) => v.includes("@") && v.includes("."),
+          ) &&
+          validateField(
+            "phone",
+            "errPhone",
+            (v) => v.replace(/\D/g, "").length >= 9,
+          ) &&
+          validateField("country", "errCountry", (v) => v.length > 0) &&
+          validateField("city", "errCity", (v) => v.trim().length > 1) &&
+          validateField("address", "errAddress", (v) => v.trim().length > 3) &&
+          validateField("building", "errBuilding", (v) => v.trim().length > 1)
+        );
+      }
+      [
+        "firstName",
+        "lastName",
+        "email",
+        "phone",
+        "country",
+        "city",
+        "address",
+        "building",
+      ].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el)
+          el.addEventListener("input", () => {
+            el.classList.remove("error");
+            const err = document.getElementById(
+              "err" + id.charAt(0).toUpperCase() + id.slice(1),
+            );
+            if (err) err.classList.remove("show");
+          });
+      });
+
+      function placeOrder() {
+        if (!validateForm()) {
+          Swal.fire({
+            title: "Missing Information",
+            text: "Please fill all required fields.",
+            icon: "warning",
+            confirmButtonColor: "#c8a044",
+          });
+          document
+            .querySelector(".form-input.error")
+            ?.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        const firstName = document.getElementById("firstName").value.trim(),
+          lastName = document.getElementById("lastName").value.trim(),
+          email = document.getElementById("email").value.trim(),
+          phone = document.getElementById("phone").value.trim(),
+          altPhone = document.getElementById("altPhone").value.trim(),
+          country = document.getElementById("country").value,
+          city = document.getElementById("city").value.trim(),
+          address = document.getElementById("address").value.trim(),
+          building = document.getElementById("building").value.trim(),
+          landmark = document.getElementById("landmark").value.trim(),
+          deliveryNotes = document.getElementById("deliveryNotes").value.trim(),
+          payment =
+            document.querySelector('input[name="payment"]:checked')?.value ||
+            "mpesa";
+        const paymentLabels = {
+          mpesa: "M-Pesa",
+          bank: "Bank Transfer",
+          cod: "Cash on Delivery",
+        };
+        const sub = getSubtotal(),
+          disc = getDiscount(),
+          total = getTotal(),
+          delivery = sub >= 10000 ? "FREE" : "To be confirmed";
+        const itemLines = cart
+          .map(
+            (i) => `  • ${i.name} x${i.qty} = ${formatPrice(i.price * i.qty)}`,
+          )
+          .join("\n");
+        const msg = `🏥 *NEW ORDER — CARESPHERE WELLNESS*\n━━━━━━━━━━━━━━━━━━━━━━━━\n\n👤 *CLIENT DETAILS*\nName: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}${altPhone ? "\nAlt Phone: " + altPhone : ""}\n\n📦 *ORDER ITEMS*\n${itemLines}\n\n💰 *PRICING*\nSubtotal: ${formatPrice(sub)}${disc > 0 ? "\nDiscount (" + appliedCoupon + " " + discountPercent + "%): −" + formatPrice(disc) : ""}\nDelivery: ${delivery}\n*TOTAL: ${formatPrice(total)}*\n\n🚚 *SHIPPING ADDRESS*\nCountry: ${country}\nCity: ${city}\nAddress: ${address}\nBuilding/House: ${building}${landmark ? "\nLandmark: " + landmark : ""}${deliveryNotes ? "\nDelivery Notes: " + deliveryNotes : ""}\n\n💳 *PAYMENT METHOD*\n${paymentLabels[payment] || payment}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\nPlease confirm this order and provide payment instructions. Thank you!`;
+        window.open(
+          `https://wa.me/254712155510?text=${encodeURIComponent(msg)}`,
+          "_blank",
+        );
+        localStorage.removeItem("caresphereCart");
+        document.getElementById("checkoutContainer").style.display = "none";
+        document.getElementById("successContainer").style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      document
+        .getElementById("placeOrderBtnDesktop")
+        ?.addEventListener("click", placeOrder);
+      document
+        .getElementById("placeOrderBtnMobile")
+        ?.addEventListener("click", placeOrder);
+      renderSummary();
+    </script>
+  </body>
+</html>
