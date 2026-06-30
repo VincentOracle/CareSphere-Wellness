@@ -6,9 +6,55 @@ CARESPHERE WELLNESS is a comprehensive health advisory and care coordination pla
 
 ---
 
+## Technologies & Tools
+
+<p align="center">
+  <!-- Frontend -->
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/>
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white"/>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
+  <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black"/>
+  <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white"/>
+  
+  <!-- Backend -->
+  <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Express.js-000000?style=flat-square&logo=express&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white"/>
+  
+  <!-- Databases -->
+  <img src="https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white"/>
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
+  
+  <!-- Cloud & DevOps -->
+  <img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Nginx-009639?style=flat-square&logo=nginx&logoColor=white"/>
+  
+  <!-- Integrations -->
+  <img src="https://img.shields.io/badge/WhatsApp-25D366?style=flat-square&logo=whatsapp&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Google_Cloud-4285F4?style=flat-square&logo=google-cloud&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Cloudinary-3448C5?style=flat-square&logo=cloudinary&logoColor=white"/>
+  
+  <!-- Testing -->
+  <img src="https://img.shields.io/badge/Jest-C21325?style=flat-square&logo=jest&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=postman&logoColor=white"/>
+</p>
+
+---
+
 ## Problem Statement
 
-Modern healthcare is fundamentally fragmented. Patients interact with multiple providers—hospitals, specialists, laboratories, pharmacies, and insurance systems—without any centralized oversight. This reactive approach leads to delayed diagnoses, missed follow-ups, poor continuity of care, preventable emergencies, rising healthcare costs, and significant stress for individuals and families navigating complex medical decisions alone.
+Modern healthcare is fundamentally fragmented. Patients interact with multiple providers, hospitals, specialists, laboratories, pharmacies, and insurance systems, without any centralized oversight. This reactive approach leads to:
+
+- Delayed diagnoses
+- Missed follow-ups
+- Poor continuity of care
+- Preventable emergencies
+- Rising healthcare costs
+- Significant stress and confusion
 
 CARESPHERE WELLNESS solves this by providing a structured health governance framework that transforms healthcare from isolated reactions into continuous, intelligently coordinated health management.
 
@@ -18,12 +64,12 @@ CARESPHERE WELLNESS solves this by providing a structured health governance fram
 
 ### Primary Objectives
 
-1. **Establish Health Governance** as a new standard in healthcare delivery
-2. **Empower individuals and families** to stay ahead of health risks through intelligent oversight
-3. **Coordinate care seamlessly** across all healthcare providers and touchpoints
-4. **Provide preventive risk management** through early detection and structured planning
-5. **Create a unified platform** for health advisory, e-commerce, and client engagement
-6. **Become Africa's leading health governance partner** through technology-enabled service delivery
+- Establish Health Governance as a new standard in healthcare delivery
+- Empower individuals and families to stay ahead of health risks through intelligent oversight
+- Coordinate care seamlessly across all healthcare providers and touchpoints
+- Provide preventive risk management through early detection and structured planning
+- Create a unified platform for health advisory, e-commerce, and client engagement
+- Become Africa's leading health governance partner through technology-enabled service delivery
 
 ### Target Audience
 
@@ -37,119 +83,47 @@ CARESPHERE WELLNESS solves this by providing a structured health governance fram
 
 ---
 
-## Tools & Technologies
-
-### Frontend Stack
-
-| Technology | Purpose |
-|------------|---------|
-| React 18 | Component-based UI development with hooks and context API |
-| TypeScript | Type-safe JavaScript for robust application logic |
-| Bootstrap 5 | Responsive, mobile-first UI framework with custom theming |
-| HTML5 + CSS3 | Semantic markup and advanced styling with CSS variables |
-| Font Awesome 6 | Professional icon library for enhanced visual communication |
-| SweetAlert2 | Interactive, accessible modal dialogs for user feedback |
-| Flatpickr | Lightweight date and time picker for appointment scheduling |
-
-### Backend Stack
-
-| Technology | Purpose |
-|------------|---------|
-| Node.js | JavaScript runtime environment for server-side logic |
-| Express.js | Web application framework for building RESTful APIs |
-| Python (Flask) | Microservices for specific business logic and data processing |
-| PostgreSQL | Relational database for structured data storage |
-| Cloudinary | Cloud-based image management and CDN delivery |
-
-### Infrastructure & DevOps
-
-| Technology | Purpose |
-|------------|---------|
-| AWS (EC2, S3, RDS) | Cloud hosting, storage, and managed database services |
-| Nginx | Web server and reverse proxy for load balancing |
-| SSL/TLS | End-to-end encryption for secure data transmission |
-| Git | Version control for collaborative development |
-
-### Third-Party Integrations
-
-| Service | Purpose |
-|---------|---------|
-| WhatsApp Business API | Instant client communication and appointment booking |
-| M-Pesa | Mobile money payment processing (integration ready) |
-| Google Maps API | Location services and office mapping |
-| Calendly | Appointment scheduling and calendar management |
-| Google Analytics | User behavior tracking and performance monitoring |
-
----
-
 ## Key Features
 
 ### 1. Health Governance Dashboard
-- Centralized client health oversight
-- Risk assessment tracking and reporting
-- Care coordination workflow management
-- Appointment scheduling and follow-up monitoring
+
+Centralized client health oversight with risk assessment tracking, care coordination workflow management, appointment scheduling, and follow-up monitoring.
 
 ### 2. Executive Health Risk Assessment
-- Comprehensive health screening and risk mapping
-- Chronic disease detection and prevention planning
-- Personalized health intelligence reports
-- 90-day health optimization roadmaps
+
+Comprehensive health screening and risk mapping with chronic disease detection, personalized health intelligence reports, and 90-day health optimization roadmaps.
 
 ### 3. Care Coordination System
-- Automated appointment scheduling and reminders
-- Specialist referral management
-- Laboratory and diagnostic follow-up tracking
-- Treatment monitoring and insurance navigation
-- Second opinion facilitation
+
+Automated appointment scheduling and reminders, specialist referral management, laboratory and diagnostic follow-up tracking, treatment monitoring, and insurance navigation.
 
 ### 4. Premium Concierge Health Support
-- 24/7 priority advisory access
-- Hospital admission coordination
-- Emergency healthcare navigation
-- Family health oversight
-- Diaspora family healthcare support
-- Quarterly wellness reviews
+
+24/7 priority advisory access, hospital admission coordination, emergency healthcare navigation, family health oversight, diaspora family healthcare support, and quarterly wellness reviews.
 
 ### 5. ReproHub (Maternal & Preconception Advisory)
-- Preconception risk screening
-- Fertility and maternal health planning
-- Nutrition and lifestyle optimization
-- Pregnancy care coordination
+
+Preconception risk screening, fertility and maternal health planning, nutrition and lifestyle optimization, and pregnancy care coordination.
 
 ### 6. Diaspora Family Support Portal
-- Remote healthcare management for families abroad
-- Medical updates and reporting
-- Provider coordination and medication management
-- Emergency support and continuous communication
+
+Remote healthcare management for families abroad, medical updates and reporting, provider coordination, medication management, and emergency support.
 
 ### 7. E-Commerce Marketplace
-- Curated selection of ergonomic and rehabilitative products
-- Product filtering by category, price, and gender
-- Shopping cart with persistent local storage
-- Secure checkout with WhatsApp order confirmation
-- M-Pesa integration ready
-- Product reviews and ratings
-- Wishlist functionality
+
+Curated selection of ergonomic and rehabilitative products with product filtering by category, price, and gender. Features shopping cart with persistent local storage, secure checkout with WhatsApp order confirmation, M-Pesa integration ready, product reviews, ratings, and wishlist functionality.
 
 ### 8. Health Knowledge Hub (Blog)
-- Evidence-based articles on preventive health
-- Categories: Hypertension, Diabetes, Stress & Burnout, Maternal Health, Occupational Health, Executive Wellness, Lifestyle Diseases
-- Search functionality and category filtering
-- Social sharing capabilities
-- Newsletter subscription for lead generation
+
+Evidence-based articles on preventive health with categories including Hypertension, Diabetes, Stress and Burnout, Maternal Health, Occupational Health, Executive Wellness, and Lifestyle Diseases. Features search functionality, category filtering, social sharing capabilities, and newsletter subscription.
 
 ### 9. Client Management
-- User authentication and role-based access
-- Profile management and health records
-- Appointment history and status tracking
-- Secure data handling compliant with Kenya Data Protection Act (2019)
+
+User authentication and role-based access, profile management and health records, appointment history and status tracking, and secure data handling compliant with Kenya Data Protection Act (2019).
 
 ### 10. Administrative Dashboard
-- User and client management
-- Content management for blog and products
-- Analytics and reporting
-- Service delivery metrics
+
+User and client management, content management for blog and products, analytics and reporting, and service delivery metrics.
 
 ---
 
@@ -170,11 +144,11 @@ CARESPHERE WELLNESS solves this by providing a structured health governance fram
 
 ### Regulatory Standards
 
-- **Kenya Data Protection Act (2019)**: Full compliance with data protection and privacy regulations
-- **KMPDC Licensing**: Registered under Kenya Medical Practitioners and Dentists Council
-- **HIPAA Alignment**: Adherence to healthcare data privacy standards
-- **ISO 9001:2015**: Quality management system implementation
-- **GDPR Ready**: European data protection standards for international clients
+- **Kenya Data Protection Act (2019)** : Full compliance with data protection and privacy regulations
+- **KMPDC Licensing** : Registered under Kenya Medical Practitioners and Dentists Council
+- **HIPAA Alignment** : Adherence to healthcare data privacy standards
+- **ISO 9001:2015** : Quality management system implementation
+- **GDPR Ready** : European data protection standards for international clients
 
 ### Security Measures
 
